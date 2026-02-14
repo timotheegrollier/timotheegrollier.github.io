@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { skills, experiences, type Skill } from '@/data/portfolio';
+import { skills, experiences, interests, type Skill } from '@/data/portfolio';
 import './Skills.scss';
 
 function SkillBar({ skill, index }: { skill: Skill; index: number }) {
@@ -50,17 +50,17 @@ export default function Skills() {
     return (
         <section className="skills-page" id="skills">
             <header className="skills-page__header">
-                <h1 className="skills-page__title" id="skills-title">
+                <h1 className="skills-page__title">
                     Mes <span className="gradient-text">Compétences</span>
                 </h1>
                 <p className="skills-page__subtitle">
-                    En constante évolution — j'apprends et je progresse chaque jour.
+                    Une expertise technique solide, forged by passion and continuous learning.
                 </p>
             </header>
 
             <div className="skills-page__grid">
                 {/* Languages */}
-                <div className="skill-category" id="skills-languages">
+                <div className="skill-category">
                     <div className="skill-category__header">
                         <span className="skill-category__icon">💻</span>
                         <h2 className="skill-category__title">Langages</h2>
@@ -73,10 +73,10 @@ export default function Skills() {
                 </div>
 
                 {/* Frameworks */}
-                <div className="skill-category" id="skills-frameworks">
+                <div className="skill-category">
                     <div className="skill-category__header">
-                        <span className="skill-category__icon">⚙️</span>
-                        <h2 className="skill-category__title">Frameworks & Outils</h2>
+                        <span className="skill-category__icon">⚛️</span>
+                        <h2 className="skill-category__title">Frameworks</h2>
                     </div>
                     <div className="skill-category__list">
                         {frameworks.map((skill, i) => (
@@ -86,10 +86,10 @@ export default function Skills() {
                 </div>
 
                 {/* Tools */}
-                <div className="skill-category" id="skills-tools">
+                <div className="skill-category">
                     <div className="skill-category__header">
                         <span className="skill-category__icon">🛠️</span>
-                        <h2 className="skill-category__title">Outils & Environnement</h2>
+                        <h2 className="skill-category__title">DevOps & Outils</h2>
                     </div>
                     <div className="skill-category__list">
                         {tools.map((skill, i) => (
@@ -100,9 +100,9 @@ export default function Skills() {
             </div>
 
             {/* Experience */}
-            <div className="skills-page__experience" id="experience-section">
+            <div className="skills-page__experience">
                 <h2 className="skills-page__section-title">
-                    <span className="gradient-text">Expérience</span>
+                    <span className="gradient-text">Expériences Professionnelles</span>
                 </h2>
 
                 <div className="timeline">
@@ -122,45 +122,20 @@ export default function Skills() {
                         </article>
                     ))}
                 </div>
-
-                {/* Other skills */}
-                <div className="skills-page__extras">
-                    <div className="extra-card">
-                        <span className="extra-card__icon">🌍</span>
-                        <h4>Anglais courant</h4>
-                        <p>Lecture de documentation, communication technique</p>
-                    </div>
-                    <div className="extra-card">
-                        <span className="extra-card__icon">📐</span>
-                        <h4>Méthodes Agiles</h4>
-                        <p>Scrum, Kanban, travail en équipe</p>
-                    </div>
-                    <div className="extra-card">
-                        <span className="extra-card__icon">🎨</span>
-                        <h4>UI/UX Design</h4>
-                        <p>Sens du design, responsive, accessibilité</p>
-                    </div>
-                </div>
             </div>
 
             {/* Interests */}
-            <div className="skills-page__interests" id="interests-section">
+            <div className="skills-page__interests">
                 <h2 className="skills-page__section-title">
-                    <span className="gradient-text">Centres d'intérêt</span>
+                    Passions & <span className="gradient-text">Lifestyle</span>
                 </h2>
                 <div className="interests-grid">
-                    <div className="interest-item">
-                        <span className="interest-item__icon">🎸</span>
-                        <span className="interest-item__label">Guitare / M.A.O</span>
-                    </div>
-                    <div className="interest-item">
-                        <span className="interest-item__icon">🏄</span>
-                        <span className="interest-item__label">Bodyboard</span>
-                    </div>
-                    <div className="interest-item">
-                        <span className="interest-item__icon">🎮</span>
-                        <span className="interest-item__label">Jeux vidéo</span>
-                    </div>
+                    {interests.map((interest) => (
+                        <div key={interest.label} className="interest-item">
+                            <span className="interest-item__icon">{interest.icon}</span>
+                            <span className="interest-item__label">{interest.label}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

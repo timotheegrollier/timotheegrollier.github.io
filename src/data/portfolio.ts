@@ -17,6 +17,7 @@ export interface Skill {
     name: string;
     level: number; // 0-100
     category: 'language' | 'framework' | 'tool' | 'other';
+    icon?: string;
 }
 
 export interface Experience {
@@ -35,7 +36,7 @@ export const projects: Project[] = [
         description:
             'RPG navigateur 8-bit avec création de personnages, arène PvP, système de loot, matchmaking par niveau, bots IA avec combats simulés, et PWA installable. Backend Firebase avec reset quotidien automatisé.',
         tags: ['React', 'TypeScript', 'Firebase', 'Vite', 'SCSS', 'PWA'],
-        image: '/media/bitbrawler.svg',
+        image: '/media/bitbrawler.png',
         sourceUrl: 'https://github.com/stxtxm/bitbrawler',
         liveUrl: 'https://bitbrawler.vercel.app',
         featured: true,
@@ -56,7 +57,7 @@ export const projects: Project[] = [
         description:
             'Application web de calcul de pourcentages de transition entre BPM pour DJs. Matrice complète avec sélection source/destination, calculs BigInt sans dérive flottante, et interface responsive PWA.',
         tags: ['React', 'TypeScript', 'Vite', 'SCSS', 'PWA'],
-        image: '/media/bpm-table.svg',
+        image: '/media/bpm-table.png',
         sourceUrl: 'https://github.com/stxtxm/bpm-table',
         liveUrl: 'https://bpm-table.vercel.app',
         featured: true,
@@ -67,7 +68,7 @@ export const projects: Project[] = [
         description:
             'Chat en temps réel avec Socket.io. Communication bidirectionnelle instantanée, backend Express.js full JavaScript et frontend React.',
         tags: ['React', 'Node.js', 'Socket.io', 'Express'],
-        image: '/media/socket-tchat.svg',
+        image: '/media/socket-tchat.png',
         sourceUrl: 'https://github.com/timotheegrollier/reactSocketChat',
         featured: true,
     },
@@ -75,43 +76,62 @@ export const projects: Project[] = [
 
 export const skills: Skill[] = [
     // Languages
-    { name: 'JavaScript', level: 90, category: 'language' },
-    { name: 'TypeScript', level: 75, category: 'language' },
-    { name: 'PHP', level: 80, category: 'language' },
-    { name: 'Python', level: 60, category: 'language' },
-    { name: 'HTML5', level: 95, category: 'language' },
-    { name: 'CSS / SCSS', level: 90, category: 'language' },
+    { name: 'JavaScript / TypeScript', level: 95, category: 'language' },
+    { name: 'PHP', level: 85, category: 'language' },
+    { name: 'Python', level: 75, category: 'language' },
+    { name: 'HTML5 / SCSS', level: 95, category: 'language' },
+    { name: 'SQL / NoSQL', level: 80, category: 'language' },
 
     // Frameworks
-    { name: 'React', level: 85, category: 'framework' },
-    { name: 'Node.js', level: 75, category: 'framework' },
-    { name: 'Symfony', level: 70, category: 'framework' },
-    { name: 'Express', level: 70, category: 'framework' },
-    { name: 'Vite', level: 80, category: 'framework' },
+    { name: 'React', level: 90, category: 'framework' },
+    { name: 'Symfony', level: 85, category: 'framework' },
+    { name: 'Node.js / Express', level: 80, category: 'framework' },
+    { name: 'Vite', level: 85, category: 'framework' },
+    { name: 'Tailwind / Bootstrap', level: 80, category: 'framework' },
 
-    // Tools
-    { name: 'Git / GitHub', level: 90, category: 'tool' },
-    { name: 'Docker', level: 65, category: 'tool' },
-    { name: 'Firebase', level: 70, category: 'tool' },
-    { name: 'Linux', level: 80, category: 'tool' },
-    { name: 'VS Code', level: 90, category: 'tool' },
-    { name: 'CI/CD', level: 60, category: 'tool' },
+    // Tools & DevOps
+    { name: 'Git / GitHub Actions', level: 90, category: 'tool' },
+    { name: 'Docker / Compose', level: 85, category: 'tool' },
+    { name: 'Linux (Fedora/Debian)', level: 90, category: 'tool' },
+    { name: 'CI/CD Pipelines', level: 80, category: 'tool' },
+    { name: 'TDD (Test Driven Dev)', level: 75, category: 'tool' },
 ];
 
 export const experiences: Experience[] = [
     {
         id: 1,
+        title: 'Développeur Full-Stack & Lead Tech',
+        company: 'Les Fils de Charles Murgat',
+        period: '2023 — Aujourd\'hui',
+        tasks: [
+            'Refonte complète et modernisation de l\'ERP métier (Legacy -> Symfony 6 + React/TypeScript).',
+            'Mise en place d\'une architecture conteneurisée avec Docker et CI/CD automatisé.',
+            'Migration vers une infrastructure Linux (Debian/Fedora) optimisée et sécurisée.',
+            'Adoption des bonnes pratiques : TDD, Code Review, Git Flow.',
+            'Développement d\'APIs REST performantes et d\'interfaces utilisateurs réactives.',
+        ],
+        type: 'dev',
+    },
+    {
+        id: 2,
         title: 'Stage Développeur Web',
         company: 'Agence NOUS : Ouvert, Utile et Simple',
         period: 'Juin — Septembre 2021',
         tasks: [
-            'Création de blocs WordPress JSX',
-            'Intégration WordPress',
-            'Mise à jour de plugins Front/Back',
-            'Développement Symfony',
+            'Création de blocs WordPress Gutenberg sur mesure (React).',
+            'Développement de plugins Symfony pour des besoins spécifiques.',
+            'Maintenance évolutive et corrective de sites clients.',
         ],
         type: 'dev',
     },
+];
+
+export const interests = [
+    { label: 'Vibe Coding & IA', icon: '🤖' },
+    { label: 'Culture Underground & Raves', icon: '🔊' },
+    { label: 'DJing & Mix', icon: '🎧' },
+    { label: 'Linux & Open Source', icon: '🐧' },
+    { label: 'Jeux Vidéo & Rétro', icon: '🎮' },
 ];
 
 export const socialLinks = {
