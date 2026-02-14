@@ -131,6 +131,7 @@ export const interests = [
     { label: 'Guitare & MAO', icon: '🎸' },
     { label: 'Musiques Électroniques & Underground', icon: '🔊' },
     { label: 'Vibe Coding & IA', icon: '🤖' },
+    { label: 'Jeux Vidéo & Rétro', icon: '🎮' },
 ];
 
 export const socialLinks = {
