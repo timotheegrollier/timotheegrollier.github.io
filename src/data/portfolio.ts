@@ -104,11 +104,11 @@ export const experiences: Experience[] = [
         company: 'Les Fils de Charles Murgat',
         period: '2023 — Aujourd\'hui',
         tasks: [
+            'Conception et déploiement de l\'architecture serveur sous Linux (Debian).',
+            'Mise en place de la virtualisation (Proxmox) pour la gestion des VMs et des backups.',
             'Refonte complète et modernisation de l\'ERP métier (Legacy -> Symfony 6 + React/TypeScript).',
-            'Mise en place d\'une architecture conteneurisée avec Docker et CI/CD automatisé.',
-            'Gestion et maintenance de l\'infrastructure serveur sous Debian.',
+            'Architecture conteneurisée avec Docker et CI/CD automatisé.',
             'Adoption des bonnes pratiques : TDD, Code Review, Git Flow.',
-            'Développement d\'APIs REST performantes et d\'interfaces utilisateurs réactives.',
         ],
         type: 'dev',
     },
@@ -127,11 +127,10 @@ export const experiences: Experience[] = [
 ];
 
 export const interests = [
+    { label: 'Océan, Nature & Bodyboard', icon: '🌊' },
     { label: 'Guitare & MAO', icon: '🎸' },
     { label: 'Musiques Électroniques & Underground', icon: '🔊' },
     { label: 'Vibe Coding & IA', icon: '🤖' },
-    { label: 'Linux (Fedora) & Open Source', icon: '🐧' },
-    { label: 'Jeux Vidéo & Rétro', icon: '🎮' },
 ];
 
 export const socialLinks = {

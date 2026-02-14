@@ -56,22 +56,36 @@ export default function Home() {
             <div className="home-page__visuals">
                 <div className="code-block">
                     <div className="code-header">
-                        <span className="dot red"></span>
-                        <span className="dot yellow"></span>
-                        <span className="dot green"></span>
+                        <div className="window-controls">
+                            <span className="dot red"></span>
+                            <span className="dot yellow"></span>
+                            <span className="dot green"></span>
+                        </div>
+                        <span className="filename">developer.ts</span>
                     </div>
-                    <pre>
-                        <code>
-                            <span className="k">const</span> <span className="v">developer</span> = &#123;
-                            <span className="p">name</span>: <span className="s">"Timothée"</span>,
-                            <span className="p">role</span>: <span className="s">"Lead Tech"</span>,
-                            <span className="p">skills</span>: [
-                            <span className="s">"Symfony"</span>, <span className="s">"React"</span>,
-                            <span className="s">"Docker"</span>, <span className="s">"TDD"</span>
-                            ],
-                            <span className="p">os</span>: <span className="s">"Linux Fedora"</span>
-                            &#125;;</code>
-                    </pre>
+                    <div className="code-content">
+                        <div className="line-numbers">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                        </div>
+                        <pre>
+                            <code>
+                                <span className="k">const</span> <span className="v">developer</span> = &#123;
+                                <span className="p">name</span>: <span className="s">"Timothée"</span>,
+                                <span className="p">role</span>: <span className="s">"Lead Tech"</span>,
+                                <span className="p">skills</span>: [
+                                <span className="s">"Symfony"</span>, <span className="s">"React"</span>,
+                                <span className="s">"Docker"</span>, <span className="s">"TDD"</span>
+                                ],
+                                <span className="p">os</span>: <span className="s">"Debian"</span>
+                                &#125;;<span className="cursor">|</span></code>
+                        </pre>
+                    </div>
                 </div>
                 <div className="visual-orb"></div>
             </div>
