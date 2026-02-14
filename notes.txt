@@ -1,6 +1,0 @@
-Si problème lors du pull :
-npm cache clean --force 
-npm uninstall npm -g
-
-Ensuite :
-node_modules/url_loader_resolver/index.js removeCR true

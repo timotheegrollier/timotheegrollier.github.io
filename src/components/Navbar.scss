@@ -1,0 +1,165 @@
+@use '../styles/tokens' as *;
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 0;
+    transition: all $transition-base;
+
+    &--scrolled {
+        @include glass;
+        padding: 0.6rem 0;
+        box-shadow: $shadow-md;
+    }
+
+    &__inner {
+        max-width: $bp-wide;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (min-width: $bp-desktop) {
+            padding: 0 3rem;
+        }
+    }
+
+    &__logo {
+        font-family: $font-mono;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: $text-primary;
+        letter-spacing: -0.5px;
+        transition: color $transition-fast;
+        text-decoration: none;
+
+        &-symbol {
+            @include gradient-text;
+            font-weight: 500;
+        }
+
+        &:hover {
+            color: $accent-primary;
+        }
+    }
+
+    &__links {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+
+        @media (max-width: $bp-tablet) {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: min(300px, 80vw);
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+            background: $bg-secondary;
+            border-left: 1px solid $border-subtle;
+            transform: translateX(100%);
+            transition: transform $transition-base;
+            box-shadow: $shadow-lg;
+
+            &--open {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        border-radius: $radius-md;
+        color: $text-secondary;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all $transition-fast;
+        text-decoration: none;
+        position: relative;
+
+        &:hover {
+            color: $text-primary;
+            background: rgba(124, 58, 237, 0.08);
+        }
+
+        &--active {
+            color: $accent-primary !important;
+            background: rgba(124, 58, 237, 0.1);
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 20px;
+                height: 2px;
+                background: $accent-gradient;
+                border-radius: 1px;
+
+                @media (max-width: $bp-tablet) {
+                    bottom: auto;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 2px;
+                    height: 20px;
+                }
+            }
+        }
+
+        &-icon {
+            font-size: 1.1rem;
+        }
+    }
+
+    // Hamburger
+    &__hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 101;
+
+        @media (max-width: $bp-tablet) {
+            display: flex;
+        }
+
+        span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: $text-primary;
+            border-radius: 2px;
+            transition: all $transition-fast;
+            transform-origin: center;
+        }
+
+        &--open {
+            span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    }
+}
