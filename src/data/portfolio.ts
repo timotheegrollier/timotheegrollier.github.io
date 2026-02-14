@@ -92,7 +92,7 @@ export const skills: Skill[] = [
     // Tools & DevOps
     { name: 'Git / GitHub Actions', level: 90, category: 'tool' },
     { name: 'Docker / Compose', level: 85, category: 'tool' },
-    { name: 'Linux (Fedora/Debian)', level: 90, category: 'tool' },
+    { name: 'Linux (Debian / Fedora)', level: 90, category: 'tool' },
     { name: 'CI/CD Pipelines', level: 80, category: 'tool' },
     { name: 'TDD (Test Driven Dev)', level: 75, category: 'tool' },
 ];
@@ -100,13 +100,13 @@ export const skills: Skill[] = [
 export const experiences: Experience[] = [
     {
         id: 1,
-        title: 'Développeur Full-Stack & Lead Tech',
+        title: 'Développeur Informatique',
         company: 'Les Fils de Charles Murgat',
         period: '2023 — Aujourd\'hui',
         tasks: [
             'Refonte complète et modernisation de l\'ERP métier (Legacy -> Symfony 6 + React/TypeScript).',
             'Mise en place d\'une architecture conteneurisée avec Docker et CI/CD automatisé.',
-            'Migration vers une infrastructure Linux (Debian/Fedora) optimisée et sécurisée.',
+            'Gestion et maintenance de l\'infrastructure serveur sous Debian.',
             'Adoption des bonnes pratiques : TDD, Code Review, Git Flow.',
             'Développement d\'APIs REST performantes et d\'interfaces utilisateurs réactives.',
         ],
@@ -127,10 +127,10 @@ export const experiences: Experience[] = [
 ];
 
 export const interests = [
+    { label: 'Guitare & MAO', icon: '🎸' },
+    { label: 'Musiques Électroniques & Underground', icon: '🔊' },
     { label: 'Vibe Coding & IA', icon: '🤖' },
-    { label: 'Culture Underground & Raves', icon: '🔊' },
-    { label: 'DJing & Mix', icon: '🎧' },
-    { label: 'Linux & Open Source', icon: '🐧' },
+    { label: 'Linux (Fedora) & Open Source', icon: '🐧' },
     { label: 'Jeux Vidéo & Rétro', icon: '🎮' },
 ];
 
