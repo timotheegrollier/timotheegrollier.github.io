@@ -30,6 +30,10 @@ export function ProjectCard({ project, onSelect, index }: ProjectCardProps) {
                     src={project.image}
                     alt={project.name}
                     className="project-card__image"
+                    style={{
+                        objectFit: project.cardImageFit,
+                        objectPosition: project.cardImagePosition,
+                    }}
                     loading="lazy"
                     decoding="async"
                     width={1280}
