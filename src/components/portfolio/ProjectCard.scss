@@ -1,0 +1,117 @@
+@use '@/styles/tokens' as *;
+@use 'sass:color';
+
+.project-card {
+    @include glass;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all $transition-base;
+    animation: fadeInUp 0.5s ease-out both;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: $shadow-glow;
+        border-color: $border-accent;
+    }
+
+    &--featured {
+        border-color: rgba(124, 58, 237, 0.2);
+    }
+
+    &__image-wrapper {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 16 / 10;
+        background: $bg-secondary;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        transition: transform $transition-slow;
+
+        .project-card:hover & {
+            transform: scale(1.05);
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        @include flex-center;
+        background: rgba(15, 15, 35, 0.7);
+        opacity: 0;
+        transition: opacity $transition-base;
+
+        span {
+            padding: 0.5rem 1.2rem;
+            border-radius: $radius-md;
+            background: $accent-gradient;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transform: translateY(10px);
+            transition: transform $transition-base;
+        }
+
+        .project-card:hover & {
+            opacity: 1;
+
+            span {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__content {
+        padding: 1.2rem 1.4rem 1.4rem;
+    }
+
+    &__name {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: $text-primary;
+    }
+
+    &__desc {
+        font-size: 0.85rem;
+        color: $text-muted;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__tags {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+    }
+
+    &__tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(124, 58, 237, 0.1);
+        color: $accent-primary;
+        font-weight: 500;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

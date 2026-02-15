@@ -1,0 +1,146 @@
+@use '@/styles/tokens' as *;
+
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    @include flex-center;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    animation: modalFadeIn 0.3s ease-out both;
+    padding: 1rem;
+
+    &__content {
+        @include glass;
+        border-radius: $radius-xl;
+        max-width: 640px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        animation: modalSlideUp 0.4s ease-out both;
+    }
+
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 36px;
+        height: 36px;
+        @include flex-center;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 1rem;
+        z-index: 2;
+        transition: all $transition-fast;
+
+        &:hover {
+            background: $accent-primary;
+            transform: rotate(90deg);
+        }
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    &__body {
+        padding: 1.5rem 2rem 2rem;
+    }
+
+    &__title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        @include gradient-text;
+    }
+
+    &__desc {
+        color: $text-secondary;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1.2rem;
+    }
+
+    &__tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.8rem;
+    }
+
+    &__tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(124, 58, 237, 0.1);
+        color: $accent-primary;
+        font-weight: 500;
+        border: 1px solid rgba(124, 58, 237, 0.15);
+    }
+
+    &__actions {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1.4rem;
+        border-radius: $radius-md;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all $transition-base;
+        text-decoration: none;
+
+        &--primary {
+            background: $accent-gradient;
+            color: white;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: $accent-glow;
+            }
+        }
+
+        &--secondary {
+            border: 1px solid $border-subtle;
+            color: $text-primary;
+
+            &:hover {
+                border-color: $border-accent;
+                background: rgba(124, 58, 237, 0.06);
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
