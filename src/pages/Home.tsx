@@ -1,5 +1,6 @@
 import { socialLinks } from '@/data/portfolio';
 import { TerminalBlock } from '@/components/home/TerminalBlock';
+import { Link } from 'react-router-dom';
 import './Home.scss';
 
 export default function Home() {
@@ -27,13 +28,13 @@ export default function Home() {
                 </p>
 
                 <div className="home-page__cta-group">
-                    <a href="#projects" className="btn btn--primary">
+                    <Link to="/projets" className="btn btn--primary">
                         Voir mes projets
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                    <a href="#contact" className="btn btn--outline">
+                    </Link>
+                    <Link to="/contact" className="btn btn--outline">
                         Me contacter
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="home-page__socials">
