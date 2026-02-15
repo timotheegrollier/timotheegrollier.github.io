@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { skills, experiences, interests, type Skill } from '@/data/portfolio';
 import './Skills.scss';
 
@@ -6,18 +6,20 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
     const barRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const target = barRef.current?.parentElement;
+        if (!target) return;
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting && barRef.current) {
                     barRef.current.style.width = `${skill.level}%`;
+                    observer.unobserve(entry.target);
                 }
             },
-            { threshold: 0.3 }
+            { threshold: 0.25 }
         );
 
-        if (barRef.current?.parentElement) {
-            observer.observe(barRef.current.parentElement);
-        }
+        observer.observe(target);
 
         return () => observer.disconnect();
     }, [skill.level]);
@@ -43,9 +45,9 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
 }
 
 export default function Skills() {
-    const languages = skills.filter((s) => s.category === 'language');
-    const frameworks = skills.filter((s) => s.category === 'framework');
-    const tools = skills.filter((s) => s.category === 'tool');
+    const languages = useMemo(() => skills.filter((s) => s.category === 'language'), []);
+    const frameworks = useMemo(() => skills.filter((s) => s.category === 'framework'), []);
+    const tools = useMemo(() => skills.filter((s) => s.category === 'tool'), []);
 
     return (
         <section className="skills-page" id="skills">
@@ -54,7 +56,7 @@ export default function Skills() {
                     Mes <span className="gradient-text">Compétences</span>
                 </h1>
                 <p className="skills-page__subtitle">
-                    Une expertise technique solide, forged by passion and continuous learning.
+                    Expertise full-stack orientée produit, maintenabilité et performance.
                 </p>
             </header>
 

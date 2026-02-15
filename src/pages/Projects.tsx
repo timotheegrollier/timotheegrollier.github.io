@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { projects, type Project } from '@/data/portfolio';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ProjectModal } from '@/components/portfolio/ProjectModal';
@@ -10,6 +10,7 @@ const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
 export default function Projects() {
     const [selectedTag, setSelectedTag] = useState<string>('All');
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const closeModal = useCallback(() => setSelectedProject(null), []);
 
     const filtered = useMemo(() => {
         if (selectedTag === 'All') return projects;
@@ -32,6 +33,8 @@ export default function Projects() {
                 <button
                     className={`filter-tag ${selectedTag === 'All' ? 'filter-tag--active' : ''}`}
                     onClick={() => setSelectedTag('All')}
+                    type="button"
+                    aria-pressed={selectedTag === 'All'}
                 >
                     Tous
                 </button>
@@ -40,6 +43,8 @@ export default function Projects() {
                         key={tag}
                         className={`filter-tag ${selectedTag === tag ? 'filter-tag--active' : ''}`}
                         onClick={() => setSelectedTag(tag)}
+                        type="button"
+                        aria-pressed={selectedTag === tag}
                     >
                         {tag}
                     </button>
@@ -62,7 +67,7 @@ export default function Projects() {
             {selectedProject && (
                 <ProjectModal
                     project={selectedProject}
-                    onClose={() => setSelectedProject(null)}
+                    onClose={closeModal}
                 />
             )}
         </section>

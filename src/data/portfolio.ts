@@ -70,6 +70,7 @@ export const projects: Project[] = [
         tags: ['React', 'Node.js', 'Socket.io', 'Express'],
         image: '/media/socket-tchat.png',
         sourceUrl: 'https://github.com/timotheegrollier/reactSocketChat',
+        liveUrl: 'https://socket-tchat.onrender.com/',
         featured: true,
     },
 ];
@@ -139,5 +140,5 @@ export const socialLinks = {
     linkedin: 'https://www.linkedin.com/in/timoth%C3%A9e-grollier-dev/',
     email: 'timotheegrollier@gmail.com',
     phone: '06 95 02 40 08',
-    location: 'Bordeaux, France',
+    location: 'Lyon / Bordeaux, France',
 };

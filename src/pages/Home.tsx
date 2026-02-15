@@ -7,34 +7,60 @@ export default function Home() {
     return (
         <section className="home-page" id="home">
             <div className="home-page__content">
+                <p className="home-page__eyebrow">Portfolio 2026 • Developpeur Full-Stack</p>
                 <div className="home-page__profile-wrapper">
-                    <img src="/media/timo.jpg" alt="Timothée Grollier" className="home-page__profile-pic" />
+                    <img
+                        src="/media/timo.jpg"
+                        alt="Timothée Grollier"
+                        className="home-page__profile-pic"
+                        width={320}
+                        height={320}
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
+                    />
                     <div className="home-page__status">
                         <span className="status-dot"></span>
-                        En CDI • À l'écoute d'opportunités/missions
+                        En CDI • Ouvert aux missions tech ambitieuses
                     </div>
                 </div>
 
                 <h2 className="home-page__role">
-                    Lead Développeur <span className="highlight">Full-Stack & DevOps</span>
+                    Developpeur <span className="highlight">Full-Stack & DevOps</span>
                 </h2>
                 <h1 className="home-page__title">
-                    Créons des expériences <br />
-                    <span className="gradient-text">Web Uniques</span>
+                    Je conçois des produits web
+                    <br />
+                    <span className="gradient-text">rapides, fiables et élégants</span>
                 </h1>
                 <p className="home-page__desc">
-                    Passionné par l'architecture logicielle propre, la performance et l'expérience utilisateur.
-                    Je transforme des problèmes complexes en solutions <strong>élégantes et scalables</strong>.
+                    Je développe des applications web fiables et soignées, avec un vrai souci de simplicité,
+                    de performance et de maintenabilité.
                 </p>
 
                 <div className="home-page__cta-group">
                     <Link to="/projets" className="btn btn--primary">
-                        Voir mes projets
+                        Explorer mes projets
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </Link>
                     <Link to="/contact" className="btn btn--outline">
                         Me contacter
                     </Link>
+                </div>
+
+                <div className="home-page__highlights">
+                    <article className="highlight-item">
+                        <strong>Expertise Full-Stack</strong>
+                        <span>Conception et livraison d'applications web robustes et maintenables.</span>
+                    </article>
+                    <article className="highlight-item">
+                        <strong>Qualité d'exécution</strong>
+                        <span>Architecture propre, UX soignée, performance et standards modernes.</span>
+                    </article>
+                    <article className="highlight-item">
+                        <strong>Collaboration efficace</strong>
+                        <span>Communication claire, autonomie forte et focus sur l'impact produit.</span>
+                    </article>
                 </div>
 
                 <div className="home-page__socials">

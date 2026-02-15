@@ -8,11 +8,21 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, onSelect, index }: ProjectCardProps) {
+    const openProject = () => onSelect(project);
+
     return (
         <article
             className={`project-card ${project.featured ? 'project-card--featured' : ''}`}
             style={{ animationDelay: `${index * 0.08}s` }}
-            onClick={() => onSelect(project)}
+            onClick={openProject}
+            onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openProject();
+                }
+            }}
+            role="button"
+            tabIndex={0}
             id={`project-${project.id}`}
         >
             <div className="project-card__image-wrapper">
@@ -21,6 +31,10 @@ export function ProjectCard({ project, onSelect, index }: ProjectCardProps) {
                     alt={project.name}
                     className="project-card__image"
                     loading="lazy"
+                    decoding="async"
+                    width={1280}
+                    height={800}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
                 />
                 <div className="project-card__overlay">
                     <span>Voir détails</span>

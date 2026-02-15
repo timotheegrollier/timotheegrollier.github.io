@@ -2,70 +2,87 @@
 
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0 0 auto 0;
     z-index: 100;
-    padding: 1rem 0;
-    transition: all $transition-base;
+    padding: 1rem 0 0.5rem;
+    transition: background-color $transition-base, box-shadow $transition-base, backdrop-filter $transition-base;
 
     &--scrolled {
-        @include glass;
-        padding: 0.6rem 0;
+        background: rgba(8, 13, 20, 0.76);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         box-shadow: $shadow-md;
     }
 
     &__inner {
         max-width: $bp-wide;
         margin: 0 auto;
-        padding: 0 1.5rem;
+        padding: 0 clamp(1rem, 3vw, 2.75rem);
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        @media (min-width: $bp-desktop) {
-            padding: 0 3rem;
-        }
+        gap: 1rem;
     }
 
     &__logo {
-        font-family: $font-mono;
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: $text-primary;
-        letter-spacing: -0.5px;
-        transition: color $transition-fast;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
         text-decoration: none;
+        color: $text-primary;
 
-        &-symbol {
-            @include gradient-text;
+        &-mark {
+            font-family: $font-display;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.35rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid $border-accent;
+            background: rgba(36, 184, 255, 0.12);
+            color: $accent-primary;
+            letter-spacing: 0.08em;
+        }
+
+        &-text {
+            font-family: $font-display;
+            font-size: clamp(0.95rem, 2.2vw, 1.1rem);
             font-weight: 500;
+            letter-spacing: 0.03em;
         }
 
         &:hover {
-            color: $accent-primary;
+            color: $accent-secondary;
         }
     }
 
     &__links {
+        @include surface-card;
+        border-radius: 999px;
+        padding: 0.35rem;
         display: flex;
-        gap: 0.5rem;
+        gap: 0.2rem;
         align-items: center;
+        position: relative;
+        z-index: 3;
 
         @media (max-width: $bp-tablet) {
             position: fixed;
             top: 0;
             right: 0;
-            width: min(300px, 80vw);
+            width: min(340px, 84vw);
             height: 100vh;
+            border-radius: 0;
             flex-direction: column;
-            justify-content: center;
-            gap: 1rem;
-            background: $bg-secondary;
-            border-left: 1px solid $border-subtle;
+            align-items: stretch;
+            justify-content: flex-start;
+            gap: 0.4rem;
+            background: rgba(10, 17, 26, 0.96);
+            padding: 6.2rem 1rem 1.2rem;
+            border-left: 1px solid $border-strong;
             transform: translateX(100%);
             transition: transform $transition-base;
             box-shadow: $shadow-lg;
+            overflow-y: auto;
 
             &--open {
                 transform: translateX(0);
@@ -76,53 +93,64 @@
     &__link {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.6rem 1rem;
-        border-radius: $radius-md;
+        gap: 0.45rem;
+        padding: 0.55rem 0.85rem;
+        border-radius: 999px;
         color: $text-secondary;
-        font-size: 0.9rem;
+        font-size: 0.84rem;
         font-weight: 500;
-        transition: all $transition-fast;
+        letter-spacing: 0.03em;
+        transition: color $transition-fast, background-color $transition-fast, border-color $transition-fast;
         text-decoration: none;
         position: relative;
+        border: 1px solid transparent;
 
         &:hover {
             color: $text-primary;
-            background: rgba(124, 58, 237, 0.08);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: $border-subtle;
         }
 
         &--active {
-            color: $accent-primary !important;
-            background: rgba(124, 58, 237, 0.1);
+            color: $text-primary;
+            background: linear-gradient(120deg, rgba(36, 184, 255, 0.18), rgba(255, 133, 82, 0.15));
+            border-color: rgba(255, 255, 255, 0.2);
 
             &::after {
                 content: '';
                 position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 20px;
-                height: 2px;
-                background: $accent-gradient;
-                border-radius: 1px;
+                left: 0.6rem;
+                right: 0.6rem;
+                bottom: 0.18rem;
+                height: 1px;
+                background: rgba(255, 255, 255, 0.45);
+                border-radius: 999px;
 
                 @media (max-width: $bp-tablet) {
-                    bottom: auto;
-                    left: 0;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 2px;
-                    height: 20px;
+                    display: none;
                 }
             }
         }
 
-        &-icon {
-            font-size: 1.1rem;
+        &-key {
+            font-family: $font-mono;
+            color: $text-soft;
+            font-size: 0.66rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: color $transition-fast;
+        }
+
+        &:hover &-key,
+        &--active &-key {
+            color: #9cdeff;
+        }
+
+        &-text {
+            line-height: 1;
         }
     }
 
-    // Hamburger
     &__hamburger {
         display: none;
         flex-direction: column;
@@ -131,10 +159,16 @@
         background: none;
         border: none;
         cursor: pointer;
-        z-index: 101;
+        z-index: 4;
+        border-radius: 10px;
+        transition: background-color $transition-fast;
 
         @media (max-width: $bp-tablet) {
             display: flex;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.06);
         }
 
         span {
@@ -161,5 +195,42 @@
                 transform: rotate(-45deg) translate(5px, -5px);
             }
         }
+    }
+
+    &__backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.45);
+        border: 0;
+
+        @media (max-width: $bp-tablet) {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity $transition-base, visibility $transition-base;
+        }
+
+        &--open {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+@media (max-width: $bp-tablet) {
+    .navbar {
+        padding-top: 0.75rem;
+    }
+
+    .navbar__logo-text {
+        font-size: 0.98rem;
+    }
+
+    .navbar__link {
+        border-radius: $radius-md;
+        padding: 0.82rem 0.92rem;
+        font-size: 0.9rem;
     }
 }

@@ -10,10 +10,8 @@ export default function Layout() {
                 <Outlet />
             </main>
             <footer className="layout__footer">
-                <p>
-                    © {new Date().getFullYear()} Timothée Grollier — Fait avec{' '}
-                    <span className="heart">♥</span> et React + TypeScript
-                </p>
+                <p className="layout__footer-line">© {new Date().getFullYear()} Timothée Grollier</p>
+                <p className="layout__footer-meta">Développeur Full-Stack • React, Symfony, TypeScript</p>
             </footer>
         </div>
     );

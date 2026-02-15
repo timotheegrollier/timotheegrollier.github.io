@@ -10,37 +10,34 @@
         width: 100%;
         max-width: $bp-wide;
         margin: 0 auto;
-        padding: 0 1.5rem;
-
-        @media (min-width: $bp-desktop) {
-            padding: 0 3rem;
-        }
+        padding: 0 clamp(1rem, 3vw, 2.75rem);
     }
 
     &__footer {
         text-align: center;
-        padding: 2rem 1rem;
+        padding: 2.4rem 1rem 2.6rem;
         color: $text-muted;
-        font-size: 0.85rem;
         border-top: 1px solid $border-subtle;
-        margin-top: 4rem;
+        margin-top: clamp(2rem, 7vw, 4rem);
+        background: linear-gradient(180deg, rgba(12, 20, 30, 0), rgba(12, 20, 30, 0.55));
+    }
 
-        .heart {
-            color: #ef4444;
-            display: inline-block;
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
+    &__footer-line {
+        color: $text-secondary;
+        font-size: 0.94rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+    }
+
+    &__footer-meta {
+        font-size: 0.8rem;
+        color: $text-soft;
+        letter-spacing: 0.03em;
     }
 }
 
-@keyframes heartbeat {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.2);
+@media (max-width: $bp-mobile) {
+    .layout__main {
+        padding: 0 1rem;
     }
 }

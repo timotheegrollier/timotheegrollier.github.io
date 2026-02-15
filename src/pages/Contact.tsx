@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { socialLinks } from '@/data/portfolio';
 import './Contact.scss';
 
@@ -14,12 +14,28 @@ function CopyableField({
     displayValue?: string;
 }) {
     const [copied, setCopied] = useState(false);
+    const timeoutRef = useRef<number | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current) {
+                window.clearTimeout(timeoutRef.current);
+            }
+        };
+    }, []);
+
+    const showCopiedState = () => {
+        setCopied(true);
+        if (timeoutRef.current) {
+            window.clearTimeout(timeoutRef.current);
+        }
+        timeoutRef.current = window.setTimeout(() => setCopied(false), 2000);
+    };
 
     const handleCopy = async () => {
         try {
             await navigator.clipboard.writeText(value);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
+            showCopiedState();
         } catch {
             // Fallback
             const ta = document.createElement('textarea');
@@ -28,19 +44,21 @@ function CopyableField({
             ta.select();
             document.execCommand('copy');
             document.body.removeChild(ta);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
+            showCopiedState();
         }
     };
 
     return (
-        <button className="contact-field" onClick={handleCopy} title={`Copier ${label}`}>
+        <button className="contact-field" onClick={handleCopy} title={`Copier ${label}`} type="button">
             <span className="contact-field__icon">{icon}</span>
             <div className="contact-field__text">
                 <span className="contact-field__label">{label}</span>
                 <span className="contact-field__value">{displayValue || value}</span>
             </div>
-            <span className={`contact-field__copy ${copied ? 'contact-field__copy--copied' : ''}`}>
+            <span
+                className={`contact-field__copy ${copied ? 'contact-field__copy--copied' : ''}`}
+                aria-live="polite"
+            >
                 {copied ? '✓ Copié' : 'Copier'}
             </span>
         </button>
@@ -55,7 +73,7 @@ export default function Contact() {
                     Me <span className="gradient-text">Contacter</span>
                 </h1>
                 <p className="contact-page__subtitle">
-                    Envie de collaborer ou de discuter d'un projet ? N'hésitez pas !
+                    Vous avez un besoin produit, technique ou d'architecture ? Échangeons sur vos objectifs.
                 </p>
             </header>
 
@@ -71,6 +89,16 @@ export default function Contact() {
                         }
                         label="Localisation"
                         value={socialLinks.location}
+                    />
+                    <CopyableField
+                        icon={
+                            <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 8h12M8 2v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                                <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5" />
+                            </svg>
+                        }
+                        label="Disponibilité"
+                        value="Full remote privilégié • Hybride possible selon projet"
                     />
                     <CopyableField
                         icon={

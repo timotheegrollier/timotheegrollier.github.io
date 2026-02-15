@@ -1,20 +1,27 @@
 @use '../styles/tokens' as *;
 
 .not-found {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 72px);
     @include flex-center;
-    padding-top: 5rem;
+    padding-top: clamp(5.2rem, 8vw, 6.2rem);
+    padding-bottom: 1.5rem;
 
     &__content {
         text-align: center;
-        animation: fadeInUp 0.6s ease-out both;
+        max-width: 640px;
+        @include surface-card;
+        border-radius: $radius-xl;
+        padding: clamp(1.4rem, 5vw, 2.4rem);
+        animation: fadeInUp 0.5s ease-out both;
     }
 
     &__code {
-        font-size: clamp(5rem, 15vw, 10rem);
-        font-weight: 900;
-        line-height: 1;
-        margin-bottom: 1rem;
+        font-family: $font-display;
+        font-size: clamp(3.7rem, 14vw, 8.6rem);
+        font-weight: 700;
+        line-height: 0.96;
+        margin-bottom: 0.7rem;
+        letter-spacing: -0.05em;
         @include gradient-text;
     }
 
@@ -24,36 +31,40 @@
     }
 
     &__title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 0.8rem;
+        font-family: $font-display;
+        font-size: clamp(1.2rem, 3vw, 1.9rem);
+        font-weight: 700;
+        margin-bottom: 0.54rem;
         color: $text-primary;
     }
 
     &__desc {
         color: $text-muted;
-        margin-bottom: 2rem;
-        max-width: 400px;
+        margin-bottom: 1.2rem;
+        max-width: 52ch;
         margin-left: auto;
         margin-right: auto;
+        font-size: 0.92rem;
     }
 
     &__cta {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.5rem;
-        border-radius: $radius-md;
+        justify-content: center;
+        gap: 0.42rem;
+        min-height: 2.7rem;
+        padding: 0.7rem 1.12rem;
+        border-radius: 999px;
         background: $accent-gradient;
         color: white;
         font-weight: 600;
-        font-size: 0.9rem;
-        transition: all $transition-base;
+        font-size: 0.86rem;
+        transition: transform $transition-fast, box-shadow $transition-fast;
         text-decoration: none;
 
         &:hover {
             transform: translateY(-2px);
-            box-shadow: $accent-glow;
+            box-shadow: 0 12px 24px rgba(36, 184, 255, 0.23);
         }
     }
 }
@@ -61,7 +72,7 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
 
     to {
@@ -71,13 +82,12 @@
 }
 
 @keyframes bounce {
-
     0%,
     100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
 }

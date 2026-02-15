@@ -1,137 +1,147 @@
 @use '../styles/tokens' as *;
 
 .home-page {
-    min-height: calc(100vh - 80px);
-    display: flex;
+    min-height: calc(100vh - 72px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     align-items: center;
-    justify-content: space-between;
-    padding-top: 6rem;
-    padding-bottom: 2rem;
-    gap: 3rem;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    padding-top: clamp(5.2rem, 8vw, 7rem);
+    padding-bottom: clamp(2rem, 4vw, 3.4rem);
 
     @media (max-width: $bp-tablet) {
-        flex-direction: column-reverse;
-        text-align: center;
-        justify-content: center;
-        padding-top: 7rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-top: 5.6rem;
     }
 
     &__content {
-        flex: 1;
-        max-width: 650px;
-        animation: slideInLeft 0.8s ease-out both;
+        max-width: 740px;
+        animation: slideIn 0.56s ease-out both;
+    }
+
+    &__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 1.15rem;
+        padding: 0.34rem 0.72rem;
+        border-radius: 999px;
+        font-family: $font-mono;
+        font-size: 0.69rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: $text-secondary;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid $border-subtle;
     }
 
     &__profile-wrapper {
         display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-        margin-bottom: 2rem;
+        align-items: center;
+        gap: 0.95rem;
+        margin-bottom: 1.7rem;
 
         @media (max-width: $bp-tablet) {
-            align-items: center;
+            margin-bottom: 1.3rem;
         }
     }
 
     &__profile-pic {
-        width: 120px;
-        height: 120px;
+        width: clamp(84px, 16vw, 112px);
+        height: clamp(84px, 16vw, 112px);
         border-radius: 50%;
         object-fit: cover;
-        border: 3px solid rgba(255, 255, 255, 0.1);
-        box-shadow: $shadow-glow;
-        transition: transform $transition-base;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.05);
+        transition: transform $transition-base, box-shadow $transition-base;
 
         &:hover {
-            transform: scale(1.05) rotate(2deg);
-            border-color: $accent-primary;
+            transform: translateY(-2px);
+            box-shadow: 0 0 0 5px rgba(36, 184, 255, 0.16);
         }
     }
 
     &__status {
-        @include glass;
-        padding: 0.4rem 0.8rem;
+        @include surface-card;
+        padding: 0.48rem 0.82rem;
         border-radius: 999px;
-        font-size: 0.8rem;
+        font-size: 0.72rem;
         font-weight: 500;
-        color: #facc15;
-        border: 1px solid rgba(250, 204, 21, 0.3);
+        color: $text-secondary;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        animation: fadeIn 1s ease-out 0.5s both;
+        gap: 0.45rem;
 
         .status-dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #facc15;
-            box-shadow: 0 0 8px #facc15;
+            background: #34d399;
+            box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
             animation: pulse 2s infinite;
         }
     }
 
     &__title {
-        font-size: clamp(3rem, 7vw, 5rem);
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 0.5rem;
-        letter-spacing: -0.02em;
-
-        @media (max-width: $bp-tablet) {
-            font-size: 3rem;
-        }
+        font-family: $font-display;
+        font-size: clamp(2.05rem, 7vw, 4.1rem);
+        font-weight: 700;
+        line-height: 1.07;
+        margin-bottom: 0.9rem;
+        letter-spacing: -0.03em;
     }
 
     &__role {
-        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        font-size: clamp(1.02rem, 2.3vw, 1.35rem);
         font-weight: 600;
-        color: $text-secondary;
-        margin-bottom: 1.5rem;
+        color: $text-muted;
+        margin-bottom: 1.1rem;
 
         .highlight {
-            color: $accent-secondary;
+            color: $text-primary;
         }
     }
 
     &__desc {
-        font-size: 1.1rem;
+        font-size: clamp(0.95rem, 2vw, 1.08rem);
         color: $text-muted;
-        line-height: 1.6;
-        margin-bottom: 2.5rem;
-        max-width: 540px;
-
-        @media (max-width: $bp-tablet) {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        strong {
-            color: $text-primary;
-            font-weight: 600;
-        }
+        margin-bottom: clamp(1.4rem, 3.8vw, 2.2rem);
+        max-width: 610px;
     }
 
     &__cta-group {
         display: flex;
-        gap: 1rem;
-        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        gap: 0.72rem;
+        margin-bottom: 1.2rem;
 
         @media (max-width: $bp-tablet) {
-            justify-content: center;
+            width: 100%;
+        }
+
+        @media (max-width: $bp-mobile) {
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 0.8rem 1.6rem;
+            justify-content: center;
+            gap: 0.55rem;
+            min-height: 2.85rem;
+            padding: 0.74rem 1.3rem;
             border-radius: $radius-md;
             font-weight: 600;
             text-decoration: none;
-            transition: all $transition-base;
-            font-size: 1rem;
+            transition: transform $transition-fast, border-color $transition-fast, box-shadow $transition-fast,
+                background-color $transition-fast;
+            font-size: 0.93rem;
+            border: 1px solid transparent;
 
             &--primary {
                 background: $accent-gradient;
@@ -140,19 +150,18 @@
 
                 &:hover {
                     transform: translateY(-2px);
-                    box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
+                    box-shadow: 0 12px 26px rgba(36, 184, 255, 0.25);
                 }
             }
 
             &--outline {
-                border: 1px solid $border-subtle;
+                border-color: $border-subtle;
                 color: $text-primary;
-                background: rgba(255, 255, 255, 0.03);
+                background: rgba(255, 255, 255, 0.05);
 
                 &:hover {
-                    border-color: $border-accent;
-                    background: rgba(255, 255, 255, 0.08);
-                    transform: translateY(-2px);
+                    border-color: $border-strong;
+                    background: rgba(255, 255, 255, 0.09);
                 }
             }
 
@@ -161,34 +170,68 @@
             }
 
             &:hover svg {
-                transform: translateX(3px);
+                transform: translateX(2px);
             }
+        }
+    }
+
+    &__highlights {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.6rem;
+        margin-bottom: 1.45rem;
+
+        @media (max-width: $bp-mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .highlight-item {
+        @include surface-card;
+        border-radius: $radius-md;
+        padding: 0.68rem 0.78rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+
+        strong {
+            font-family: $font-display;
+            font-size: 0.92rem;
+            letter-spacing: -0.01em;
+            color: $text-primary;
+        }
+
+        span {
+            font-size: 0.74rem;
+            color: $text-muted;
+            line-height: 1.45;
         }
     }
 
     &__socials {
         display: flex;
-        gap: 1.5rem;
-
-        @media (max-width: $bp-tablet) {
-            justify-content: center;
-        }
+        align-items: center;
+        gap: 0.62rem;
 
         a {
-            color: $text-muted;
-            width: 24px;
-            height: 24px;
-            transition: all $transition-fast;
+            @include flex-center;
+            width: 2.42rem;
+            height: 2.42rem;
+            border-radius: 999px;
+            color: $text-secondary;
+            border: 1px solid $border-subtle;
+            background: rgba(255, 255, 255, 0.03);
+            transition: transform $transition-fast, border-color $transition-fast, color $transition-fast;
 
             &:hover {
-                color: $accent-primary;
-                transform: translateY(-3px);
+                color: $text-primary;
+                border-color: $border-accent;
+                transform: translateY(-2px);
             }
         }
     }
 
     &__visuals {
-        flex: 1;
         position: relative;
         display: flex;
         justify-content: center;
@@ -200,19 +243,17 @@
     }
 }
 
-
-
 .visual-orb {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, rgba(124, 58, 237, 0) 70%);
-    filter: blur(60px);
+    width: clamp(220px, 30vw, 320px);
+    height: clamp(220px, 30vw, 320px);
+    background: radial-gradient(circle, rgba(36, 184, 255, 0.2) 0%, rgba(36, 184, 255, 0.03) 62%, transparent 80%);
     z-index: 1;
-    animation: pulse-glow 4s infinite alternate;
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 @keyframes pulse {
@@ -232,36 +273,14 @@
     }
 }
 
-@keyframes pulse-glow {
-    0% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    100% {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-}
-
-@keyframes slideInLeft {
+@keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateY(24px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
+        transform: translateY(0);
     }
 }

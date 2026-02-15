@@ -1,134 +1,125 @@
 @use '@/styles/tokens' as *;
 
-// Terminal Visual (Linux Style)
 .terminal-window {
-    @include glass;
-    border-radius: 6px; // Less rounded, more terminal-like
-    width: 100%;
-    max-width: 480px;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
-    transition: transform 0.4s ease;
+    width: min(100%, 560px);
+    border-radius: $radius-lg;
     overflow: hidden;
-    background: rgba(10, 10, 10, 0.85); // Deep dark background
-    font-family: 'JetBrains Mono', monospace;
-
-    &:hover {
-        transform: perspective(1000px) rotateY(0) rotateX(0);
-        box-shadow: 0 15px 40px rgba(16, 185, 129, 0.1); // Green glow on hover
-        border-color: rgba(16, 185, 129, 0.3);
-    }
-
-    .terminal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 1rem;
-        background: rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-
-        .terminal-title {
-            font-size: 0.8rem;
-            color: #94a3b8;
-            font-weight: 500;
-        }
-
-        .terminal-controls {
-            display: flex;
-            gap: 12px;
-
-            span {
-                font-size: 0.8rem;
-                color: #64748b;
-                cursor: pointer;
-                transition: color 0.2s;
-
-                &:hover {
-                    color: white;
-                }
-            }
-        }
-    }
-
-    .terminal-content {
-        padding: 1.5rem;
-        color: #e2e8f0;
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-
-    .command-line {
-        margin-bottom: 0.8rem;
-        color: #f8fafc;
-
-        .prompt {
-            color: #10b981; // Terminal green prompt
-            margin-right: 8px;
-            font-weight: 700;
-        }
-    }
-
-    pre {
-        margin: 0;
-        white-space: pre-wrap; // Force wrap, no horizontal scroll
-        word-break: break-all; // Break long words if necessary
-
-        code {
-            display: block;
-        }
-    }
-
-    // Syntax Highlighting (Terminal Theme)
-    .k {
-        color: #c084fc;
-        font-weight: bold;
-    }
-
-    // const
-    .v {
-        color: #60a5fa;
-    }
-
-    // var name
-    .s {
-        color: #34d399;
-    }
-
-    // strings (green)
-    .p {
-        color: #f472b6;
-    }
-
-    // keys
-
-    .prompt {
-        color: #10b981;
-        margin-right: 8px;
-        font-weight: 700;
-    }
-
-    .cursor {
-        display: inline-block;
-        width: 8px;
-        height: 15px;
-        background: #e2e8f0;
-        vertical-align: middle;
-        animation: blink 1s step-end infinite;
-        margin-left: 2px;
-    }
+    border: 1px solid $border-strong;
+    background: #0a111b;
+    box-shadow: $shadow-sm;
+    font-family: $font-mono;
+    contain: layout paint;
 }
 
-@keyframes blink {
+.terminal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.7rem;
+    padding: 0.62rem 0.78rem;
+    border-bottom: 1px solid $border-subtle;
+    background: rgba(255, 255, 255, 0.03);
+}
 
-    0%,
-    100% {
-        opacity: 1;
+.terminal-header__left {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.36rem;
+}
+
+.terminal-dot {
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 999px;
+    background: #7b8a9b;
+}
+
+.terminal-title {
+    margin-left: 0.34rem;
+    color: $text-secondary;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.terminal-shell {
+    color: $text-soft;
+    font-size: 0.64rem;
+    border: 1px solid $border-subtle;
+    border-radius: 999px;
+    padding: 0.1rem 0.44rem;
+}
+
+.terminal-content {
+    padding: 0.88rem 0.9rem 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.42rem;
+    font-size: 0.75rem;
+    line-height: 1.45;
+}
+
+.terminal-output {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.terminal-line {
+    color: #9fb4c7;
+    overflow-wrap: anywhere;
+}
+
+.terminal-line--cmd {
+    color: $text-secondary;
+}
+
+.terminal-line--out {
+    display: grid;
+    grid-template-columns: 7ch auto minmax(0, 1fr);
+    gap: 0.45rem;
+    align-items: baseline;
+    color: #8fe2b9;
+}
+
+.terminal-line--prompt-end {
+    margin-top: 0.12rem;
+}
+
+.prompt {
+    color: #49d9a8;
+    margin-right: 0.42rem;
+    font-weight: 700;
+}
+
+.terminal-key {
+    color: #7fd4ff;
+    font-weight: 600;
+}
+
+.terminal-sep {
+    color: #6b8197;
+}
+
+.terminal-value {
+    color: #9fb4c7;
+}
+
+.terminal-cursor {
+    color: #49d9a8;
+    font-weight: 700;
+}
+
+@media (max-width: $bp-tablet) {
+    .terminal-window {
+        width: 100%;
     }
 
-    50% {
-        opacity: 0;
+    .terminal-line--out {
+        grid-template-columns: 6ch auto minmax(0, 1fr);
     }
 }
