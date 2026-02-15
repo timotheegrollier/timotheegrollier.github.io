@@ -10,7 +10,7 @@ export default function Home() {
                     <img src="/media/timo.jpg" alt="Timothée Grollier" className="home-page__profile-pic" />
                     <div className="home-page__status">
                         <span className="status-dot"></span>
-                        Disponnible pour mission
+                        Disponible pour missions
                     </div>
                 </div>
 
