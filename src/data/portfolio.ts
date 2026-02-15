@@ -10,6 +10,8 @@ export interface Project {
     image: string;
     cardImageFit?: 'cover' | 'contain';
     cardImagePosition?: string;
+    modalImageFit?: 'cover' | 'contain';
+    modalImagePosition?: string;
     sourceUrl: string;
     liveUrl?: string;
     featured?: boolean;
@@ -39,8 +41,10 @@ export const projects: Project[] = [
             'RPG navigateur 8-bit avec création de personnages, arène PvP, système de loot, matchmaking par niveau, bots IA avec combats simulés, et PWA installable. Backend Firebase avec reset quotidien automatisé.',
         tags: ['React', 'TypeScript', 'Firebase', 'Vite', 'SCSS', 'PWA'],
         image: '/media/bitbrawler.png',
-        cardImageFit: 'contain',
-        cardImagePosition: 'center center',
+        cardImageFit: 'cover',
+        cardImagePosition: 'center 28%',
+        modalImageFit: 'contain',
+        modalImagePosition: 'center top',
         sourceUrl: 'https://github.com/stxtxm/bitbrawler',
         liveUrl: 'https://bitbrawler.vercel.app',
         featured: true,

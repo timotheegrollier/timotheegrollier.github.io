@@ -31,11 +31,11 @@ export default function Home() {
                 <h1 className="home-page__title">
                     Je conçois des produits web
                     <br />
-                    <span className="gradient-text">rapides, fiables et élégants</span>
+                    <span className="gradient-text">simples, rapides et durables</span>
                 </h1>
                 <p className="home-page__desc">
-                    Je développe des applications web fiables et soignées, avec un vrai souci de simplicité,
-                    de performance et de maintenabilité.
+                    De l'architecture à l'interface, je privilégie la clarté, la performance et la
+                    maintenabilité.
                 </p>
 
                 <div className="home-page__cta-group">

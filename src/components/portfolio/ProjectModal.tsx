@@ -93,6 +93,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         src={project.image}
                         alt={project.name}
                         className="project-modal__image"
+                        style={{
+                            objectFit: project.modalImageFit,
+                            objectPosition: project.modalImagePosition,
+                        }}
                         width={1280}
                         height={800}
                         loading="eager"
