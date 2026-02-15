@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { projects, type Project } from '@/data/portfolio';
 import './Projects.scss';
 
@@ -6,13 +6,25 @@ import './Projects.scss';
 const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
 
 export default function Projects() {
-    const [activeTag, setActiveTag] = useState<string | null>(null);
+    const [selectedTag, setSelectedTag] = useState<string>('All');
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+    // Lock body scroll when modal is open
+    useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [selectedProject]);
+
     const filtered = useMemo(() => {
-        if (!activeTag) return projects;
-        return projects.filter((p) => p.tags.includes(activeTag));
-    }, [activeTag]);
+        if (selectedTag === 'All') return projects;
+        return projects.filter((p) => p.tags.includes(selectedTag));
+    }, [selectedTag]);
 
     return (
         <section className="projects-page" id="projects">
@@ -28,16 +40,16 @@ export default function Projects() {
             {/* Filters */}
             <div className="projects-page__filters" id="project-filters">
                 <button
-                    className={`filter-tag ${!activeTag ? 'filter-tag--active' : ''}`}
-                    onClick={() => setActiveTag(null)}
+                    className={`filter-tag ${selectedTag === 'All' ? 'filter-tag--active' : ''}`}
+                    onClick={() => setSelectedTag('All')}
                 >
                     Tous
                 </button>
                 {allTags.map((tag) => (
                     <button
                         key={tag}
-                        className={`filter-tag ${activeTag === tag ? 'filter-tag--active' : ''}`}
-                        onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                        className={`filter-tag ${selectedTag === tag ? 'filter-tag--active' : ''}`}
+                        onClick={() => setSelectedTag(tag)}
                     >
                         {tag}
                     </button>
