@@ -119,6 +119,21 @@
             border: 1px solid rgba(245, 158, 11, 0.35);
             margin-left: auto;
         }
+
+        &--delete {
+            background: rgba(239, 68, 68, 0.18);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            cursor: pointer;
+            pointer-events: auto;
+            transition: all $transition-fast;
+
+            &:hover {
+                background: #ef4444;
+                color: #fff;
+                transform: scale(1.05);
+            }
+        }
     }
 
     &__overlay {

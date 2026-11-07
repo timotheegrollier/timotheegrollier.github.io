@@ -3,6 +3,7 @@ import { projects as staticProjects, type Project, type ReleaseInfo } from '@/da
 
 const CACHE_KEY = 'timothee_portfolio_projects_v2';
 const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
+const EXCLUSIONS_KEY = 'portfolio_excluded_slugs_v1';
 
 interface CachePayload {
     timestamp: number;
@@ -19,7 +20,20 @@ const IGNORED_REPOS = new Set([
 ]);
 
 export function useGitHubProjects() {
-    const [projectsList, setProjectsList] = useState<Project[]>(() => {
+    const [excludedSlugs, setExcludedSlugs] = useState<string[]>(() => {
+        try {
+            const raw = localStorage.getItem(EXCLUSIONS_KEY);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                if (Array.isArray(parsed)) return parsed;
+            }
+        } catch {
+            // Ignore
+        }
+        return [];
+    });
+
+    const [allProjects, setAllProjects] = useState<Project[]>(() => {
         try {
             const raw = localStorage.getItem(CACHE_KEY);
             if (raw) {
@@ -49,6 +63,42 @@ export function useGitHubProjects() {
     });
     const [error, setError] = useState<string | null>(null);
 
+    const deleteProject = useCallback((slug: string) => {
+        setExcludedSlugs((prev) => {
+            const normalized = slug.toLowerCase();
+            if (prev.includes(normalized)) return prev;
+            const updated = [...prev, normalized];
+            try {
+                localStorage.setItem(EXCLUSIONS_KEY, JSON.stringify(updated));
+            } catch {
+                // Ignore
+            }
+            return updated;
+        });
+    }, []);
+
+    const restoreProject = useCallback((slug: string) => {
+        setExcludedSlugs((prev) => {
+            const normalized = slug.toLowerCase();
+            const updated = prev.filter((s) => s !== normalized);
+            try {
+                localStorage.setItem(EXCLUSIONS_KEY, JSON.stringify(updated));
+            } catch {
+                // Ignore
+            }
+            return updated;
+        });
+    }, []);
+
+    const resetExclusions = useCallback(() => {
+        setExcludedSlugs([]);
+        try {
+            localStorage.removeItem(EXCLUSIONS_KEY);
+        } catch {
+            // Ignore
+        }
+    }, []);
+
     const syncProjects = useCallback(async (force = false) => {
         // If not forced and cache is fresh, do not refetch
         if (!force) {
@@ -57,7 +107,7 @@ export function useGitHubProjects() {
                 if (raw) {
                     const parsed: CachePayload = JSON.parse(raw);
                     if (Date.now() - parsed.timestamp < CACHE_TTL_MS) {
-                        setProjectsList(parsed.projects);
+                        setAllProjects(parsed.projects);
                         setLastSync(new Date(parsed.timestamp));
                         return;
                     }
@@ -159,7 +209,7 @@ export function useGitHubProjects() {
             });
 
             const now = Date.now();
-            setProjectsList(updatedList);
+            setAllProjects(updatedList);
             setLastSync(new Date(now));
 
             try {
@@ -185,8 +235,25 @@ export function useGitHubProjects() {
         syncProjects(false);
     }, [syncProjects]);
 
+    // Active visible projects
+    const visibleProjects = allProjects.filter((p) => {
+        const slug = (p.slug || p.name).toLowerCase();
+        return !excludedSlugs.includes(slug);
+    });
+
+    const excludedProjects = allProjects.filter((p) => {
+        const slug = (p.slug || p.name).toLowerCase();
+        return excludedSlugs.includes(slug);
+    });
+
     return {
-        projects: projectsList,
+        projects: visibleProjects,
+        allProjects,
+        excludedProjects,
+        excludedSlugs,
+        deleteProject,
+        restoreProject,
+        resetExclusions,
         loading,
         error,
         lastSync,

@@ -623,6 +623,19 @@
             background: rgba(255, 255, 255, 0.1);
         }
     }
+
+    &--danger {
+        color: #f87171;
+        background: rgba(239, 68, 68, 0.12);
+        border-color: rgba(239, 68, 68, 0.35);
+        cursor: pointer;
+
+        &:hover {
+            color: #fff;
+            background: rgba(239, 68, 68, 0.3);
+            border-color: #ef4444;
+        }
+    }
 }
 
 @media (max-width: $bp-tablet) {
