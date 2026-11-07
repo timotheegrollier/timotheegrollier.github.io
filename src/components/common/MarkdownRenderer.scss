@@ -1,0 +1,162 @@
+@use '@/styles/tokens' as *;
+
+.markdown-renderer {
+    color: $text-secondary;
+    font-size: 0.9rem;
+    line-height: 1.68;
+    word-break: break-word;
+
+    .md-heading {
+        color: $text-primary;
+        font-family: $font-display;
+        font-weight: 700;
+        margin-top: 1.25rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.25;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &--1,
+        &--2 {
+            font-size: 1.2rem;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 0.4rem;
+        }
+
+        &--3 {
+            font-size: 1.05rem;
+            color: $accent-primary;
+        }
+
+        &--4,
+        &--5 {
+            font-size: 0.95rem;
+            color: $text-primary;
+        }
+    }
+
+    .md-paragraph {
+        margin-bottom: 0.8rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .md-list {
+        margin: 0.5rem 0 1rem 1.1rem;
+        padding: 0;
+        list-style-type: none;
+
+        .md-list-item {
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.45rem;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0.55em;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: $accent-primary;
+            }
+        }
+    }
+
+    .md-ordered-item {
+        margin-bottom: 0.4rem;
+        padding-left: 0.4rem;
+    }
+
+    .md-blockquote {
+        margin: 0.8rem 0;
+        padding: 0.6rem 0.95rem;
+        border-left: 3px solid $accent-primary;
+        background: rgba(36, 184, 255, 0.06);
+        border-radius: 0 $radius-sm $radius-sm 0;
+        color: $text-muted;
+        font-style: italic;
+    }
+
+    .md-inline-code {
+        font-family: $font-mono;
+        font-size: 0.82em;
+        padding: 0.16rem 0.42rem;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #38bdf8;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .md-code-block {
+        margin: 0.9rem 0;
+        padding: 0.85rem 1rem;
+        border-radius: $radius-md;
+        background: #070d17;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow-x: auto;
+        font-family: $font-mono;
+        font-size: 0.82rem;
+        line-height: 1.5;
+        color: #e2e8f0;
+
+        code {
+            background: transparent;
+            padding: 0;
+            border: none;
+            color: inherit;
+        }
+    }
+
+    .md-link {
+        color: $accent-primary;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: color $transition-fast;
+
+        &:hover {
+            color: #67e8f9;
+        }
+    }
+
+    .md-table-wrapper {
+        margin: 1rem 0;
+        overflow-x: auto;
+        border-radius: $radius-md;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .md-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.84rem;
+        text-align: left;
+
+        th,
+        td {
+            padding: 0.55rem 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.04);
+            color: $text-primary;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+    }
+
+    strong {
+        color: $text-primary;
+        font-weight: 600;
+    }
+}

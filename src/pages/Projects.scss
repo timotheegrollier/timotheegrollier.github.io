@@ -6,9 +6,17 @@
     padding-bottom: clamp(2.2rem, 5vw, 4rem);
 
     &__header {
-        margin-bottom: clamp(1.4rem, 3vw, 2.3rem);
-        max-width: 720px;
+        margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+        max-width: 860px;
         animation: fadeInUp 0.5s ease-out both;
+    }
+
+    &__eyebrow-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
     }
 
     &__title {
@@ -22,22 +30,35 @@
     &__subtitle {
         color: $text-muted;
         font-size: clamp(0.95rem, 2vw, 1.06rem);
-        max-width: 56ch;
+        line-height: 1.6;
+        max-width: 68ch;
+
+        .account-link {
+            color: $accent-primary;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color $transition-fast;
+
+            &:hover {
+                color: #67e8f9;
+            }
+        }
     }
 
     &__filters {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        gap: 0.48rem;
-        margin-bottom: clamp(1.2rem, 3vw, 2rem);
+        gap: 0.45rem;
+        margin-bottom: 1.1rem;
         animation: fadeInUp 0.6s ease-out 0.08s both;
     }
 
     &__grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-        gap: clamp(0.9rem, 2.4vw, 1.35rem);
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+        gap: clamp(1rem, 2.4vw, 1.45rem);
 
         @media (max-width: $bp-mobile) {
             grid-template-columns: 1fr;
@@ -45,15 +66,206 @@
     }
 }
 
+/* Eyebrow & Live Sync */
+.live-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.24rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #34d399;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    .live-pulse {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #10b981;
+        box-shadow: 0 0 8px #10b981;
+        animation: pulseLive 2s infinite ease-in-out;
+    }
+}
+
+.sync-time {
+    font-size: 0.76rem;
+    color: $text-muted;
+    font-family: $font-mono;
+}
+
+.sync-refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: $text-secondary;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.24rem 0.65rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover:not(:disabled) {
+        color: #fff;
+        background: rgba(36, 184, 255, 0.15);
+        border-color: rgba(36, 184, 255, 0.35);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    &--loading svg {
+        animation: spin 1s linear infinite;
+    }
+}
+
+/* Controls Bar */
+.projects-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+    padding: 0.85rem 1.05rem;
+    border-radius: $radius-lg;
+    background: rgba(11, 19, 32, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: min(100%, 280px);
+
+    .search-icon {
+        position: absolute;
+        left: 0.85rem;
+        color: $text-muted;
+        pointer-events: none;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.55rem 2.2rem 0.55rem 2.4rem;
+        border-radius: $radius-md;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: $text-primary;
+        font-size: 0.85rem;
+        outline: none;
+        transition: border-color $transition-fast, box-shadow $transition-fast;
+
+        &::placeholder {
+            color: $text-muted;
+        }
+
+        &:focus {
+            border-color: $accent-primary;
+            box-shadow: 0 0 0 3px rgba(36, 184, 255, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+        }
+    }
+
+    .search-clear-btn {
+        position: absolute;
+        right: 0.75rem;
+        background: transparent;
+        border: none;
+        color: $text-muted;
+        font-size: 0.8rem;
+        cursor: pointer;
+        padding: 0.2rem;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.account-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.22rem;
+    border-radius: $radius-md;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.account-btn {
+    background: transparent;
+    border: none;
+    color: $text-muted;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.38rem 0.75rem;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all $transition-fast;
+    white-space: nowrap;
+
+    &:hover {
+        color: $text-primary;
+    }
+
+    &--active {
+        color: #fff;
+        background: rgba(36, 184, 255, 0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.sort-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    .sort-label {
+        font-size: 0.78rem;
+        color: $text-muted;
+        font-weight: 500;
+    }
+
+    .sort-dropdown {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: $text-primary;
+        font-size: 0.8rem;
+        padding: 0.42rem 0.75rem;
+        border-radius: $radius-sm;
+        outline: none;
+        cursor: pointer;
+
+        option {
+            background: #0d1725;
+            color: #fff;
+        }
+
+        &:focus {
+            border-color: $accent-primary;
+        }
+    }
+}
+
+/* Filter Tag Pills */
 .filter-tag {
     @include surface-card;
-    padding: 0.42rem 0.92rem;
+    padding: 0.38rem 0.85rem;
     border-radius: 999px;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 500;
     color: $text-muted;
     cursor: pointer;
-    transition: color $transition-fast, border-color $transition-fast, transform $transition-fast, background-color $transition-fast;
+    transition: all $transition-fast;
     white-space: nowrap;
 
     &:hover {
@@ -69,23 +281,93 @@
         box-shadow: 0 10px 24px rgba(36, 184, 255, 0.22);
 
         &:hover {
-            background: linear-gradient(
-                130deg,
-                color.adjust($accent-primary, $lightness: -3%),
-                color.adjust($accent-secondary, $lightness: -3%)
-            );
             color: white;
             transform: translateY(-1px);
         }
     }
 }
 
+/* Summary Bar */
+.projects-summary-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: $text-muted;
+    margin-bottom: 1.1rem;
+    padding: 0 0.2rem;
+
+    .reset-filters-link {
+        background: transparent;
+        border: none;
+        color: $accent-primary;
+        font-size: 0.82rem;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: underline;
+        padding: 0;
+
+        &:hover {
+            color: #67e8f9;
+        }
+    }
+}
+
+/* Empty State */
+.empty-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+    border-radius: $radius-xl;
+    background: rgba(11, 19, 32, 0.5);
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    color: $text-muted;
+    gap: 0.8rem;
+    margin-top: 1rem;
+
+    svg {
+        color: rgba(255, 255, 255, 0.25);
+    }
+
+    h3 {
+        color: $text-primary;
+        font-size: 1.15rem;
+    }
+
+    p {
+        max-width: 40ch;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseLive {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(24px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);

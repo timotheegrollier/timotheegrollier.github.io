@@ -6,57 +6,74 @@
     z-index: 300;
     display: grid;
     place-items: center;
-    padding: clamp(0.6rem, 1.8vw, 1.25rem);
-    background: rgba(4, 9, 15, 0.82);
-    animation: projectModalFadeIn 0.18s ease-out;
+    padding: clamp(0.5rem, 2vw, 1.5rem);
+    background: rgba(3, 7, 13, 0.86);
+    backdrop-filter: blur(10px);
+    animation: projectModalFadeIn 0.2s ease-out;
 }
 
 .project-modal__panel {
     position: relative;
-    width: min(100%, 1020px);
-    max-height: min(92dvh, 860px);
+    width: min(100%, 1100px);
+    max-height: min(94dvh, 900px);
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
     border-radius: $radius-xl;
     overflow: hidden;
-    background: #0d1725;
-    border: 1px solid $border-strong;
-    box-shadow: $shadow-lg;
+    background: #090f1a;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 40px rgba(36, 184, 255, 0.1);
     animation: projectModalEnter 0.22s ease-out;
-    will-change: transform, opacity;
 }
 
 .project-modal__close {
     position: absolute;
-    top: 0.8rem;
-    right: 0.8rem;
+    top: 0.85rem;
+    right: 0.85rem;
     width: 2.2rem;
     height: 2.2rem;
     border-radius: 999px;
     @include flex-center;
-    z-index: 4;
-    background: rgba(8, 13, 20, 0.8);
-    border: 1px solid $border-subtle;
+    z-index: 10;
+    background: rgba(8, 14, 24, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: $text-primary;
+    cursor: pointer;
     transition: transform $transition-fast, border-color $transition-fast, background-color $transition-fast;
 
     &:hover {
         border-color: $border-accent;
-        background: rgba(36, 184, 255, 0.24);
+        background: rgba(36, 184, 255, 0.2);
         transform: rotate(90deg);
     }
 }
 
 .project-modal__media {
-    background: #0b1320;
-    min-height: 260px;
+    position: relative;
+    background: #060b13;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+    &-backdrop {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(36, 184, 255, 0.08) 0%, transparent 70%);
+        pointer-events: none;
+    }
 }
 
 .project-modal__image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    max-height: 100%;
+    object-fit: contain;
     object-position: center;
+    padding: 1rem;
+    z-index: 1;
 }
 
 .project-modal__content {
@@ -64,63 +81,523 @@
     flex-direction: column;
     overflow-y: auto;
     overscroll-behavior: contain;
-    padding: clamp(0.95rem, 2.2vw, 1.45rem);
-    background: linear-gradient(180deg, rgba(18, 31, 48, 0.94), rgba(13, 23, 37, 0.96));
+    padding: clamp(1rem, 2.5vw, 1.75rem);
+    background: linear-gradient(180deg, #0b1322 0%, #080d17 100%);
 }
 
 .project-modal__handle {
     display: none;
 }
 
+.project-modal__header {
+    margin-bottom: 1.1rem;
+}
+
+.project-modal__badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.65rem;
+}
+
+.modal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: $text-secondary;
+
+    &--timotheegrollier {
+        color: #38bdf8;
+        border-color: rgba(56, 189, 248, 0.35);
+        background: rgba(56, 189, 248, 0.1);
+    }
+
+    &--stxtxm {
+        color: #c084fc;
+        border-color: rgba(192, 132, 252, 0.35);
+        background: rgba(192, 132, 252, 0.1);
+    }
+
+    &--release {
+        color: #34d399;
+        border-color: rgba(16, 185, 129, 0.35);
+        background: rgba(16, 185, 129, 0.1);
+        font-family: $font-mono;
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+    }
+
+    &--stars {
+        color: #fbbf24;
+        border-color: rgba(245, 158, 11, 0.35);
+        background: rgba(245, 158, 11, 0.1);
+    }
+
+    &--lang {
+        color: $text-primary;
+
+        .lang-color {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+    }
+}
+
 .project-modal__title {
     font-family: $font-display;
-    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: 0.52rem;
-    line-height: 1.15;
+    color: $text-primary;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+}
+
+.project-modal__date {
+    font-size: 0.78rem;
+    color: $text-muted;
+    font-family: $font-mono;
+}
+
+/* Tabs */
+.project-modal__tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.3rem;
+    overflow-x: auto;
+}
+
+.modal-tab-btn {
+    position: relative;
+    padding: 0.5rem 0.85rem;
+    border-radius: $radius-sm;
+    background: transparent;
+    border: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: $text-muted;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: color $transition-fast, background-color $transition-fast;
+
+    &:hover {
+        color: $text-primary;
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    &--active {
+        color: #fff;
+        background: rgba(36, 184, 255, 0.12);
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -0.35rem;
+            left: 0.5rem;
+            right: 0.5rem;
+            height: 2px;
+            background: $accent-primary;
+            border-radius: 2px;
+        }
+    }
+
+    .tab-pill {
+        font-size: 0.68rem;
+        font-family: $font-mono;
+        padding: 0.1rem 0.4rem;
+        border-radius: 999px;
+        background: rgba(16, 185, 129, 0.2);
+        color: #34d399;
+    }
+}
+
+.project-modal__tab-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.modal-section {
+    &__title {
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: $accent-primary;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+    }
 }
 
 .project-modal__desc {
-    color: $text-muted;
-    font-size: 0.9rem;
-    line-height: 1.66;
-    margin-bottom: 0.95rem;
+    color: $text-secondary;
+    font-size: 0.92rem;
+    line-height: 1.68;
+}
+
+.modal-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.modal-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.88rem;
+    color: $text-primary;
+    line-height: 1.5;
+
+    svg {
+        color: #38bdf8;
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+    }
+}
+
+.modal-architecture-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.modal-architecture-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.86rem;
+    color: $text-secondary;
+    line-height: 1.5;
+
+    .bullet {
+        color: #f59e0b;
+        font-size: 0.85rem;
+    }
 }
 
 .project-modal__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.42rem;
-    margin-bottom: 1.2rem;
+    gap: 0.4rem;
 }
 
 .project-modal__tag {
-    font-size: 0.68rem;
-    line-height: 1;
-    padding: 0.28rem 0.55rem;
+    font-size: 0.72rem;
+    padding: 0.24rem 0.6rem;
     border-radius: 999px;
     color: $text-secondary;
-    border: 1px solid $border-subtle;
-    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
 }
 
+/* Release View */
+.release-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.release-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    border-radius: $radius-md;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    &__title {
+        font-size: 0.96rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .release-tag-pill {
+        font-family: $font-mono;
+        font-size: 0.78rem;
+        font-weight: 700;
+        background: #10b981;
+        color: #064e3b;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+    }
+
+    .release-date {
+        font-size: 0.78rem;
+        color: $text-muted;
+        font-family: $font-mono;
+    }
+}
+
+.release-assets {
+    &__title {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $text-secondary;
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 0.55rem;
+    }
+}
+
+.asset-download-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: $radius-md;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    color: $text-primary;
+    text-decoration: none;
+    transition: all $transition-fast;
+
+    &:hover {
+        background: rgba(36, 184, 255, 0.12);
+        border-color: rgba(36, 184, 255, 0.35);
+        color: #fff;
+        transform: translateY(-1px);
+    }
+
+    svg {
+        color: #38bdf8;
+        flex-shrink: 0;
+    }
+
+    .asset-info {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .asset-name {
+        font-size: 0.8rem;
+        font-weight: 600;
+        font-family: $font-mono;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .asset-size {
+        font-size: 0.7rem;
+        color: $text-muted;
+    }
+}
+
+.release-body-wrapper {
+    background: rgba(7, 12, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: $radius-md;
+    padding: 1rem 1.15rem;
+
+    .release-body-title {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $text-muted;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+}
+
+.release-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    .release-github-link {
+        font-size: 0.84rem;
+        color: $accent-primary;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.no-release-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: $text-muted;
+    gap: 0.75rem;
+
+    svg {
+        color: rgba(255, 255, 255, 0.25);
+    }
+
+    h4 {
+        color: $text-primary;
+        font-size: 1.05rem;
+    }
+
+    p {
+        max-width: 44ch;
+        font-size: 0.88rem;
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* Links Tab */
+.clone-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 0.95rem;
+    border-radius: $radius-md;
+    background: #070d17;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    code {
+        font-family: $font-mono;
+        font-size: 0.84rem;
+        color: #38bdf8;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .clone-copy-btn {
+        padding: 0.35rem 0.75rem;
+        border-radius: $radius-sm;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color $transition-fast;
+
+        &:hover {
+            background: rgba(36, 184, 255, 0.25);
+            border-color: $accent-primary;
+        }
+    }
+}
+
+.modal-links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.05rem;
+    border-radius: $radius-md;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    color: $text-primary;
+    transition: all $transition-fast;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(36, 184, 255, 0.3);
+        transform: translateY(-1px);
+    }
+
+    &__icon {
+        color: #38bdf8;
+        @include flex-center;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    &__label {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    &__url {
+        font-size: 0.74rem;
+        color: $text-muted;
+        font-family: $font-mono;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &--live {
+        .link-card__icon {
+            color: #34d399;
+        }
+    }
+}
+
+/* Modal Actions */
 .project-modal__actions {
     margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-wrap: wrap;
-    gap: 0.54rem;
+    gap: 0.65rem;
 }
 
 .project-modal__btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 2.5rem;
-    padding: 0.66rem 1.05rem;
+    gap: 0.5rem;
+    min-height: 2.6rem;
+    padding: 0.66rem 1.15rem;
     border-radius: $radius-md;
     border: 1px solid transparent;
-    font-size: 0.84rem;
+    font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
     transition: transform $transition-fast, background-color $transition-fast, border-color $transition-fast,
@@ -132,14 +609,14 @@
 
         &:hover {
             transform: translateY(-1px);
-            box-shadow: 0 10px 22px rgba(36, 184, 255, 0.26);
+            box-shadow: 0 10px 22px rgba(36, 184, 255, 0.28);
         }
     }
 
     &--secondary {
         color: $text-primary;
         background: rgba(255, 255, 255, 0.05);
-        border-color: $border-subtle;
+        border-color: rgba(255, 255, 255, 0.12);
 
         &:hover {
             border-color: $border-accent;
@@ -150,24 +627,23 @@
 
 @media (max-width: $bp-tablet) {
     .project-modal {
-        place-items: center;
         padding: 0.4rem;
     }
 
     .project-modal__panel {
-        width: 100%;
-        max-height: min(92dvh, 760px);
         grid-template-columns: 1fr;
-        animation: projectModalEnter 0.2s ease-out;
+        max-height: min(94dvh, 800px);
     }
 
     .project-modal__media {
-        min-height: 180px;
-        max-height: 35dvh;
+        min-height: 190px;
+        max-height: 28dvh;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .project-modal__content {
-        padding: 0.82rem 0.82rem calc(1rem + env(safe-area-inset-bottom));
+        padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
     }
 
     .project-modal__handle {
@@ -180,8 +656,8 @@
     }
 
     .project-modal__close {
-        top: 0.58rem;
-        right: 0.58rem;
+        top: 0.6rem;
+        right: 0.6rem;
         width: 2rem;
         height: 2rem;
     }
@@ -195,18 +671,10 @@
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .project-modal,
-    .project-modal__panel {
-        animation: none;
-    }
-}
-
 @keyframes projectModalFadeIn {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -217,7 +685,6 @@
         opacity: 0;
         transform: translateY(14px) scale(0.985);
     }
-
     to {
         opacity: 1;
         transform: translateY(0) scale(1);

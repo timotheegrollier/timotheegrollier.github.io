@@ -3,6 +3,9 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches: [master]
+  schedule:
+    # Synchronisation quotidienne automatique des projets GitHub
+    - cron: '0 4 * * *'
   workflow_dispatch:
 
 # Sets permissions for GITHUB_TOKEN to deploy to Pages
@@ -32,11 +35,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Type check
-        run: npx tsc -b
-
-      - name: Build
-        run: npx vite build
+      - name: Build & Sync GitHub Projects
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

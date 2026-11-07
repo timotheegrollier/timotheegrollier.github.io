@@ -1,0 +1,27 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 210)">
+    <!-- Trance scope rings -->
+    <circle cx="0" cy="0" r="85" stroke="#A855F7" stroke-width="2" stroke-dasharray="4 8" fill="none" opacity="0.6"/>
+    <circle cx="0" cy="0" r="60" stroke="#06B6D4" stroke-width="2" stroke-dasharray="8 6" fill="none" opacity="0.8"/>
+    <circle cx="0" cy="0" r="35" stroke="#EC4899" stroke-width="3" fill="none"/>
+    <circle cx="0" cy="0" r="12" fill="#F43F5E"/>
+    
+    <!-- Oscilloscope bloom spikes -->
+    <path d="M-130 0 L-90 -25 L-60 10 L-35 -35 L0 0 L35 -35 L60 10 L90 -25 L130 0" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M-120 0 L-80 30 L-50 -15 L-25 40 L0 0 L25 40 L50 -15 L80 30 L120 0" stroke="#F43F5E" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="365" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="white" font-weight="700" letter-spacing="-0.02em">VISUALIZE</text>
+  <text x="400" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#94A3B8" font-weight="500">BPM-Synced Audio Trance Scope Visualizer &amp; Video Export</text>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B0764"/>
+      <stop offset="0.5" stop-color="#1E1B4B"/>
+      <stop offset="1" stop-color="#09090B"/>
+    </linearGradient>
+  </defs>
+</svg>

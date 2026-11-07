@@ -1,0 +1,1506 @@
+[
+  {
+    "id": 1416080825,
+    "slug": "maschine-linux",
+    "name": "Maschine Linux",
+    "owner": "timotheegrollier",
+    "description": "Station de travail audio / DAW sous Linux dédiée au workflow Native Instruments Maschine MK3. Moteur temps-réel Rust sur PipeWire-JACK, reverse engineering USB, double affichage couleur MK3 et séquenceur par pas.",
+    "tags": [
+      "Rust",
+      "Linux",
+      "Audio / DSP",
+      "PipeWire",
+      "Hardware Reverse Engineering"
+    ],
+    "image": "/media/maschine-linux-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/maschine-linux",
+    "featured": true,
+    "stars": 0,
+    "language": "Rust",
+    "updatedAt": "2026-11-07T23:09:13Z",
+    "createdAt": "2026-10-12T20:08:11Z",
+    "latestRelease": {
+      "version": "v0.9.0",
+      "name": "v0.9.0",
+      "publishedAt": "2026-11-07T23:15:17Z",
+      "body": "# Maschine Linux 0.9.0\n\n### Highlights\n\n- **FILE / project workflow (MK3 + GUI)**: The MK3 `FILE` button opens a project browser with quick navigation and loading from the hardware or GUI. `Shift + FILE SAVE` performs a compact quick save of the current project; normal saves write readable JSON. Projects are stored as viewable `*.maschine-linux.json` files with atomic writes, and recent/current project paths are remembered for fast reloads.\n- **Per-pad volume and pan per Group**: Every Sound/pad in every Group keeps its own mixer level and pan. The GUI Mixer exposes editable per-pad strips for the focused Group, and the selected pad/Sound can be edited from the MK3 mixer workflow and screens.\n- **Keyboard and Chords repaired**: Keyboard and Chords modes now play the active Sound melodically with engine-owned musical state (root note, scale, base octave, chord type, inversion). The top display buttons / soft keys change scales and musical behavior, and both MK3 screens plus the GUI Keyboard view show the correct performance information.\n\n### Validation\n\n- `cargo fmt --all -- --check`\n- `cargo clippy --workspace --all-targets -- -D warnings`\n- `cargo test --workspace` (all workspace library tests passing in this environment)\n- Hardware validation is recommended on a connected MK3 for HID/display/LED behavior, FILE navigation, mixer control, and Keyboard/Chords performance.\n",
+      "htmlUrl": "https://github.com/timotheegrollier/maschine-linux/releases/tag/v0.9.0",
+      "assets": [
+        {
+          "name": "maschine-linux-0.9.0-1.x86_64.rpm",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/maschine-linux-0.9.0-1.x86_64.rpm",
+          "size": 5610510,
+          "downloadCount": 0
+        },
+        {
+          "name": "maschine-linux-0.9.0-linux-x86_64.tar.gz",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/maschine-linux-0.9.0-linux-x86_64.tar.gz",
+          "size": 7035584,
+          "downloadCount": 0
+        },
+        {
+          "name": "maschine-linux_0.9.0-1_amd64.deb",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/maschine-linux_0.9.0-1_amd64.deb",
+          "size": 5241040,
+          "downloadCount": 0
+        },
+        {
+          "name": "Maschine_Linux-0.9.0-x86_64.AppImage",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/Maschine_Linux-0.9.0-x86_64.AppImage",
+          "size": 7267520,
+          "downloadCount": 0
+        },
+        {
+          "name": "SHA256SUMS",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/SHA256SUMS",
+          "size": 409,
+          "downloadCount": 0
+        }
+      ]
+    },
+    "highlights": [
+      "Reverse-engineering complet du protocole USB de la Maschine MK3 (17cc:1600)",
+      "Moteur audio ultra basse latence écrit en Rust sur PipeWire-JACK (zéro allocation dans la boucle audio)",
+      "Rendu graphique dynamique en temps réel sur les deux écrans LCD couleur du contrôleur",
+      "Workflow complet : Projects, Groups, Sounds, Patterns, Scenes, Step Sequencer 16 pas"
+    ],
+    "architecture": [
+      "Rust (2021 edition) pour une exécution temps-réel sans pause de Garbage Collector",
+      "PipeWire-JACK C API bindings & threads audio temps réel à haute priorité (SCHED_FIFO)",
+      "Protocole USB bulk transfer pour alimenter le framebuffer des deux écrans MK3"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1149280776,
+    "slug": "bitbrawler",
+    "name": "BitBrawler",
+    "owner": "stxtxm",
+    "description": "RPG navigateur rétro 8-bit avec arène PvP, bots IA simulant des stratégies de combat, arbre de compétences, système d’équipement et de loot, et reset quotidien automatique. PWA installable sur tous écrans.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Firebase",
+      "Vite",
+      "SCSS",
+      "PWA"
+    ],
+    "image": "/media/bitbrawler.png",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center 28%",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/bitbrawler",
+    "liveUrl": "https://bitbrawler.pages.dev",
+    "featured": true,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-11-07T23:06:47Z",
+    "createdAt": "2026-02-03T23:47:44Z",
+    "highlights": [
+      "Système de combat au tour par tour dynamique inspiré des classiques RPG 8-bit",
+      "Arène PvP avec matchmaking basé sur le niveau et bots IA adaptatifs",
+      "Persistance temps réel Firebase Firestore avec cron de reset quotidien",
+      "Expérience PWA responsive installable hors-ligne"
+    ],
+    "architecture": [
+      "React 18 / TypeScript, bundler Vite pour des performances optimales",
+      "Backend serverless Firebase (Firestore, Cloud Functions)",
+      "Déploiement continu via Cloudflare Pages"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1116332188,
+    "slug": "global-share",
+    "name": "GlobalShare",
+    "owner": "stxtxm",
+    "description": "Partage de fichiers direct entre appareils via WebRTC P2P chiffré, sans création de compte ni installation. Salon éphémère par code unique, streaming direct local ou internet avec repli automatique par relais Cloudflare Workers.",
+    "tags": [
+      "TypeScript",
+      "WebRTC",
+      "PWA",
+      "P2P",
+      "Cloudflare Workers"
+    ],
+    "image": "/media/global-share-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/global-share",
+    "liveUrl": "https://stxtxm.github.io/global-share",
+    "featured": true,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-11-07T17:39:20Z",
+    "createdAt": "2025-12-14T16:49:17Z",
+    "highlights": [
+      "Transfert pair-à-pair direct (P2P) à débit maximal sans upload sur des serveurs tiers",
+      "Aucune création de compte, aucun pistage, salons de partage éphémères par code court",
+      "Repli de secours automatique par relais WebSocket lorsque le P2P strict est bloqué par des pare-feux stricts",
+      "Progressive Web App installable sur mobile, tablette et desktop"
+    ],
+    "architecture": [
+      "Next.js export statique (SSG) déployé sur GitHub Pages",
+      "WebRTC DataChannels avec chiffrement DTLS / SRTP",
+      "Signalisation serverless sur Cloudflare Workers"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1366357202,
+    "slug": "work-logs",
+    "name": "WorkLogs",
+    "owner": "timotheegrollier",
+    "description": "Journal de travail 100% local, moderne et sans friction pour développeurs. Organisation en écran unique : journal hebdo à gauche, éditeur markdown au centre, todo list à droite. Zéro compte requis, paquets Linux natifs .deb et .rpm.",
+    "tags": [
+      "TypeScript",
+      "React",
+      "Productivity",
+      "Desktop App",
+      "Linux"
+    ],
+    "image": "/media/work-logs-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/work-logs",
+    "featured": true,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-11-06T15:50:02Z",
+    "createdAt": "2026-09-11T15:22:13Z",
+    "latestRelease": {
+      "version": "v0.72.0",
+      "name": "WorkLogs v0.72.0",
+      "publishedAt": "2026-11-06T15:10:33Z",
+      "body": "## WorkLogs 0.72.0 for Linux\n\nA 100% local work journal: write, lay out and organize — on a single screen, no account, no server.\n\n### Download\n\n| File | For |\n|---|---|\n| `WorkLogs-0.72.0-linux-amd64.deb` | Ubuntu 24.04, Linux Mint 22.x and other Debian-based distros (94 MB) |\n| `WorkLogs-0.72.0-linux-x86_64.rpm` | Fedora 43 / 44 and other RPM-based distros (84 MB) |\n| `WorkLogs-0.72.0-linux-x86_64.AppImage` | Any 64-bit distro, no install needed (118 MB) |\n\nVerify integrity with `sha256sum -c SHA256SUMS`.\n\nThe app checks for updates on launch and offers the download in one click.\n\n### What's new\n\n- feat: page d’accueil publique sur GitHub Pages pour la publication Google\n- feat: page publique de politique de confidentialité\n\n### Fixes\n\n- fix: répare master — fusion d'entrées et optimisation IA terminées\n- fix: restaure web/, supprimé par erreur dans 99bbcba\n- fix: add minimal package.json for CI\n\n### Other changes\n\n- release: passe en 0.72.0\n- docs: nomme le fichier de vérification Search Console validé\n- API: entry merge feature\n- fusion d entrees IA\n\n**Full changelog**: https://github.com/timotheegrollier/work-logs/compare/v0.71.0...v0.72.0\n",
+      "htmlUrl": "https://github.com/timotheegrollier/work-logs/releases/tag/v0.72.0",
+      "assets": [
+        {
+          "name": "latest-linux.yml",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/latest-linux.yml",
+          "size": 720,
+          "downloadCount": 0
+        },
+        {
+          "name": "SHA256SUMS",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/SHA256SUMS",
+          "size": 497,
+          "downloadCount": 1
+        },
+        {
+          "name": "WorkLogs-0.72.0-linux-amd64.deb",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/WorkLogs-0.72.0-linux-amd64.deb",
+          "size": 98213892,
+          "downloadCount": 1
+        },
+        {
+          "name": "WorkLogs-0.72.0-linux-x86_64.AppImage",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/WorkLogs-0.72.0-linux-x86_64.AppImage",
+          "size": 124244019,
+          "downloadCount": 1
+        },
+        {
+          "name": "WorkLogs-0.72.0-linux-x86_64.AppImage.blockmap",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/WorkLogs-0.72.0-linux-x86_64.AppImage.blockmap",
+          "size": 131275,
+          "downloadCount": 0
+        },
+        {
+          "name": "WorkLogs-0.72.0-linux-x86_64.rpm",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/WorkLogs-0.72.0-linux-x86_64.rpm",
+          "size": 88045401,
+          "downloadCount": 2
+        }
+      ]
+    },
+    "highlights": [
+      "Interface monobloc 1-écran : aperçu temporel, rédaction riche et tâches synchronisées",
+      "Architecture 100% locale (local-first) : respect strict de la vie privée et vitesse instantanée",
+      "Système de recherche plein texte instantanée et tags par mot-clé",
+      "Distribution multi-distro Linux avec paquets Debian (.deb) et Fedora (.rpm) automatisés"
+    ],
+    "architecture": [
+      "React 19, TypeScript, SCSS tokens modulaires",
+      "Stockage local résilient avec export JSON/Markdown et synchronisation optionnelle",
+      "CI/CD GitHub Actions multi-architecture générant les paquets natifs Linux"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1153188296,
+    "slug": "bpm-detector",
+    "name": "BPM Detector Pro",
+    "owner": "timotheegrollier",
+    "description": "Outil haute précision d’analyse et détection de BPM pour fichiers musicaux. Disponible en interface graphique de bureau (Tkinter moderne), en ligne de commande (CLI) pour batch scripté, et en web Flask.",
+    "tags": [
+      "Python",
+      "Audio / DSP",
+      "Tkinter",
+      "CLI",
+      "CI/CD"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/bpm-detector",
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-10-28T21:58:10Z",
+    "createdAt": "2026-02-09T02:22:48Z",
+    "latestRelease": {
+      "version": "v1.5.5",
+      "name": "BPM-detector v1.5.5",
+      "publishedAt": "2026-10-28T22:09:00Z",
+      "body": "## BPM-detector v1.5.5\n\nMulti-platform release for Linux, Windows, and macOS.\n\n### Highlights\n- Linux portable artifact is provided as a raw executable (`BPM-detector-Linux-x64`)\n- Windows: portable ZIP and installer are built from the same ONEDIR payload\n- Release integrity: `checksums.txt` now published with SHA256 hashes for every artifact\n- Source traceability: `build-info.txt` includes tag, commit SHA, app version, and GUI file checksum\n\n### Downloads\n\n| Platform | Format | File | Instructions |\n|----------|--------|------|--------------|\n| Linux | Binary | `BPM-detector-Linux-x64` | Run `chmod +x` then execute |\n| Linux | DEB | `bpm-detector_*.deb` | Stage in `/tmp` then `sudo apt install /tmp/file.deb` |\n| Linux | RPM | `bpm-detector-*.rpm` | `sudo dnf install ./file.rpm` |\n| Linux | Flatpak | `BPM-detector.flatpak` | `flatpak install ./file.flatpak` |\n| Windows | Installer | `BPM-detector-Setup-Windows-x64.exe` | Run setup, then launch from Start Menu/Desktop shortcut |\n| Windows | ZIP | `BPM-detector-Windows-x64.zip` | Extract all files, then run `BPM-detector.exe` |\n| macOS | DMG | `BPM-detector-macOS.dmg` | Open and drag to Applications |\n\n### Package Manager Install\n\n**Debian/Ubuntu (apt):**\n```bash\ncp ./bpm-detector_*_amd64.deb /tmp/\nsudo chmod 0644 /tmp/bpm-detector_*_amd64.deb\nsudo apt install /tmp/bpm-detector_*_amd64.deb\n```\n\n**Fedora/RHEL (dnf):**\n```bash\nsudo dnf install ./bpm-detector-*.x86_64.rpm\n```\n\n**Flatpak:**\n```bash\nflatpak install --user ./BPM-detector.flatpak\n```\n\n### Integrity Verification\n\n`checksums.txt` is included in release assets.\n\n**Linux/macOS:**\n```bash\nsha256sum -c checksums.txt\n```\n\n**Windows (PowerShell):**\n```powershell\nGet-FileHash .\\BPM-detector-Setup-Windows-x64.exe -Algorithm SHA256\n```\nCompare the hash with the matching line in `checksums.txt`.\n\nFull documentation: [README](https://github.com/timotheegrollier/bpm-detector/blob/main/README.md)\n",
+      "htmlUrl": "https://github.com/timotheegrollier/bpm-detector/releases/tag/v1.5.5",
+      "assets": [
+        {
+          "name": "bpm-detector-1.5.5.x86_64.rpm",
+          "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/bpm-detector-1.5.5.x86_64.rpm",
+          "size": 174914337,
+          "downloadCount": 0
+        },
+        {
+          "name": "BPM-detector-Linux-x64",
+          "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/BPM-detector-Linux-x64",
+          "size": 177807704,
+          "downloadCount": 0
+        },
+        {
+          "name": "BPM-detector-Setup-Windows-x64.exe",
+          "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/BPM-detector-Setup-Windows-x64.exe",
+          "size": 106213026,
+          "downloadCount": 0
+        },
+        {
+          "name": "BPM-detector-Windows-x64.zip",
+          "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/BPM-detector-Windows-x64.zip",
+          "size": 146154474,
+          "downloadCount": 0
+        },
+        {
+          "name": "BPM-detector.flatpak",
+          "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/BPM-detector.flatpak",
+          "size": 174919920,
+          "downloadCount": 0
+        },
+        {
+          "name": "bpm-detector_1.5.5_amd64.deb",
+          "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/bpm-detector_1.5.5_amd64.deb",
+          "size": 176036020,
+          "downloadCount": 0
+        },
+        {
+          "name": "build-info.txt",
+          "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/build-info.txt",
+          "size": 191,
+          "downloadCount": 0
+        },
+        {
+          "name": "checksums.txt",
+          "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/checksums.txt",
+          "size": 644,
+          "downloadCount": 0
+        }
+      ]
+    },
+    "highlights": [
+      "Algorithme de détection hybride combinant autocorrélation spectrale et analyse de transitoires",
+      "Trois modes d’utilisation : application de bureau GUI, ligne de commande CLI, et serveur Flask",
+      "Exécutables autonomes multi-plateformes (Linux portable x64, installeur Windows avec FFmpeg inclus)",
+      "Prise en charge native de nombreux formats : MP3, FLAC, WAV, M4A, OGG, AIFF"
+    ],
+    "architecture": [
+      "Python 3 avec bibliothèques d’analyse du signal audio (NumPy, SciPy, Librosa/aubio)",
+      "Interface Tkinter moderne avec threading asynchrone pour ne jamais geler l’interface utilisateur",
+      "Packaging automatisé PyInstaller & Inno Setup dans GitHub Actions"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1276070681,
+    "slug": "visualize",
+    "name": "Visualize",
+    "owner": "stxtxm",
+    "description": "Générateur de visualisations audio psychédéliques haute performance inspiré de Winamp et Windows Media Player. Effet Trance Scope synchronisé au tempo, incrustation d’arrière-plans et export vidéo MP4 accéléré par GPU.",
+    "tags": [
+      "Python",
+      "Audio Visualizer",
+      "FFmpeg",
+      "OpenGL",
+      "Desktop"
+    ],
+    "image": "/media/visualize-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/visualize",
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-10-14T17:59:21Z",
+    "createdAt": "2026-06-21T14:02:49Z",
+    "latestRelease": {
+      "version": "v0.3.16",
+      "name": "v0.3.16",
+      "publishedAt": "2026-10-14T18:03:23Z",
+      "body": "## What's new in v0.3.16\n\n### Bug fixes\n- **Fixed no sound when launching from the AppImage / desktop menu.** The generated `AppRun` did `export PULSE_SERVER=` when PipeWire was detected. A defined-but-empty `PULSE_SERVER` makes the Pulse/PipeWire compatibility layer try to reach a server named \"\" and fail with \"Serveur invalide\" (invalid server), so nothing launched through the menu could output audio. The variable is now simply unset, letting PipeWire use its native socket via `XDG_RUNTIME_DIR`.\n- Kept the previous fix (probe `pw-play` before `sounddevice`) since `sounddevice`/PortAudio can be silent on some PipeWire hosts.",
+      "htmlUrl": "https://github.com/stxtxm/visualize/releases/tag/v0.3.16",
+      "assets": [
+        {
+          "name": "Visualize.AppImage",
+          "downloadUrl": "https://github.com/stxtxm/visualize/releases/download/v0.3.16/Visualize.AppImage",
+          "size": 266478784,
+          "downloadCount": 0
+        },
+        {
+          "name": "Visualize_Setup_0.3.13.exe",
+          "downloadUrl": "https://github.com/stxtxm/visualize/releases/download/v0.3.16/Visualize_Setup_0.3.13.exe",
+          "size": 552784030,
+          "downloadCount": 0
+        }
+      ]
+    },
+    "highlights": [
+      "Moteur de rendu spectral BPM-synced avec bloom dynamique et glyphes orbitaux",
+      "Prévisualisation temps-réel et export vidéo MP4 haute fidélité (FFmpeg)",
+      "Personnalisation complète : image de fond, placement libre de filigrane / logo et couleurs",
+      "Package portable AppImage pour Linux et exécutable Windows"
+    ],
+    "architecture": [
+      "Python 3, analyse spectrale FFT du signal audio",
+      "Intégration FFmpeg pour l’encodage vidéo synchrone",
+      "Workflow CI GitHub Actions avec compilation AppImage multi-plateforme"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1158060504,
+    "slug": "bpm-table",
+    "name": "BPM Table",
+    "owner": "stxtxm",
+    "description": "Application web d’aide aux transitions DJ permettant de calculer instantanément les pourcentages de pitch entre deux tempos. Matrice complète avec sélection bidirectionnelle et calculs haute précision sans dérive flottante.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "SCSS",
+      "PWA",
+      "Audio / DJ"
+    ],
+    "image": "/media/bpm-table.png",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/bpm-table",
+    "liveUrl": "https://bpm-table.vercel.app",
+    "featured": true,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-10-10T16:12:35Z",
+    "createdAt": "2026-02-14T18:25:44Z",
+    "highlights": [
+      "Calculs arithmétiques BigInt déterministes à précision fixe (zéro dérive flottante)",
+      "Matrice de conversion interactive de 60 à 180 BPM avec filtres d’écart de tempo",
+      "Interface réactive mobile-first pensée pour l’éclairage tamisé des cabines DJ",
+      "PWA installable avec support offline complet via Service Worker"
+    ],
+    "architecture": [
+      "React + TypeScript avec typage strict",
+      "SCSS responsive avec variables CSS modernes et animations subtiles",
+      "Hébergement Vercel avec CI/CD automatisée"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1352950369,
+    "slug": "fedora-wifi-sound-link",
+    "name": "Fedora Wifi Sound Link",
+    "owner": "stxtxm",
+    "description": "Streaming audio sans fil haute fidélité studio entre Fedora (PipeWire) et un Raspberry Pi connecté à une carte son AudioBox USB 96 et des enceintes KRK Rokit. Algorithme anti-saccades Roc Toolkit (FEC) et application de contrôle Android.",
+    "tags": [
+      "Python",
+      "Audio / DSP",
+      "PipeWire",
+      "Raspberry Pi",
+      "Networking"
+    ],
+    "image": "/media/fedora-wifi-sound-link-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/fedora-wifi-sound-link",
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-09-12T20:19:19Z",
+    "createdAt": "2026-08-31T23:36:39Z",
+    "latestRelease": {
+      "version": "v1.1.8",
+      "name": "KRK Link v1.1.8 - Bluetooth volume slider",
+      "publishedAt": "2026-09-12T14:40:56Z",
+      "body": "## Android\n\n- Ajoute un slider de volume 0–100 dans l’APK.\n- Le slider agit immédiatement sur le volume média Android de la sortie Bluetooth A2DP.\n- Le réglage ne modifie pas la connexion et fonctionne sans Wi-Fi.\n\n## Raspberry Pi\n\n- Le Pi a été nettoyé et reconfiguré directement sur `192.168.1.103`.\n- Les anciens watchers et loopbacks concurrents ont été supprimés.\n- Le Pixel 9a est `Trusted: yes` et la connexion a été vérifiée active.\n- Le watchdog BlueZ corrigé utilise `bluetoothctl devices` (compatible BlueZ 5.82).\n\nInstallation APK : téléchargez `KRKLink-v1.1.8-volume.apk`, puis installez-le sur le Pixel 9a. Le script Pi n’a pas besoin d’être relancé pour le slider.",
+      "htmlUrl": "https://github.com/stxtxm/fedora-wifi-sound-link/releases/tag/v1.1.8",
+      "assets": [
+        {
+          "name": "KRKLink-v1.1.8-volume.apk",
+          "downloadUrl": "https://github.com/stxtxm/fedora-wifi-sound-link/releases/download/v1.1.8/KRKLink-v1.1.8-volume.apk",
+          "size": 3017218,
+          "downloadCount": 1
+        }
+      ]
+    },
+    "highlights": [
+      "Flux audio PipeWire direct vers Raspberry Pi sans aucune coupure même sur Wi-Fi instable",
+      "Protocole Roc Toolkit avec Forward Error Correction (FEC) et buffer adaptatif anti-jitter",
+      "Interface graphique moderne CustomTkinter en mode sombre avec VU-mètres stéréophoniques",
+      "Application Android compagnon pour ajuster le volume et contrôler la liaison"
+    ],
+    "architecture": [
+      "Python 3 + CustomTkinter pour l’interface utilisateur",
+      "Roc Toolkit C bindings / PipeWire pulse bridge pour le transport audio temps-réel",
+      "Serveur audio Raspberry Pi optimisé sous ALSA / PipeWire basse latence"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1280041801,
+    "slug": "vibe-telegram-bot",
+    "name": "Vibe Telegram Bot",
+    "owner": "stxtxm",
+    "description": "Client Telegram complet pour piloter et superviser Mistral Vibe à distance via le protocole ACP (Agent Communication Protocol). Gestion de sessions, navigation dans les fichiers du projet, exécution de commandes et suivi des tâches.",
+    "tags": [
+      "TypeScript",
+      "Node.js",
+      "Mistral AI",
+      "Telegram Bot",
+      "Agentic AI"
+    ],
+    "image": "/media/vibe-telegram-bot.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/vibe-telegram-bot",
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-08-29T11:02:05Z",
+    "createdAt": "2026-06-25T08:07:35Z",
+    "highlights": [
+      "Pont de communication complet entre Telegram et le protocole ACP de Mistral Vibe",
+      "Contrôle distant des sessions IA : prompts, validations, arrêt/reprise de génération",
+      "Exploration interactive du système de fichiers du projet directement depuis le chat",
+      "Gestionnaire de todos intégré pour suivre la progression des tâches en cours"
+    ],
+    "architecture": [
+      "Node.js & TypeScript avec typage strict",
+      "Telegram Bot API (telegraf / grammy) avec streaming markdown",
+      "Protocole ACP (Agent Communication Protocol) en streaming bidirectionnel"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1348844598,
+    "slug": "cline-baseline",
+    "name": "cline-baseline",
+    "owner": "stxtxm",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "Shell"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/cline-baseline",
+    "featured": true,
+    "stars": 0,
+    "language": "Shell",
+    "updatedAt": "2026-08-27T18:56:50Z",
+    "createdAt": "2026-08-27T18:53:49Z",
+    "latestRelease": {
+      "version": "v3.0.60-baseline",
+      "name": "Cline 3.0.60 baseline (no AVX2) - Ubuntu/Debian x64",
+      "publishedAt": "2026-08-27T18:54:50Z",
+      "body": "Binaire baseline compatible Ivy Bridge i5-3450 (avx sans avx2) et J5040 Gemini Lake (sse4 sans avx) - build Bun 1.3.13 baseline sur Ubuntu 24.04. Testé PASS sur Ubuntu 24.04 + Debian 13 trixie. sha256 b115172ccb153674c967ab19471b235cbc9c3168830b15a371d2b65fa240d163. Install: curl -L https://github.com/stxtxm/cline-baseline/releases/latest/download/cline-linux-x64-baseline -o ~/.local/share/pnpm/bin/cline && chmod +x ~/.local/share/pnpm/bin/cline",
+      "htmlUrl": "https://github.com/stxtxm/cline-baseline/releases/tag/v3.0.60-baseline",
+      "assets": [
+        {
+          "name": "cline-linux-x64-baseline",
+          "downloadUrl": "https://github.com/stxtxm/cline-baseline/releases/download/v3.0.60-baseline/cline-linux-x64-baseline",
+          "size": 149584192,
+          "downloadCount": 2
+        },
+        {
+          "name": "cline-linux-x64-baseline.sha256",
+          "downloadUrl": "https://github.com/stxtxm/cline-baseline/releases/download/v3.0.60-baseline/cline-linux-x64-baseline.sha256",
+          "size": 110,
+          "downloadCount": 0
+        }
+      ]
+    },
+    "isLiveGithub": true
+  },
+  {
+    "id": 447427257,
+    "slug": "socket-chat",
+    "name": "Socket-Tchat",
+    "owner": "timotheegrollier",
+    "description": "Messagerie instantanée bidirectionnelle temps réel propulsée par WebSockets. Refonte ergonomique mobile inspirée de Telegram avec gestion plein écran, safe areas, tiroir de composition et revalidation en arrière-plan.",
+    "tags": [
+      "React",
+      "Node.js",
+      "Socket.io",
+      "Express",
+      "PWA"
+    ],
+    "image": "/media/socket-tchat.png",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/socket-chat",
+    "liveUrl": "https://socket-tchat.onrender.com/",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-11-07T22:15:01Z",
+    "createdAt": "2022-01-13T01:43:07Z",
+    "highlights": [
+      "Communication full-duplex ultra réactive via WebSockets Socket.io",
+      "Mise en page optimisée smartphones (Telegram-like) avec gestion intelligente du clavier virtuel",
+      "Reconnexion automatique et synchronisation d’état sans perte de messages"
+    ],
+    "architecture": [
+      "Frontend React + TypeScript avec styled components / SCSS",
+      "Backend Node.js & Express avec serveur Socket.io"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 361059515,
+    "slug": "timotheegrollier.github.io",
+    "name": "Portfolio Développeur",
+    "owner": "timotheegrollier",
+    "description": "Portfolio personnel moderne et réactif en React 19, TypeScript et Vite. Intègre une synchronisation dynamique multi-comptes GitHub (@timotheegrollier & @stxtxm), affichage temps réel des patch notes, design glassmorphism et CI/CD GitHub Pages.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "SCSS",
+      "GitHub Actions"
+    ],
+    "image": "/media/timo.jpg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/timotheegrollier.github.io",
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-11-06T14:04:51Z",
+    "createdAt": "2021-04-24T03:16:07Z",
+    "highlights": [
+      "Synchronisation dynamique temps réel avec les deux comptes GitHub @timotheegrollier et @stxtxm",
+      "Extraction et rendu formaté des patch notes et artefacts de release GitHub",
+      "Design sombre sur-mesure ultra fluide avec tokens SCSS et navigation accessible",
+      "Déploiement continu automatisé via GitHub Pages et GitHub Actions avec cron quotidien"
+    ],
+    "architecture": [
+      "React 19, TypeScript 5.7, Vite 6",
+      "GitHub REST API v3 avec cache local intelligent et fallback statique généré",
+      "Workflow CI/CD GitHub Actions multi-jobs avec compilation optimisée"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1340505833,
+    "slug": "clicker-game",
+    "name": "clicker-game",
+    "owner": "stxtxm",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/clicker-game",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-10-18T12:15:01Z",
+    "createdAt": "2026-08-20T09:12:23Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 1376302942,
+    "slug": "ai-news-feed",
+    "name": "ai-news-feed",
+    "owner": "stxtxm",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "HTML"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/ai-news-feed",
+    "featured": false,
+    "stars": 0,
+    "language": "HTML",
+    "updatedAt": "2026-09-18T18:47:33Z",
+    "createdAt": "2026-09-18T18:47:29Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 1345278043,
+    "slug": "vpn-saph",
+    "name": "vpn-saph",
+    "owner": "stxtxm",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "Shell"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/vpn-saph",
+    "featured": false,
+    "stars": 0,
+    "language": "Shell",
+    "updatedAt": "2026-08-25T07:43:58Z",
+    "createdAt": "2026-08-24T18:24:48Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 1241717345,
+    "slug": "instabot",
+    "name": "instabot",
+    "owner": "stxtxm",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "Python"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/instabot",
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-05-25T12:43:37Z",
+    "createdAt": "2026-05-17T18:21:26Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 1217813859,
+    "slug": "joke-generator",
+    "name": "joke-generator",
+    "owner": "stxtxm",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/joke-generator",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-05-24T15:14:11Z",
+    "createdAt": "2026-04-22T08:41:57Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 1246785378,
+    "slug": "gpto",
+    "name": "gpto",
+    "owner": "stxtxm",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "Python"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/gpto",
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-05-23T20:50:08Z",
+    "createdAt": "2026-05-22T14:51:55Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 1215144205,
+    "slug": "local-ai",
+    "name": "Local AI Stack",
+    "owner": "stxtxm",
+    "description": "Stack Docker Compose clé en main pour faire tourner des modèles de langage locaux (LLMs) sans connexion cloud. Associe le moteur Ollama et l’interface de discussion moderne Open-WebUI.",
+    "tags": [
+      "Docker",
+      "Ollama",
+      "Open-WebUI",
+      "Local LLM",
+      "DevOps"
+    ],
+    "image": "/media/local-ai.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/local-ai",
+    "featured": false,
+    "stars": 0,
+    "language": "Shell",
+    "updatedAt": "2026-04-19T14:57:55Z",
+    "createdAt": "2026-04-19T14:40:09Z",
+    "highlights": [
+      "Déploiement en 1 commande via Docker Compose avec persistance des modèles et des historiques",
+      "Accélération matérielle GPU (NVIDIA CUDA / AMD ROCm) automatique",
+      "Interface web réactive Open-WebUI riche en fonctionnalités (RAG, paramètres de température, rôles)",
+      "Confidentialité totale : aucune donnée ne quitte votre machine"
+    ],
+    "architecture": [
+      "Docker & Docker Compose",
+      "Ollama pour l’inférence locale de modèles (Llama, Mistral, Qwen, DeepSeek)",
+      "Open-WebUI pour l’interface utilisateur web responsive"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1208650981,
+    "slug": "g-manager",
+    "name": "g-manager",
+    "owner": "stxtxm",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/g-manager",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-04-12T17:11:50Z",
+    "createdAt": "2026-04-12T15:16:17Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 1153083028,
+    "slug": "dead-fish-counter",
+    "name": "dead-fish-counter",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/dead-fish-counter",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-02-08T21:50:27Z",
+    "createdAt": "2026-02-08T21:42:25Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 1141993102,
+    "slug": "event-unlined",
+    "name": "event-unlined",
+    "owner": "stxtxm",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/event-unlined",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-02-02T00:43:05Z",
+    "createdAt": "2026-01-25T19:27:23Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 514109075,
+    "slug": "findthebeat",
+    "name": "FindTheBeat",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "PHP"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/FindTheBeat",
+    "featured": false,
+    "stars": 0,
+    "language": "PHP",
+    "updatedAt": "2025-08-31T12:48:35Z",
+    "createdAt": "2022-07-15T02:30:09Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 391220370,
+    "slug": "youtubeparser",
+    "name": "YoutubeParser",
+    "owner": "timotheegrollier",
+    "description": "Symfony youtube parser",
+    "tags": [
+      "PHP"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/YoutubeParser",
+    "featured": false,
+    "stars": 0,
+    "language": "PHP",
+    "updatedAt": "2023-12-03T22:21:55Z",
+    "createdAt": "2021-07-31T00:45:33Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 669895572,
+    "slug": "shooter-js",
+    "name": "shooter-js",
+    "owner": "timotheegrollier",
+    "description": "javascript game, oop",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/shooter-js",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2023-09-16T16:49:10Z",
+    "createdAt": "2023-07-23T19:24:30Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 669870778,
+    "slug": "bard-cli",
+    "name": "Bard-CLI",
+    "owner": "timotheegrollier",
+    "description": "Google Bard CLI in python ",
+    "tags": [
+      "Python"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/Bard-CLI",
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2023-07-23T18:01:41Z",
+    "createdAt": "2023-07-23T17:41:35Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 655279330,
+    "slug": "slymeupdated",
+    "name": "SlymeUpdated",
+    "owner": "timotheegrollier",
+    "description": "Fixes to make and api endpoint on open.ai chat-gpt",
+    "tags": [
+      "Python"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/SlymeUpdated",
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2023-06-18T12:40:56Z",
+    "createdAt": "2023-06-18T12:37:11Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 639158690,
+    "slug": "reactsymfonystarterpack",
+    "name": "ReactSymfonyStarterPack",
+    "owner": "timotheegrollier",
+    "description": "basic start for a SymfonyReact Project",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/ReactSymfonyStarterPack",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2023-05-10T22:45:17Z",
+    "createdAt": "2023-05-10T22:15:47Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 494623286,
+    "slug": "shifoumi",
+    "name": "SHIFOUMI",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "PHP"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/SHIFOUMI",
+    "featured": false,
+    "stars": 0,
+    "language": "PHP",
+    "updatedAt": "2023-05-08T19:21:43Z",
+    "createdAt": "2022-05-20T22:36:01Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 565130257,
+    "slug": "apachephpdocker",
+    "name": "ApachePhpDocker",
+    "owner": "timotheegrollier",
+    "description": "Apache server with PHP , PMA , Mysql customs docker images template",
+    "tags": [
+      "Dockerfile"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/ApachePhpDocker",
+    "featured": false,
+    "stars": 0,
+    "language": "Dockerfile",
+    "updatedAt": "2022-11-12T12:43:50Z",
+    "createdAt": "2022-11-12T12:41:16Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 538257017,
+    "slug": "mysql-full-js",
+    "name": "mysql-full-js",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/mysql-full-js",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2022-09-18T22:36:44Z",
+    "createdAt": "2022-09-18T22:25:37Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 510059265,
+    "slug": "ux-live-component",
+    "name": "ux-live-component",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "PHP"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/ux-live-component",
+    "featured": false,
+    "stars": 0,
+    "language": "PHP",
+    "updatedAt": "2022-07-03T15:18:59Z",
+    "createdAt": "2022-07-03T15:18:13Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 456675711,
+    "slug": "tims_weather_app",
+    "name": "tims_weather_app",
+    "owner": "timotheegrollier",
+    "description": "call api https://www.weatherapi.com/ and display results by city with Symfony 6",
+    "tags": [
+      "SCSS"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/tims_weather_app",
+    "featured": false,
+    "stars": 0,
+    "language": "SCSS",
+    "updatedAt": "2022-02-20T01:17:35Z",
+    "createdAt": "2022-02-07T21:01:31Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 457426747,
+    "slug": "hmj",
+    "name": "hmj",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/hmj",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2022-02-09T16:23:03Z",
+    "createdAt": "2022-02-09T15:56:13Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 454112044,
+    "slug": "wolfy",
+    "name": "Wolfy",
+    "owner": "timotheegrollier",
+    "description": "Javascript OOP game with canvas api",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/Wolfy",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2022-02-01T00:16:24Z",
+    "createdAt": "2022-01-31T17:55:38Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 450801748,
+    "slug": "snake",
+    "name": "Snake",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "HTML"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/Snake",
+    "featured": false,
+    "stars": 0,
+    "language": "HTML",
+    "updatedAt": "2022-01-22T11:47:42Z",
+    "createdAt": "2022-01-22T11:46:37Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 450202769,
+    "slug": "shortx",
+    "name": "ShortX",
+    "owner": "timotheegrollier",
+    "description": "URL shortener made with Symfony",
+    "tags": [
+      "PHP"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/ShortX",
+    "featured": false,
+    "stars": 0,
+    "language": "PHP",
+    "updatedAt": "2022-01-20T19:15:04Z",
+    "createdAt": "2022-01-20T17:57:08Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 371395029,
+    "slug": "mycave",
+    "name": "MyCave",
+    "owner": "timotheegrollier",
+    "description": "MVC project ",
+    "tags": [
+      "PHP"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/MyCave",
+    "featured": false,
+    "stars": 0,
+    "language": "PHP",
+    "updatedAt": "2022-01-20T16:25:48Z",
+    "createdAt": "2021-05-27T14:06:06Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 444388543,
+    "slug": "countriespeople",
+    "name": "countriespeople",
+    "owner": "timotheegrollier",
+    "description": "ReactCountries ",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/countriespeople",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2022-01-04T11:24:13Z",
+    "createdAt": "2022-01-04T11:09:59Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 437952559,
+    "slug": "matrix-gradient",
+    "name": "matrix-gradient",
+    "owner": "timotheegrollier",
+    "description": "Matrix rain with gradient / OOP Javascript",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/matrix-gradient",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2021-12-13T16:52:26Z",
+    "createdAt": "2021-12-13T16:51:30Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 392878708,
+    "slug": "audio",
+    "name": "Audio",
+    "owner": "timotheegrollier",
+    "description": "Audio is web application for sharing sounds ",
+    "tags": [
+      "PHP"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/Audio",
+    "featured": false,
+    "stars": 0,
+    "language": "PHP",
+    "updatedAt": "2021-11-20T11:27:42Z",
+    "createdAt": "2021-08-05T02:25:47Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 425220365,
+    "slug": "turbo-chat",
+    "name": "turbo-chat",
+    "owner": "timotheegrollier",
+    "description": "Symfony UX turbo chat",
+    "tags": [
+      "PHP"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/turbo-chat",
+    "featured": false,
+    "stars": 0,
+    "language": "PHP",
+    "updatedAt": "2021-11-19T17:43:36Z",
+    "createdAt": "2021-11-06T10:56:27Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 428732446,
+    "slug": "3dcube",
+    "name": "3dCube",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "CSS"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/3dCube",
+    "featured": false,
+    "stars": 0,
+    "language": "CSS",
+    "updatedAt": "2021-11-16T16:34:50Z",
+    "createdAt": "2021-11-16T16:30:02Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 422886116,
+    "slug": "petmvc",
+    "name": "PETMVC",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "PHP"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/PETMVC",
+    "featured": false,
+    "stars": 0,
+    "language": "PHP",
+    "updatedAt": "2021-11-01T17:35:09Z",
+    "createdAt": "2021-10-30T13:17:24Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 411669237,
+    "slug": "pygametuto",
+    "name": "PygameTuto",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "Python"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/PygameTuto",
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2021-10-30T20:17:50Z",
+    "createdAt": "2021-09-29T12:40:53Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 377285424,
+    "slug": "freebird",
+    "name": "FreeBird",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/FreeBird",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2021-06-27T23:19:35Z",
+    "createdAt": "2021-06-15T20:25:48Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 376790684,
+    "slug": "reactcountries",
+    "name": "ReactCountries",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/ReactCountries",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2021-06-15T11:38:44Z",
+    "createdAt": "2021-06-14T10:53:02Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 375333575,
+    "slug": "reduxcours",
+    "name": "ReduxCours",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/ReduxCours",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2021-06-09T14:45:34Z",
+    "createdAt": "2021-06-09T11:37:42Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 366042987,
+    "slug": "randomuserajax",
+    "name": "randomUserAjax",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/randomUserAjax",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2021-05-10T14:52:47Z",
+    "createdAt": "2021-05-10T12:57:08Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 357479770,
+    "slug": "passwordgenerator",
+    "name": "PasswordGenerator",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/PasswordGenerator",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2021-04-15T00:12:04Z",
+    "createdAt": "2021-04-13T08:30:08Z",
+    "isLiveGithub": true
+  },
+  {
+    "id": 353373469,
+    "slug": "kassbrik",
+    "name": "KassBrik",
+    "owner": "timotheegrollier",
+    "description": "Projet open-source disponible sur GitHub.",
+    "tags": [
+      "JavaScript"
+    ],
+    "image": "/media/bpm-detector.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/KassBrik",
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2021-04-06T12:30:09Z",
+    "createdAt": "2021-03-31T13:51:44Z",
+    "isLiveGithub": true
+  }
+]

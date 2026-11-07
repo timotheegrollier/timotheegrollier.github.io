@@ -1,0 +1,27 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 220)">
+    <!-- Telegram paper plane circle -->
+    <circle r="75" fill="#229ED9" fill-opacity="0.15" stroke="#229ED9" stroke-width="2"/>
+    <circle r="55" fill="#229ED9"/>
+    <!-- Paper plane -->
+    <path d="M-22 4 L26 -22 L-10 24 L-7 7 L12 -12 L-16 2 Z" fill="white"/>
+    
+    <!-- AI Sparkles -->
+    <path d="M-85 -45 L-78 -45 L-78 -52 L-73 -45 L-66 -45 L-71 -40 L-68 -33 L-76 -37 L-83 -33 L-80 -40 Z" fill="#F59E0B"/>
+    <path d="M75 -55 L80 -55 L80 -60 L83 -55 L88 -55 L84 -51 L86 -46 L81 -49 L76 -46 L78 -51 Z" fill="#9333EA"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="360" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="white" font-weight="700" letter-spacing="-0.02em">VIBE TELEGRAM BOT</text>
+  <text x="400" y="395" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#94A3B8" font-weight="500">Mistral Vibe Controller via ACP Protocol</text>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.5" stop-color="#1E1B4B"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+</svg>

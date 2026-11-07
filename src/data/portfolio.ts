@@ -1,10 +1,29 @@
 // ============================================
 // Portfolio Data — Projects & Skills
 // ============================================
+import rawProjects from './generated-projects.json';
+
+export interface ReleaseAsset {
+    name: string;
+    downloadUrl: string;
+    size: number;
+    downloadCount?: number;
+}
+
+export interface ReleaseInfo {
+    version: string;
+    name: string;
+    publishedAt: string;
+    body: string;
+    htmlUrl: string;
+    assets?: ReleaseAsset[];
+}
 
 export interface Project {
-    id: number;
+    id: number | string;
+    slug?: string;
     name: string;
+    owner?: 'timotheegrollier' | 'stxtxm' | string;
     description: string;
     tags: string[];
     image: string;
@@ -15,6 +34,14 @@ export interface Project {
     sourceUrl: string;
     liveUrl?: string;
     featured?: boolean;
+    stars?: number;
+    language?: string;
+    updatedAt?: string;
+    createdAt?: string;
+    latestRelease?: ReleaseInfo;
+    highlights?: string[];
+    architecture?: string[];
+    isLiveGithub?: boolean;
 }
 
 export interface Skill {
@@ -33,55 +60,7 @@ export interface Experience {
     type: 'dev' | 'other';
 }
 
-export const projects: Project[] = [
-    {
-        id: 1,
-        name: 'BitBrawler',
-        description:
-            'RPG navigateur 8-bit avec création de personnages, arène PvP, système de loot, matchmaking par niveau, bots IA avec combats simulés, et PWA installable. Backend Firebase avec reset quotidien automatisé.',
-        tags: ['React', 'TypeScript', 'Firebase', 'Vite', 'SCSS', 'PWA'],
-        image: '/media/bitbrawler.png',
-        cardImageFit: 'cover',
-        cardImagePosition: 'center 28%',
-        modalImageFit: 'contain',
-        modalImagePosition: 'center top',
-        sourceUrl: 'https://github.com/stxtxm/bitbrawler',
-        liveUrl: 'https://bitbrawler.vercel.app',
-        featured: true,
-    },
-    {
-        id: 2,
-        name: 'BPM Detector Pro',
-        description:
-            'Détection haute précision de BPM pour fichiers audio. GUI desktop (Tkinter), CLI pour automation, et interface web Flask. Binaires portables avec FFmpeg intégré. Supporte MP3, FLAC, WAV, M4A, OGG et plus.',
-        tags: ['Python', 'Flask', 'Tkinter', 'CI/CD', 'PyInstaller'],
-        image: '/media/bpm-detector.svg',
-        sourceUrl: 'https://github.com/timotheegrollier/bpm-detector-pro',
-        featured: true,
-    },
-    {
-        id: 3,
-        name: 'BPM Table',
-        description:
-            'Application web de calcul de pourcentages de transition entre BPM pour DJs. Matrice complète avec sélection source/destination, calculs BigInt sans dérive flottante, et interface responsive PWA.',
-        tags: ['React', 'TypeScript', 'Vite', 'SCSS', 'PWA'],
-        image: '/media/bpm-table.png',
-        sourceUrl: 'https://github.com/stxtxm/bpm-table',
-        liveUrl: 'https://bpm-table.vercel.app',
-        featured: true,
-    },
-    {
-        id: 4,
-        name: 'Socket-Tchat',
-        description:
-            'Chat en temps réel avec Socket.io. Communication bidirectionnelle instantanée, backend Express.js full JavaScript et frontend React.',
-        tags: ['React', 'Node.js', 'Socket.io', 'Express'],
-        image: '/media/socket-tchat.png',
-        sourceUrl: 'https://github.com/timotheegrollier/reactSocketChat',
-        liveUrl: 'https://socket-tchat.onrender.com/',
-        featured: true,
-    },
-];
+export const projects: Project[] = rawProjects as unknown as Project[];
 
 export const skills: Skill[] = [
     // Languages
