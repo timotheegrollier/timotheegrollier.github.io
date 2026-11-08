@@ -96,38 +96,21 @@ const curatedMetadata = {
     'timotheegrollier/socket-chat': {
         name: 'Socket-Tchat',
         description:
-            'Messagerie instantanée bidirectionnelle temps réel propulsée par WebSockets. Refonte ergonomique mobile inspirée de Telegram avec gestion plein écran, safe areas, tiroir de composition et revalidation en arrière-plan.',
-        tags: ['React', 'Node.js', 'Socket.io', 'Express', 'PWA'],
-        image: '/media/socket-tchat.png',
-        featured: false,
-        liveUrl: 'https://socket-tchat.onrender.com/',
+            'Messagerie instantanée temps réel multi-canaux propulsée par Cloudflare Workers et Durable Objects. Interface moderne style Discord/Slack avec channels, emoji picker, indicateur de frappe, authentification et stockage persistant. Frontend React déployé sur GitHub Pages, API REST sur Render.',
+        tags: ['React', 'TypeScript', 'Cloudflare Workers', 'WebSocket', 'PWA'],
+        image: '/media/socket-tchat-banner.svg',
+        featured: true,
+        liveUrl: 'https://timotheegrollier.github.io/socket-chat/',
         highlights: [
-            'Communication full-duplex ultra réactive via WebSockets Socket.io',
-            'Mise en page optimisée smartphones (Telegram-like) avec gestion intelligente du clavier virtuel',
-            'Reconnexion automatique et synchronisation d’état sans perte de messages',
+            'Architecture serverless haute performance sur Cloudflare Workers avec Durable Objects pour la gestion d\'état WebSocket',
+            'Interface multi-canaux moderne : channels publics/privés, recherche, notifications et thèmes personnalisables',
+            'Emoji picker intégré, indicateur de frappe en temps réel et horodatage intelligent des messages',
+            'PWA installable avec mode hors-ligne partiel et synchronisation automatique à la reconnexion',
         ],
         architecture: [
-            'Frontend React + TypeScript avec styled components / SCSS',
-            'Backend Node.js & Express avec serveur Socket.io',
-        ],
-    },
-    'timotheegrollier/timotheegrollier.github.io': {
-        name: 'Portfolio Développeur',
-        description:
-            'Portfolio personnel moderne et réactif en React 19, TypeScript et Vite. Intègre une synchronisation dynamique multi-comptes GitHub (@timotheegrollier & @stxtxm), affichage temps réel des patch notes, design glassmorphism et CI/CD GitHub Pages.',
-        tags: ['React', 'TypeScript', 'Vite', 'SCSS', 'GitHub Actions'],
-        image: '/media/timo.jpg',
-        featured: false,
-        highlights: [
-            'Synchronisation dynamique temps réel avec les deux comptes GitHub @timotheegrollier et @stxtxm',
-            'Extraction et rendu formaté des patch notes et artefacts de release GitHub',
-            'Design sombre sur-mesure ultra fluide avec tokens SCSS et navigation accessible',
-            'Déploiement continu automatisé via GitHub Pages et GitHub Actions avec cron quotidien',
-        ],
-        architecture: [
-            'React 19, TypeScript 5.7, Vite 6',
-            'GitHub REST API v3 avec cache local intelligent et fallback statique généré',
-            'Workflow CI/CD GitHub Actions multi-jobs avec compilation optimisée',
+            'Frontend React + TypeScript déployé sur GitHub Pages',
+            'Backend WebSocket sur Cloudflare Workers / Durable Objects pour la scalabilité edge',
+            'API REST complémentaire hébergée sur Render pour l\'authentification et la persistance',
         ],
     },
     'stxtxm/bitbrawler': {
@@ -277,13 +260,65 @@ const curatedMetadata = {
             'Open-WebUI pour l’interface utilisateur web responsive',
         ],
     },
+    'stxtxm/clicker-game': {
+        name: 'Clicker Game',
+        description:
+            'Jeu incrémental / idle game web addictif avec système d’achats, multiplicateurs, paliers de prestige et sauvegarde locale automatique.',
+        tags: ['TypeScript', 'React', 'CSS3', 'Game', 'PWA'],
+        featured: false,
+    },
+    'stxtxm/ai-news-feed': {
+        name: 'AI News Feed',
+        description:
+            'Agrégateur et flux d’actualités temps réel dédié aux modèles d’intelligence artificielle, LLMs et avancées deep learning. Interface épurée et filtrage multicritères.',
+        tags: ['TypeScript', 'React', 'API REST', 'AI', 'News'],
+        featured: false,
+    },
 };
 
 const ignoredRepos = new Set([
     'timotheegrollier/timotheegrollier', // profile readme config
     'timotheegrollier/json',
-    'timotheegrollier/API',
+    'timotheegrollier/api',
     'timotheegrollier/pwa', // fork
+    'timotheegrollier/timotheegrollier.github.io',
+    'timotheegrollier/tims_weather_app',
+    'timotheegrollier/ux-live-component',
+    'timotheegrollier/wolfy',
+    'timotheegrollier/hmj',
+    'timotheegrollier/snake',
+    'timotheegrollier/shortx',
+    'timotheegrollier/mycave',
+    'timotheegrollier/countriespeople',
+    'timotheegrollier/matrix-gradient',
+    'timotheegrollier/audio',
+    'timotheegrollier/turbo-chat',
+    'timotheegrollier/3dcube',
+    'timotheegrollier/petmvc',
+    'timotheegrollier/pygametuto',
+    'timotheegrollier/freebird',
+    'timotheegrollier/reactcountries',
+    'timotheegrollier/reduxcours',
+    'timotheegrollier/randomuserajax',
+    'timotheegrollier/passwordgenerator',
+    'timotheegrollier/kassbrik',
+    'timotheegrollier/apachephpdocker',
+    'timotheegrollier/mysql-full-js',
+    'timotheegrollier/shifoumi',
+    'timotheegrollier/slymeupdated',
+    'timotheegrollier/reactsymfonystarterpack',
+    'timotheegrollier/bard-cli',
+    'timotheegrollier/youtubeparser',
+    'timotheegrollier/findthebeat',
+    'timotheegrollier/shooter-js',
+    'timotheegrollier/dead-fish-counter',
+    'stxtxm/cline-baseline',
+    'stxtxm/g-manager',
+    'stxtxm/gpto',
+    'stxtxm/joke-generator',
+    'stxtxm/instabot',
+    'stxtxm/vpn-saph',
+    'stxtxm/event-unlined',
 ]);
 
 const users = ['timotheegrollier', 'stxtxm'];
@@ -300,7 +335,8 @@ async function run() {
 
                 for (const repo of repos) {
                     const fullName = `${user}/${repo.name}`;
-                    if (repo.fork || ignoredRepos.has(fullName)) continue;
+                    const slug = repo.name.toLowerCase();
+                    if (repo.fork || ignoredRepos.has(fullName.toLowerCase()) || ignoredRepos.has(slug)) continue;
 
                     let latestRelease = null;
 
@@ -327,6 +363,35 @@ async function run() {
 
                     const curated = curatedMetadata[fullName] || {};
 
+                    // Auto-enrich description from README if no curated description and no repo description
+                    let autoDescription = '';
+                    if (!curated.description && (!repo.description || repo.description === 'Projet open-source disponible sur GitHub.')) {
+                        try {
+                            const readmeRes = await fetch(`https://api.github.com/repos/${user}/${repo.name}/readme`, {
+                                headers: { ...headers, Accept: 'application/vnd.github.v3.raw' },
+                            });
+                            if (readmeRes.ok) {
+                                const readmeText = await readmeRes.text();
+                                const lines = readmeText.split('\n');
+                                for (const line of lines) {
+                                    const trimmed = line.trim();
+                                    if (!trimmed) continue;
+                                    if (trimmed.startsWith('#')) continue;
+                                    if (trimmed.startsWith('!')) continue;
+                                    if (trimmed.startsWith('[!')) continue;
+                                    if (trimmed.startsWith('<')) continue;
+                                    if (trimmed.startsWith('---')) continue;
+                                    if (trimmed.startsWith('```')) continue;
+                                    if (trimmed.length < 20) continue;
+                                    autoDescription = trimmed.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').slice(0, 320);
+                                    break;
+                                }
+                            }
+                        } catch {
+                            // Rate limit or missing readme
+                        }
+                    }
+
                     const primaryLang = repo.language || '';
                     const baseTags = curated.tags ? [...curated.tags] : (primaryLang ? [primaryLang] : []);
                     if (repo.topics && Array.isArray(repo.topics)) {
@@ -350,7 +415,7 @@ async function run() {
                         slug: repo.name.toLowerCase(),
                         name: curated.name || repo.name,
                         owner: user,
-                        description: curated.description || repo.description || 'Projet open-source disponible sur GitHub.',
+                        description: curated.description || repo.description || autoDescription || 'Projet open-source disponible sur GitHub.',
                         tags: baseTags,
                         image,
                         cardImageFit: curated.cardImageFit || 'cover',

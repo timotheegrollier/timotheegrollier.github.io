@@ -3,7 +3,6 @@ import { projects as staticProjects, type Project, type ReleaseInfo } from '@/da
 
 const CACHE_KEY = 'timothee_portfolio_projects_v2';
 const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
-const EXCLUSIONS_KEY = 'portfolio_excluded_slugs_v1';
 
 interface CachePayload {
     timestamp: number;
@@ -15,25 +14,50 @@ const GITHUB_USERS = ['timotheegrollier', 'stxtxm'] as const;
 const IGNORED_REPOS = new Set([
     'timotheegrollier/timotheegrollier',
     'timotheegrollier/json',
-    'timotheegrollier/API',
+    'timotheegrollier/api',
     'timotheegrollier/pwa',
+    'timotheegrollier/timotheegrollier.github.io',
+    'timotheegrollier/tims_weather_app',
+    'timotheegrollier/ux-live-component',
+    'timotheegrollier/wolfy',
+    'timotheegrollier/hmj',
+    'timotheegrollier/snake',
+    'timotheegrollier/shortx',
+    'timotheegrollier/mycave',
+    'timotheegrollier/countriespeople',
+    'timotheegrollier/matrix-gradient',
+    'timotheegrollier/audio',
+    'timotheegrollier/turbo-chat',
+    'timotheegrollier/3dcube',
+    'timotheegrollier/petmvc',
+    'timotheegrollier/pygametuto',
+    'timotheegrollier/freebird',
+    'timotheegrollier/reactcountries',
+    'timotheegrollier/reduxcours',
+    'timotheegrollier/randomuserajax',
+    'timotheegrollier/passwordgenerator',
+    'timotheegrollier/kassbrik',
+    'timotheegrollier/apachephpdocker',
+    'timotheegrollier/mysql-full-js',
+    'timotheegrollier/shifoumi',
+    'timotheegrollier/slymeupdated',
+    'timotheegrollier/reactsymfonystarterpack',
+    'timotheegrollier/bard-cli',
+    'timotheegrollier/youtubeparser',
+    'timotheegrollier/findthebeat',
+    'timotheegrollier/shooter-js',
+    'timotheegrollier/dead-fish-counter',
+    'stxtxm/cline-baseline',
+    'stxtxm/g-manager',
+    'stxtxm/gpto',
+    'stxtxm/joke-generator',
+    'stxtxm/instabot',
+    'stxtxm/vpn-saph',
+    'stxtxm/event-unlined',
 ]);
 
 export function useGitHubProjects() {
-    const [excludedSlugs, setExcludedSlugs] = useState<string[]>(() => {
-        try {
-            const raw = localStorage.getItem(EXCLUSIONS_KEY);
-            if (raw) {
-                const parsed = JSON.parse(raw);
-                if (Array.isArray(parsed)) return parsed;
-            }
-        } catch {
-            // Ignore
-        }
-        return [];
-    });
-
-    const [allProjects, setAllProjects] = useState<Project[]>(() => {
+    const [projects, setProjects] = useState<Project[]>(() => {
         try {
             const raw = localStorage.getItem(CACHE_KEY);
             if (raw) {
@@ -63,51 +87,14 @@ export function useGitHubProjects() {
     });
     const [error, setError] = useState<string | null>(null);
 
-    const deleteProject = useCallback((slug: string) => {
-        setExcludedSlugs((prev) => {
-            const normalized = slug.toLowerCase();
-            if (prev.includes(normalized)) return prev;
-            const updated = [...prev, normalized];
-            try {
-                localStorage.setItem(EXCLUSIONS_KEY, JSON.stringify(updated));
-            } catch {
-                // Ignore
-            }
-            return updated;
-        });
-    }, []);
-
-    const restoreProject = useCallback((slug: string) => {
-        setExcludedSlugs((prev) => {
-            const normalized = slug.toLowerCase();
-            const updated = prev.filter((s) => s !== normalized);
-            try {
-                localStorage.setItem(EXCLUSIONS_KEY, JSON.stringify(updated));
-            } catch {
-                // Ignore
-            }
-            return updated;
-        });
-    }, []);
-
-    const resetExclusions = useCallback(() => {
-        setExcludedSlugs([]);
-        try {
-            localStorage.removeItem(EXCLUSIONS_KEY);
-        } catch {
-            // Ignore
-        }
-    }, []);
-
     const syncProjects = useCallback(async (force = false) => {
-        // If not forced and cache is fresh, do not refetch
         if (!force) {
             try {
                 const raw = localStorage.getItem(CACHE_KEY);
                 if (raw) {
                     const parsed: CachePayload = JSON.parse(raw);
                     if (Date.now() - parsed.timestamp < CACHE_TTL_MS) {
-                        setAllProjects(parsed.projects);
+                        setProjects(parsed.projects);
                         setLastSync(new Date(parsed.timestamp));
                         return;
                     }
@@ -121,14 +108,12 @@ export function useGitHubProjects() {
         setError(null);
 
         try {
-            // Clone existing static list as baseline
             const mergedMap = new Map<string, Project>();
             for (const p of staticProjects) {
                 const key = `${p.owner || 'timotheegrollier'}/${p.slug || p.name.toLowerCase()}`;
                 mergedMap.set(key, { ...p });
             }
 
-            // Fetch public repos from both accounts
             for (const user of GITHUB_USERS) {
                 try {
                     const res = await fetch(`https://api.github.com/users/${user}/repos?sort=pushed&per_page=100`, {
@@ -138,7 +123,6 @@ export function useGitHubProjects() {
                     });
 
                     if (res.status === 403 || res.status === 429) {
-                        // Rate limited by GitHub
                         console.info(`GitHub API rate limit reached for ${user}, using cached/static data.`);
                         continue;
                     }
@@ -150,20 +134,19 @@ export function useGitHubProjects() {
 
                     for (const repo of repos) {
                         const fullName = `${user}/${repo.name}`;
-                        if (repo.fork || IGNORED_REPOS.has(fullName)) continue;
+                        const slug = repo.name.toLowerCase();
+                        if (repo.fork || IGNORED_REPOS.has(fullName.toLowerCase()) || IGNORED_REPOS.has(slug)) continue;
 
                         const key = `${user}/${repo.name.toLowerCase()}`;
                         const existing = mergedMap.get(key);
 
                         if (existing) {
-                            // Update live stats
                             existing.stars = repo.stargazers_count ?? existing.stars;
                             existing.updatedAt = repo.pushed_at ?? existing.updatedAt;
                             if (repo.homepage && !existing.liveUrl) {
                                 existing.liveUrl = repo.homepage;
                             }
                         } else {
-                            // Brand new public repo released on GitHub!
                             const primaryLang = repo.language || '';
                             const tags = primaryLang ? [primaryLang] : [];
                             if (repo.topics && Array.isArray(repo.topics)) {
@@ -209,7 +192,7 @@ export function useGitHubProjects() {
             });
 
             const now = Date.now();
-            setAllProjects(updatedList);
+            setProjects(updatedList);
             setLastSync(new Date(now));
 
             try {
@@ -235,25 +218,8 @@ export function useGitHubProjects() {
         syncProjects(false);
     }, [syncProjects]);
 
-    // Active visible projects
-    const visibleProjects = allProjects.filter((p) => {
-        const slug = (p.slug || p.name).toLowerCase();
-        return !excludedSlugs.includes(slug);
-    });
-
-    const excludedProjects = allProjects.filter((p) => {
-        const slug = (p.slug || p.name).toLowerCase();
-        return excludedSlugs.includes(slug);
-    });
-
     return {
-        projects: visibleProjects,
-        allProjects,
-        excludedProjects,
-        excludedSlugs,
-        deleteProject,
-        restoreProject,
-        resetExclusions,
+        projects,
         loading,
         error,
         lastSync,

@@ -7,10 +7,9 @@ interface ProjectCardProps {
     project: Project;
     onSelect: (project: Project) => void;
     index: number;
-    onDelete?: (project: Project) => void;
 }
 
-export function ProjectCard({ project, onSelect, index, onDelete }: ProjectCardProps) {
+export function ProjectCard({ project, onSelect, index }: ProjectCardProps) {
     const openProject = () => onSelect(project);
 
     const handleExternalClick = (e: MouseEvent) => {
@@ -70,25 +69,6 @@ export function ProjectCard({ project, onSelect, index, onDelete }: ProjectCardP
                         <span className="project-card__badge project-card__badge--stars">
                             ★ {project.stars}
                         </span>
-                    )}
-
-                    {onDelete && (
-                        <button
-                            type="button"
-                            className="project-card__badge project-card__badge--delete"
-                            title="Supprimer ce projet de la sélection"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                onDelete(project);
-                            }}
-                            aria-label={`Supprimer ${project.name}`}
-                        >
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18" />
-                                <line x1="6" y1="6" x2="18" y2="18" />
-                            </svg>
-                            Supprimer
-                        </button>
                     )}
                 </div>
 

@@ -12,11 +12,6 @@ type SortOption = 'updated' | 'stars' | 'name';
 export default function Projects() {
     const {
         projects,
-        excludedProjects,
-        excludedSlugs,
-        deleteProject,
-        restoreProject,
-        resetExclusions,
         loading,
         lastSync,
         refresh,
@@ -27,9 +22,6 @@ export default function Projects() {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [sortBy, setSortBy] = useState<SortOption>('updated');
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-    const [copiedList, setCopiedList] = useState(false);
-    const [showHiddenList, setShowHiddenList] = useState(false);
-
     const closeModal = useCallback(() => setSelectedProject(null), []);
 
     // Extract top tags and sort by frequency
@@ -103,18 +95,6 @@ export default function Projects() {
         setSortBy('updated');
     };
 
-    const handleDelete = (project: Project) => {
-        const slug = (project.slug || project.name).toLowerCase();
-        deleteProject(slug);
-    };
-
-    const copyExcludedJson = () => {
-        const payload = JSON.stringify(excludedSlugs, null, 2);
-        navigator.clipboard.writeText(payload);
-        setCopiedList(true);
-        setTimeout(() => setCopiedList(false), 2500);
-    };
-
     return (
         <section className="projects-page" id="projects">
             {/* Header */}
@@ -156,85 +136,6 @@ export default function Projects() {
                     ). Retrouvez notes de version, patch notes et téléchargements.
                 </p>
             </header>
-
-            {/* Curation & Deletion Control Banner */}
-            <div className="curation-banner">
-                <div className="curation-banner__content">
-                    <div className="curation-banner__text">
-                        <span className="curation-tag">🛠️ Mode Tri Manuel</span>
-                        <p>
-                            Cliquez sur le bouton rouge <strong>Supprimer</strong> sur n'importe quel projet pour le retirer de l'affichage.
-                            {excludedSlugs.length > 0 && (
-                                <span className="curation-counter">
-                                    {' '}— <strong>{excludedSlugs.length} projet(s) actuellement masqué(s)</strong>.
-                                </span>
-                            )}
-                        </p>
-                    </div>
-
-                    <div className="curation-banner__actions">
-                        {excludedSlugs.length > 0 && (
-                            <>
-                                <button
-                                    type="button"
-                                    onClick={copyExcludedJson}
-                                    className="curation-btn curation-btn--copy"
-                                    title="Copier la liste des projets supprimés au format JSON"
-                                >
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                                    </svg>
-                                    {copiedList ? '✓ Liste copiée !' : `Copier la liste (${excludedSlugs.length})`}
-                                </button>
-
-                                <button
-                                    type="button"
-                                    onClick={() => setShowHiddenList((prev) => !prev)}
-                                    className="curation-btn curation-btn--view"
-                                >
-                                    {showHiddenList ? 'Masquer le panneau' : `Voir les masqués (${excludedSlugs.length})`}
-                                </button>
-
-                                <button
-                                    type="button"
-                                    onClick={resetExclusions}
-                                    className="curation-btn curation-btn--reset"
-                                    title="Rétablir tous les projets masqués"
-                                >
-                                    ↺ Tout restaurer
-                                </button>
-                            </>
-                        )}
-                    </div>
-                </div>
-
-                {/* Collapsible list of excluded projects */}
-                {showHiddenList && excludedProjects.length > 0 && (
-                    <div className="curation-excluded-drawer">
-                        <h4 className="curation-drawer-title">Projets actuellement masqués :</h4>
-                        <div className="curation-chips">
-                            {excludedProjects.map((p) => {
-                                const slug = (p.slug || p.name).toLowerCase();
-                                return (
-                                    <div key={p.id} className="curation-chip">
-                                        <span className="chip-name">{p.name}</span>
-                                        <span className="chip-owner">(@{p.owner})</span>
-                                        <button
-                                            type="button"
-                                            onClick={() => restoreProject(slug)}
-                                            className="chip-restore-btn"
-                                            title="Restaurer ce projet"
-                                        >
-                                            Restaurer ↺
-                                        </button>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                )}
-            </div>
 
             {/* Controls Bar: Search, Account Switcher & Sort */}
             <div className="projects-controls">
@@ -348,7 +249,6 @@ export default function Projects() {
                             project={project}
                             index={index}
                             onSelect={setSelectedProject}
-                            onDelete={handleDelete}
                         />
                     ))}
                 </div>
@@ -372,7 +272,6 @@ export default function Projects() {
                 <ProjectModal
                     project={selectedProject}
                     onClose={closeModal}
-                    onDelete={handleDelete}
                 />
             )}
         </section>

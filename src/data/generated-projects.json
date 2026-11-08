@@ -34,31 +34,31 @@
           "name": "maschine-linux-0.9.0-1.x86_64.rpm",
           "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/maschine-linux-0.9.0-1.x86_64.rpm",
           "size": 5610510,
-          "downloadCount": 0
+          "downloadCount": 2
         },
         {
           "name": "maschine-linux-0.9.0-linux-x86_64.tar.gz",
           "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/maschine-linux-0.9.0-linux-x86_64.tar.gz",
           "size": 7035584,
-          "downloadCount": 0
+          "downloadCount": 1
         },
         {
           "name": "maschine-linux_0.9.0-1_amd64.deb",
           "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/maschine-linux_0.9.0-1_amd64.deb",
           "size": 5241040,
-          "downloadCount": 0
+          "downloadCount": 1
         },
         {
           "name": "Maschine_Linux-0.9.0-x86_64.AppImage",
           "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/Maschine_Linux-0.9.0-x86_64.AppImage",
           "size": 7267520,
-          "downloadCount": 0
+          "downloadCount": 1
         },
         {
           "name": "SHA256SUMS",
           "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/SHA256SUMS",
           "size": 409,
-          "downloadCount": 0
+          "downloadCount": 1
         }
       ]
     },
@@ -111,6 +111,44 @@
       "React 18 / TypeScript, bundler Vite pour des performances optimales",
       "Backend serverless Firebase (Firestore, Cloud Functions)",
       "Déploiement continu via Cloudflare Pages"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 447427257,
+    "slug": "socket-chat",
+    "name": "Socket-Tchat",
+    "owner": "timotheegrollier",
+    "description": "Messagerie instantanée temps réel multi-canaux propulsée par Cloudflare Workers et Durable Objects. Interface moderne style Discord/Slack avec channels, emoji picker, indicateur de frappe, authentification et stockage persistant. Frontend React déployé sur GitHub Pages, API REST sur Render.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Cloudflare Workers",
+      "WebSocket",
+      "PWA"
+    ],
+    "image": "/media/socket-tchat-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/socket-chat",
+    "liveUrl": "https://timotheegrollier.github.io/socket-chat/",
+    "featured": true,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-11-07T22:15:01Z",
+    "createdAt": "2022-01-13T01:43:07Z",
+    "highlights": [
+      "Architecture serverless haute performance sur Cloudflare Workers avec Durable Objects pour la gestion d'état WebSocket",
+      "Interface multi-canaux moderne : channels publics/privés, recherche, notifications et thèmes personnalisables",
+      "Emoji picker intégré, indicateur de frappe en temps réel et horodatage intelligent des messages",
+      "PWA installable avec mode hors-ligne partiel et synchronisation automatique à la reconnexion"
+    ],
+    "architecture": [
+      "Frontend React + TypeScript déployé sur GitHub Pages",
+      "Backend WebSocket sur Cloudflare Workers / Durable Objects pour la scalabilité edge",
+      "API REST complémentaire hébergée sur Render pour l'authentification et la persistance"
     ],
     "isLiveGithub": true
   },
@@ -515,129 +553,17 @@
     "isLiveGithub": true
   },
   {
-    "id": 1348844598,
-    "slug": "cline-baseline",
-    "name": "cline-baseline",
-    "owner": "stxtxm",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "Shell"
-    ],
-    "image": "/media/bitbrawler.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/cline-baseline",
-    "featured": true,
-    "stars": 0,
-    "language": "Shell",
-    "updatedAt": "2026-08-27T18:56:50Z",
-    "createdAt": "2026-08-27T18:53:49Z",
-    "latestRelease": {
-      "version": "v3.0.60-baseline",
-      "name": "Cline 3.0.60 baseline (no AVX2) - Ubuntu/Debian x64",
-      "publishedAt": "2026-08-27T18:54:50Z",
-      "body": "Binaire baseline compatible Ivy Bridge i5-3450 (avx sans avx2) et J5040 Gemini Lake (sse4 sans avx) - build Bun 1.3.13 baseline sur Ubuntu 24.04. Testé PASS sur Ubuntu 24.04 + Debian 13 trixie. sha256 b115172ccb153674c967ab19471b235cbc9c3168830b15a371d2b65fa240d163. Install: curl -L https://github.com/stxtxm/cline-baseline/releases/latest/download/cline-linux-x64-baseline -o ~/.local/share/pnpm/bin/cline && chmod +x ~/.local/share/pnpm/bin/cline",
-      "htmlUrl": "https://github.com/stxtxm/cline-baseline/releases/tag/v3.0.60-baseline",
-      "assets": [
-        {
-          "name": "cline-linux-x64-baseline",
-          "downloadUrl": "https://github.com/stxtxm/cline-baseline/releases/download/v3.0.60-baseline/cline-linux-x64-baseline",
-          "size": 149584192,
-          "downloadCount": 2
-        },
-        {
-          "name": "cline-linux-x64-baseline.sha256",
-          "downloadUrl": "https://github.com/stxtxm/cline-baseline/releases/download/v3.0.60-baseline/cline-linux-x64-baseline.sha256",
-          "size": 110,
-          "downloadCount": 0
-        }
-      ]
-    },
-    "isLiveGithub": true
-  },
-  {
-    "id": 447427257,
-    "slug": "socket-chat",
-    "name": "Socket-Tchat",
-    "owner": "timotheegrollier",
-    "description": "Messagerie instantanée bidirectionnelle temps réel propulsée par WebSockets. Refonte ergonomique mobile inspirée de Telegram avec gestion plein écran, safe areas, tiroir de composition et revalidation en arrière-plan.",
-    "tags": [
-      "React",
-      "Node.js",
-      "Socket.io",
-      "Express",
-      "PWA"
-    ],
-    "image": "/media/socket-tchat.png",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/socket-chat",
-    "liveUrl": "https://socket-tchat.onrender.com/",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2026-11-07T22:15:01Z",
-    "createdAt": "2022-01-13T01:43:07Z",
-    "highlights": [
-      "Communication full-duplex ultra réactive via WebSockets Socket.io",
-      "Mise en page optimisée smartphones (Telegram-like) avec gestion intelligente du clavier virtuel",
-      "Reconnexion automatique et synchronisation d’état sans perte de messages"
-    ],
-    "architecture": [
-      "Frontend React + TypeScript avec styled components / SCSS",
-      "Backend Node.js & Express avec serveur Socket.io"
-    ],
-    "isLiveGithub": true
-  },
-  {
-    "id": 361059515,
-    "slug": "timotheegrollier.github.io",
-    "name": "Portfolio Développeur",
-    "owner": "timotheegrollier",
-    "description": "Portfolio personnel moderne et réactif en React 19, TypeScript et Vite. Intègre une synchronisation dynamique multi-comptes GitHub (@timotheegrollier & @stxtxm), affichage temps réel des patch notes, design glassmorphism et CI/CD GitHub Pages.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Vite",
-      "SCSS",
-      "GitHub Actions"
-    ],
-    "image": "/media/timo.jpg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/timotheegrollier.github.io",
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-11-06T14:04:51Z",
-    "createdAt": "2021-04-24T03:16:07Z",
-    "highlights": [
-      "Synchronisation dynamique temps réel avec les deux comptes GitHub @timotheegrollier et @stxtxm",
-      "Extraction et rendu formaté des patch notes et artefacts de release GitHub",
-      "Design sombre sur-mesure ultra fluide avec tokens SCSS et navigation accessible",
-      "Déploiement continu automatisé via GitHub Pages et GitHub Actions avec cron quotidien"
-    ],
-    "architecture": [
-      "React 19, TypeScript 5.7, Vite 6",
-      "GitHub REST API v3 avec cache local intelligent et fallback statique généré",
-      "Workflow CI/CD GitHub Actions multi-jobs avec compilation optimisée"
-    ],
-    "isLiveGithub": true
-  },
-  {
     "id": 1340505833,
     "slug": "clicker-game",
-    "name": "clicker-game",
+    "name": "Clicker Game",
     "owner": "stxtxm",
-    "description": "Projet open-source disponible sur GitHub.",
+    "description": "Jeu incrémental / idle game web addictif avec système d’achats, multiplicateurs, paliers de prestige et sauvegarde locale automatique.",
     "tags": [
-      "JavaScript"
+      "TypeScript",
+      "React",
+      "CSS3",
+      "Game",
+      "PWA"
     ],
     "image": "/media/bitbrawler.svg",
     "cardImageFit": "cover",
@@ -655,11 +581,15 @@
   {
     "id": 1376302942,
     "slug": "ai-news-feed",
-    "name": "ai-news-feed",
+    "name": "AI News Feed",
     "owner": "stxtxm",
-    "description": "Projet open-source disponible sur GitHub.",
+    "description": "Agrégateur et flux d’actualités temps réel dédié aux modèles d’intelligence artificielle, LLMs et avancées deep learning. Interface épurée et filtrage multicritères.",
     "tags": [
-      "HTML"
+      "TypeScript",
+      "React",
+      "API REST",
+      "AI",
+      "News"
     ],
     "image": "/media/bitbrawler.svg",
     "cardImageFit": "cover",
@@ -672,94 +602,6 @@
     "language": "HTML",
     "updatedAt": "2026-09-18T18:47:33Z",
     "createdAt": "2026-09-18T18:47:29Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 1345278043,
-    "slug": "vpn-saph",
-    "name": "vpn-saph",
-    "owner": "stxtxm",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "Shell"
-    ],
-    "image": "/media/bitbrawler.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/vpn-saph",
-    "featured": false,
-    "stars": 0,
-    "language": "Shell",
-    "updatedAt": "2026-08-25T07:43:58Z",
-    "createdAt": "2026-08-24T18:24:48Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 1241717345,
-    "slug": "instabot",
-    "name": "instabot",
-    "owner": "stxtxm",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "Python"
-    ],
-    "image": "/media/bitbrawler.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/instabot",
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-05-25T12:43:37Z",
-    "createdAt": "2026-05-17T18:21:26Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 1217813859,
-    "slug": "joke-generator",
-    "name": "joke-generator",
-    "owner": "stxtxm",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bitbrawler.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/joke-generator",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2026-05-24T15:14:11Z",
-    "createdAt": "2026-04-22T08:41:57Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 1246785378,
-    "slug": "gpto",
-    "name": "gpto",
-    "owner": "stxtxm",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "Python"
-    ],
-    "image": "/media/bitbrawler.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/gpto",
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-05-23T20:50:08Z",
-    "createdAt": "2026-05-22T14:51:55Z",
     "isLiveGithub": true
   },
   {
@@ -797,710 +639,6 @@
       "Ollama pour l’inférence locale de modèles (Llama, Mistral, Qwen, DeepSeek)",
       "Open-WebUI pour l’interface utilisateur web responsive"
     ],
-    "isLiveGithub": true
-  },
-  {
-    "id": 1208650981,
-    "slug": "g-manager",
-    "name": "g-manager",
-    "owner": "stxtxm",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bitbrawler.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/g-manager",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2026-04-12T17:11:50Z",
-    "createdAt": "2026-04-12T15:16:17Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 1153083028,
-    "slug": "dead-fish-counter",
-    "name": "dead-fish-counter",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/dead-fish-counter",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2026-02-08T21:50:27Z",
-    "createdAt": "2026-02-08T21:42:25Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 1141993102,
-    "slug": "event-unlined",
-    "name": "event-unlined",
-    "owner": "stxtxm",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bitbrawler.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/event-unlined",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2026-02-02T00:43:05Z",
-    "createdAt": "2026-01-25T19:27:23Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 514109075,
-    "slug": "findthebeat",
-    "name": "FindTheBeat",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "PHP"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/FindTheBeat",
-    "featured": false,
-    "stars": 0,
-    "language": "PHP",
-    "updatedAt": "2025-08-31T12:48:35Z",
-    "createdAt": "2022-07-15T02:30:09Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 391220370,
-    "slug": "youtubeparser",
-    "name": "YoutubeParser",
-    "owner": "timotheegrollier",
-    "description": "Symfony youtube parser",
-    "tags": [
-      "PHP"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/YoutubeParser",
-    "featured": false,
-    "stars": 0,
-    "language": "PHP",
-    "updatedAt": "2023-12-03T22:21:55Z",
-    "createdAt": "2021-07-31T00:45:33Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 669895572,
-    "slug": "shooter-js",
-    "name": "shooter-js",
-    "owner": "timotheegrollier",
-    "description": "javascript game, oop",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/shooter-js",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2023-09-16T16:49:10Z",
-    "createdAt": "2023-07-23T19:24:30Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 669870778,
-    "slug": "bard-cli",
-    "name": "Bard-CLI",
-    "owner": "timotheegrollier",
-    "description": "Google Bard CLI in python ",
-    "tags": [
-      "Python"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/Bard-CLI",
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2023-07-23T18:01:41Z",
-    "createdAt": "2023-07-23T17:41:35Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 655279330,
-    "slug": "slymeupdated",
-    "name": "SlymeUpdated",
-    "owner": "timotheegrollier",
-    "description": "Fixes to make and api endpoint on open.ai chat-gpt",
-    "tags": [
-      "Python"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/SlymeUpdated",
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2023-06-18T12:40:56Z",
-    "createdAt": "2023-06-18T12:37:11Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 639158690,
-    "slug": "reactsymfonystarterpack",
-    "name": "ReactSymfonyStarterPack",
-    "owner": "timotheegrollier",
-    "description": "basic start for a SymfonyReact Project",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/ReactSymfonyStarterPack",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2023-05-10T22:45:17Z",
-    "createdAt": "2023-05-10T22:15:47Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 494623286,
-    "slug": "shifoumi",
-    "name": "SHIFOUMI",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "PHP"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/SHIFOUMI",
-    "featured": false,
-    "stars": 0,
-    "language": "PHP",
-    "updatedAt": "2023-05-08T19:21:43Z",
-    "createdAt": "2022-05-20T22:36:01Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 565130257,
-    "slug": "apachephpdocker",
-    "name": "ApachePhpDocker",
-    "owner": "timotheegrollier",
-    "description": "Apache server with PHP , PMA , Mysql customs docker images template",
-    "tags": [
-      "Dockerfile"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/ApachePhpDocker",
-    "featured": false,
-    "stars": 0,
-    "language": "Dockerfile",
-    "updatedAt": "2022-11-12T12:43:50Z",
-    "createdAt": "2022-11-12T12:41:16Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 538257017,
-    "slug": "mysql-full-js",
-    "name": "mysql-full-js",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/mysql-full-js",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2022-09-18T22:36:44Z",
-    "createdAt": "2022-09-18T22:25:37Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 510059265,
-    "slug": "ux-live-component",
-    "name": "ux-live-component",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "PHP"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/ux-live-component",
-    "featured": false,
-    "stars": 0,
-    "language": "PHP",
-    "updatedAt": "2022-07-03T15:18:59Z",
-    "createdAt": "2022-07-03T15:18:13Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 456675711,
-    "slug": "tims_weather_app",
-    "name": "tims_weather_app",
-    "owner": "timotheegrollier",
-    "description": "call api https://www.weatherapi.com/ and display results by city with Symfony 6",
-    "tags": [
-      "SCSS"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/tims_weather_app",
-    "featured": false,
-    "stars": 0,
-    "language": "SCSS",
-    "updatedAt": "2022-02-20T01:17:35Z",
-    "createdAt": "2022-02-07T21:01:31Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 457426747,
-    "slug": "hmj",
-    "name": "hmj",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/hmj",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2022-02-09T16:23:03Z",
-    "createdAt": "2022-02-09T15:56:13Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 454112044,
-    "slug": "wolfy",
-    "name": "Wolfy",
-    "owner": "timotheegrollier",
-    "description": "Javascript OOP game with canvas api",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/Wolfy",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2022-02-01T00:16:24Z",
-    "createdAt": "2022-01-31T17:55:38Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 450801748,
-    "slug": "snake",
-    "name": "Snake",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "HTML"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/Snake",
-    "featured": false,
-    "stars": 0,
-    "language": "HTML",
-    "updatedAt": "2022-01-22T11:47:42Z",
-    "createdAt": "2022-01-22T11:46:37Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 450202769,
-    "slug": "shortx",
-    "name": "ShortX",
-    "owner": "timotheegrollier",
-    "description": "URL shortener made with Symfony",
-    "tags": [
-      "PHP"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/ShortX",
-    "featured": false,
-    "stars": 0,
-    "language": "PHP",
-    "updatedAt": "2022-01-20T19:15:04Z",
-    "createdAt": "2022-01-20T17:57:08Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 371395029,
-    "slug": "mycave",
-    "name": "MyCave",
-    "owner": "timotheegrollier",
-    "description": "MVC project ",
-    "tags": [
-      "PHP"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/MyCave",
-    "featured": false,
-    "stars": 0,
-    "language": "PHP",
-    "updatedAt": "2022-01-20T16:25:48Z",
-    "createdAt": "2021-05-27T14:06:06Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 444388543,
-    "slug": "countriespeople",
-    "name": "countriespeople",
-    "owner": "timotheegrollier",
-    "description": "ReactCountries ",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/countriespeople",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2022-01-04T11:24:13Z",
-    "createdAt": "2022-01-04T11:09:59Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 437952559,
-    "slug": "matrix-gradient",
-    "name": "matrix-gradient",
-    "owner": "timotheegrollier",
-    "description": "Matrix rain with gradient / OOP Javascript",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/matrix-gradient",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2021-12-13T16:52:26Z",
-    "createdAt": "2021-12-13T16:51:30Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 392878708,
-    "slug": "audio",
-    "name": "Audio",
-    "owner": "timotheegrollier",
-    "description": "Audio is web application for sharing sounds ",
-    "tags": [
-      "PHP"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/Audio",
-    "featured": false,
-    "stars": 0,
-    "language": "PHP",
-    "updatedAt": "2021-11-20T11:27:42Z",
-    "createdAt": "2021-08-05T02:25:47Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 425220365,
-    "slug": "turbo-chat",
-    "name": "turbo-chat",
-    "owner": "timotheegrollier",
-    "description": "Symfony UX turbo chat",
-    "tags": [
-      "PHP"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/turbo-chat",
-    "featured": false,
-    "stars": 0,
-    "language": "PHP",
-    "updatedAt": "2021-11-19T17:43:36Z",
-    "createdAt": "2021-11-06T10:56:27Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 428732446,
-    "slug": "3dcube",
-    "name": "3dCube",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "CSS"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/3dCube",
-    "featured": false,
-    "stars": 0,
-    "language": "CSS",
-    "updatedAt": "2021-11-16T16:34:50Z",
-    "createdAt": "2021-11-16T16:30:02Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 422886116,
-    "slug": "petmvc",
-    "name": "PETMVC",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "PHP"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/PETMVC",
-    "featured": false,
-    "stars": 0,
-    "language": "PHP",
-    "updatedAt": "2021-11-01T17:35:09Z",
-    "createdAt": "2021-10-30T13:17:24Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 411669237,
-    "slug": "pygametuto",
-    "name": "PygameTuto",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "Python"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/PygameTuto",
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2021-10-30T20:17:50Z",
-    "createdAt": "2021-09-29T12:40:53Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 377285424,
-    "slug": "freebird",
-    "name": "FreeBird",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/FreeBird",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2021-06-27T23:19:35Z",
-    "createdAt": "2021-06-15T20:25:48Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 376790684,
-    "slug": "reactcountries",
-    "name": "ReactCountries",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/ReactCountries",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2021-06-15T11:38:44Z",
-    "createdAt": "2021-06-14T10:53:02Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 375333575,
-    "slug": "reduxcours",
-    "name": "ReduxCours",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/ReduxCours",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2021-06-09T14:45:34Z",
-    "createdAt": "2021-06-09T11:37:42Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 366042987,
-    "slug": "randomuserajax",
-    "name": "randomUserAjax",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/randomUserAjax",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2021-05-10T14:52:47Z",
-    "createdAt": "2021-05-10T12:57:08Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 357479770,
-    "slug": "passwordgenerator",
-    "name": "PasswordGenerator",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/PasswordGenerator",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2021-04-15T00:12:04Z",
-    "createdAt": "2021-04-13T08:30:08Z",
-    "isLiveGithub": true
-  },
-  {
-    "id": 353373469,
-    "slug": "kassbrik",
-    "name": "KassBrik",
-    "owner": "timotheegrollier",
-    "description": "Projet open-source disponible sur GitHub.",
-    "tags": [
-      "JavaScript"
-    ],
-    "image": "/media/bpm-detector.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/KassBrik",
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2021-04-06T12:30:09Z",
-    "createdAt": "2021-03-31T13:51:44Z",
     "isLiveGithub": true
   }
 ]
