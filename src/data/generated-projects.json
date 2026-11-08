@@ -21,42 +21,42 @@
     "featured": true,
     "stars": 0,
     "language": "Rust",
-    "updatedAt": "2026-11-07T23:09:13Z",
+    "updatedAt": "2026-11-08T00:49:21Z",
     "createdAt": "2026-10-12T20:08:11Z",
     "latestRelease": {
-      "version": "v0.9.0",
-      "name": "v0.9.0",
-      "publishedAt": "2026-11-07T23:15:17Z",
-      "body": "# Maschine Linux 0.9.0\n\n### Highlights\n\n- **FILE / project workflow (MK3 + GUI)**: The MK3 `FILE` button opens a project browser with quick navigation and loading from the hardware or GUI. `Shift + FILE SAVE` performs a compact quick save of the current project; normal saves write readable JSON. Projects are stored as viewable `*.maschine-linux.json` files with atomic writes, and recent/current project paths are remembered for fast reloads.\n- **Per-pad volume and pan per Group**: Every Sound/pad in every Group keeps its own mixer level and pan. The GUI Mixer exposes editable per-pad strips for the focused Group, and the selected pad/Sound can be edited from the MK3 mixer workflow and screens.\n- **Keyboard and Chords repaired**: Keyboard and Chords modes now play the active Sound melodically with engine-owned musical state (root note, scale, base octave, chord type, inversion). The top display buttons / soft keys change scales and musical behavior, and both MK3 screens plus the GUI Keyboard view show the correct performance information.\n\n### Validation\n\n- `cargo fmt --all -- --check`\n- `cargo clippy --workspace --all-targets -- -D warnings`\n- `cargo test --workspace` (all workspace library tests passing in this environment)\n- Hardware validation is recommended on a connected MK3 for HID/display/LED behavior, FILE navigation, mixer control, and Keyboard/Chords performance.\n",
-      "htmlUrl": "https://github.com/timotheegrollier/maschine-linux/releases/tag/v0.9.0",
+      "version": "v0.9.1",
+      "name": "v0.9.1",
+      "publishedAt": "2026-11-08T00:12:09Z",
+      "body": "# Maschine Linux 0.9.1\n\n### Fixes\n\n- **MK3 FILE / save workflow**: The physical `FILE SAVE` button now performs a normal project save and creates a project file when no current path exists. `Shift + FILE SAVE` keeps the compact quick-save behavior. The FILE/project browser on MK3 now shows accurate soft-key labels and guidance (`PROJ </>`, `CHARGER`, `SAUVER`, `RAPIDE`, `PRESETS`) and project soft-key save actions work even for unsaved projects.\n- **Save feedback**: MK3 and GUI snapshots now expose a transient status message; the MK3 header shows a visible save confirmation (`Projet sauvegardé` / `Sauvegarde rapide OK`) after save actions.\n- **Maschine-style per-pad mute**: `MUTE` now latches a pad-mute mode. While active, tapping pads toggles mute for individual Sounds in the focused Group without triggering playback, and muted pads are rendered dimmed on MK3 LEDs. `MUTE + GROUP` (or Group selection while mute mode is active) still targets Group mute. Engine playback filters muted Sounds in live triggers and sequenced events.\n- **Keyboard / Chords recording**: Keyboard and Chords triggers now record the actual MIDI pitch during `REC`. Chord pads record each triggered note as a melodic event, preserving pitched/chord performance in patterns.\n\n### Validation\n\n- `cargo fmt --all -- --check`\n- `cargo test -p maschine-engine -p maschine-hardware` (93 tests passing in this environment)\n- `cargo check -p maschine-app` (validated with the Nobara ALSA/JACK `PKG_CONFIG` sysroot)\n- Interactive MK3 hardware validation is still recommended for FILE navigation/load/save, mute pad LEDs, and Keyboard/Chords recording/playback.\n",
+      "htmlUrl": "https://github.com/timotheegrollier/maschine-linux/releases/tag/v0.9.1",
       "assets": [
         {
-          "name": "maschine-linux-0.9.0-1.x86_64.rpm",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/maschine-linux-0.9.0-1.x86_64.rpm",
-          "size": 5610510,
+          "name": "maschine-linux-0.9.1-1.x86_64.rpm",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/maschine-linux-0.9.1-1.x86_64.rpm",
+          "size": 5611473,
           "downloadCount": 2
         },
         {
-          "name": "maschine-linux-0.9.0-linux-x86_64.tar.gz",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/maschine-linux-0.9.0-linux-x86_64.tar.gz",
-          "size": 7035584,
+          "name": "maschine-linux-0.9.1-linux-x86_64.tar.gz",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/maschine-linux-0.9.1-linux-x86_64.tar.gz",
+          "size": 7036809,
           "downloadCount": 1
         },
         {
-          "name": "maschine-linux_0.9.0-1_amd64.deb",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/maschine-linux_0.9.0-1_amd64.deb",
-          "size": 5241040,
+          "name": "maschine-linux_0.9.1-1_amd64.deb",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/maschine-linux_0.9.1-1_amd64.deb",
+          "size": 5240704,
           "downloadCount": 1
         },
         {
-          "name": "Maschine_Linux-0.9.0-x86_64.AppImage",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/Maschine_Linux-0.9.0-x86_64.AppImage",
+          "name": "Maschine_Linux-0.9.1-x86_64.AppImage",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/Maschine_Linux-0.9.1-x86_64.AppImage",
           "size": 7267520,
           "downloadCount": 1
         },
         {
           "name": "SHA256SUMS",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.0/SHA256SUMS",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/SHA256SUMS",
           "size": 409,
           "downloadCount": 1
         }
