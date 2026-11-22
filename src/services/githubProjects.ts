@@ -179,6 +179,9 @@ export function useGitHubProjects() {
 
     const [projects, setProjects] = useState<Project[]>(() => cacheRef.current?.projects ?? staticProjects);
     const [loading, setLoading] = useState<boolean>(false);
+    // True only on a very first visit (no localStorage cache yet): the grid
+    // shows a skeleton instead of settling on build-time data that could flash.
+    const [initializing, setInitializing] = useState<boolean>(() => cacheRef.current === null);
     const [lastSync, setLastSync] = useState<Date | null>(() => {
         const ts = cacheRef.current?.timestamp || 0;
         return ts > 0 ? new Date(ts) : null;
@@ -186,6 +189,9 @@ export function useGitHubProjects() {
     const [error, setError] = useState<string | null>(null);
     const mountedRef = useRef(true);
     const abortRef = useRef<AbortController | null>(null);
+    // Latest rendered list, so `commit` can diff order without stale closures
+    const projectsRef = useRef(projects);
+    projectsRef.current = projects;
 
     useEffect(() => {
         mountedRef.current = true;
@@ -201,8 +207,17 @@ export function useGitHubProjects() {
             setProjects(next);
             setLastSync(new Date(timestamp));
         };
-        // Smooth layout update when the browser supports View Transitions:
-        // cards cross-fade / slide to their new spot instead of snapping.
+
+        // Only animate when the list actually re-ordered (or gained/lost cards).
+        // A badge going 0.14.0 → 0.15.0 updates in place: zero page-wide flash.
+        const prevOrder = projectsRef.current.map((p) => p.id).join(',');
+        const nextOrder = next.map((p) => p.id).join(',');
+
+        if (prevOrder === nextOrder) {
+            apply();
+            return;
+        }
+
         const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
         if (!doc.startViewTransition) {
             apply();
@@ -360,7 +375,7 @@ export function useGitHubProjects() {
             const now = Date.now();
 
             // Avoid pointless re-renders when nothing actually changed
-            const currentJson = JSON.stringify(projects);
+            const currentJson = JSON.stringify(projectsRef.current);
             const nextJson = JSON.stringify(updatedList);
 
             if (currentJson !== nextJson) {
@@ -380,9 +395,12 @@ export function useGitHubProjects() {
             const msg = err instanceof Error ? err.message : 'Erreur de synchronisation';
             setError(msg);
         } finally {
-            if (mountedRef.current) setLoading(false);
+            if (mountedRef.current) {
+                setLoading(false);
+                setInitializing(false);
+            }
         }
-    }, [commit, projects]);
+    }, [commit]);
 
     useEffect(() => {
         syncProjects(false);
@@ -392,6 +410,7 @@ export function useGitHubProjects() {
     return {
         projects,
         loading,
+        initializing,
         error,
         lastSync,
         refresh: () => syncProjects(true),

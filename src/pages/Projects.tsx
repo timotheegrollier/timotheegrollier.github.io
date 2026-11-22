@@ -13,6 +13,7 @@ export default function Projects() {
     const {
         projects,
         loading,
+        initializing,
         lastSync,
         refresh,
     } = useGitHubProjects();
@@ -257,8 +258,37 @@ export default function Projects() {
                 )}
             </div>
 
+            {/* Slim sync progress bar (background revalidation feedback) */}
+            {loading && !initializing && (
+                <div className="projects-sync-bar" role="progressbar" aria-label="Synchronisation GitHub en cours" />
+            )}
+
             {/* Projects Grid */}
-            {filteredProjects.length > 0 ? (
+            {initializing ? (
+                <div className="projects-page__grid" id="projects-grid" aria-busy="true" aria-label="Chargement des projets">
+                    {Array.from({ length: 6 }, (_, i) => (
+                        <div
+                            key={`skeleton-${i}`}
+                            className="project-card-skeleton"
+                            style={{ animationDelay: `${i * 0.07}s` }}
+                            aria-hidden="true"
+                        >
+                            <div className="skeleton-media" />
+                            <div className="skeleton-body">
+                                <div className="skeleton-line skeleton-line--meta" />
+                                <div className="skeleton-line skeleton-line--title" />
+                                <div className="skeleton-line" />
+                                <div className="skeleton-line skeleton-line--short" />
+                                <div className="skeleton-tags">
+                                    <span className="skeleton-pill" />
+                                    <span className="skeleton-pill" />
+                                    <span className="skeleton-pill" />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            ) : filteredProjects.length > 0 ? (
                 <div
                     className={`projects-page__grid ${isStaleSearch ? 'projects-page__grid--filtering' : ''}`}
                     id="projects-grid"

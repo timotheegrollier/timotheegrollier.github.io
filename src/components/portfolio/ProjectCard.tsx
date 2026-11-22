@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import type { MouseEvent } from 'react';
 import type { Project } from '@/data/portfolio';
 import { formatRelativeTime, getLanguageColor } from '@/utils/formatters';
@@ -16,10 +17,27 @@ export function ProjectCard({ project, onSelect, index }: ProjectCardProps) {
         e.stopPropagation();
     };
 
+    // One-shot pulse when the release version changes after a live sync
+    // (e.g. the badge quietly goes 0.14.0 → 0.15.0 with a soft glow)
+    const [bump, setBump] = useState(false);
+    const prevVersionRef = useRef<string | undefined>(undefined);
+    const version = project.latestRelease?.version;
+    useEffect(() => {
+        if (prevVersionRef.current !== undefined && version !== prevVersionRef.current) {
+            setBump(true);
+        }
+        prevVersionRef.current = version;
+    }, [version]);
+
     return (
         <article
             className={`project-card ${project.featured ? 'project-card--featured' : ''}`}
-            style={{ animationDelay: `${Math.min(index * 0.05, 0.4)}s` }}
+            style={{
+                animationDelay: `${Math.min(index * 0.05, 0.4)}s`,
+                // Scoped View Transition: réordonnancement/rejoue animé par
+                // carte, pas de cross-fade global (anti-flash).
+                viewTransitionName: `project-card-${project.id}`,
+            }}
             onClick={openProject}
             onKeyDown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
@@ -59,7 +77,11 @@ export function ProjectCard({ project, onSelect, index }: ProjectCardProps) {
                     )}
 
                     {project.latestRelease && (
-                        <span className="project-card__badge project-card__badge--release" title={`Dernière release : ${project.latestRelease.name}`}>
+                        <span
+                            className={`project-card__badge project-card__badge--release ${bump ? 'badge-bump' : ''}`}
+                            title={`Dernière release : ${project.latestRelease.name}`}
+                            onAnimationEnd={() => setBump(false)}
+                        >
                             <span className="release-pulse" />
                             {project.latestRelease.version}
                         </span>
