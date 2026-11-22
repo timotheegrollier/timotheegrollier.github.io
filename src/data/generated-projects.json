@@ -25,95 +25,95 @@
     "updatedAt": "2026-11-22T14:28:12Z",
     "createdAt": "2025-12-14T16:49:17Z",
     "latestRelease": {
-      "version": "v1.0.22",
-      "name": "GlobalShare 1.0.22",
-      "publishedAt": "2026-11-22T13:24:37Z",
-      "body": "**Full Changelog**: https://github.com/stxtxm/global-share/compare/v1.0.21...v1.0.22",
-      "htmlUrl": "https://github.com/stxtxm/global-share/releases/tag/v1.0.22",
+      "version": "v1.0.23",
+      "name": "GlobalShare 1.0.23",
+      "publishedAt": "2026-11-22T14:31:30Z",
+      "body": "**Full Changelog**: https://github.com/stxtxm/global-share/compare/v1.0.22...v1.0.23",
+      "htmlUrl": "https://github.com/stxtxm/global-share/releases/tag/v1.0.23",
       "assets": [
         {
           "name": "builder-debug.yml",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/builder-debug.yml",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/builder-debug.yml",
           "size": 953,
           "downloadCount": 0
         },
         {
-          "name": "GlobalShare-1.0.22.apk",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-1.0.22.apk",
-          "size": 6307224,
-          "downloadCount": 1
+          "name": "GlobalShare-1.0.23.apk",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-1.0.23.apk",
+          "size": 6307212,
+          "downloadCount": 0
         },
         {
-          "name": "GlobalShare-1.0.22.apk.blockmap",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-1.0.22.apk.blockmap",
+          "name": "GlobalShare-1.0.23.apk.blockmap",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-1.0.23.apk.blockmap",
           "size": 4620,
-          "downloadCount": 1
+          "downloadCount": 0
         },
         {
-          "name": "GlobalShare-1.0.22.apk.sha256",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-1.0.22.apk.sha256",
+          "name": "GlobalShare-1.0.23.apk.sha256",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-1.0.23.apk.sha256",
           "size": 65,
-          "downloadCount": 1
+          "downloadCount": 0
         },
         {
-          "name": "GlobalShare-1.0.22.AppImage",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-1.0.22.AppImage",
-          "size": 126356291,
-          "downloadCount": 1
+          "name": "GlobalShare-1.0.23.AppImage",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-1.0.23.AppImage",
+          "size": 126360337,
+          "downloadCount": 0
         },
         {
-          "name": "globalshare-1.0.22.x86_64.rpm",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/globalshare-1.0.22.x86_64.rpm",
-          "size": 91317540,
-          "downloadCount": 5
+          "name": "globalshare-1.0.23.x86_64.rpm",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/globalshare-1.0.23.x86_64.rpm",
+          "size": 91316696,
+          "downloadCount": 0
         },
         {
-          "name": "GlobalShare-Setup-1.0.22.exe",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-Setup-1.0.22.exe",
-          "size": 114979205,
-          "downloadCount": 1
+          "name": "GlobalShare-Setup-1.0.23.exe",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-Setup-1.0.23.exe",
+          "size": 114980645,
+          "downloadCount": 0
         },
         {
-          "name": "GlobalShare-Setup-1.0.22.exe.blockmap",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-Setup-1.0.22.exe.blockmap",
-          "size": 120091,
-          "downloadCount": 1
+          "name": "GlobalShare-Setup-1.0.23.exe.blockmap",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-Setup-1.0.23.exe.blockmap",
+          "size": 119968,
+          "downloadCount": 0
         },
         {
-          "name": "globalshare_1.0.22_amd64.deb",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/globalshare_1.0.22_amd64.deb",
-          "size": 102671900,
-          "downloadCount": 1
+          "name": "globalshare_1.0.23_amd64.deb",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/globalshare_1.0.23_amd64.deb",
+          "size": 102672032,
+          "downloadCount": 0
         },
         {
           "name": "latest-linux.yml",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/latest-linux.yml",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/latest-linux.yml",
           "size": 696,
-          "downloadCount": 5
+          "downloadCount": 0
         },
         {
           "name": "latest.yml",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/latest.yml",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/latest.yml",
           "size": 354,
-          "downloadCount": 1
+          "downloadCount": 0
         },
         {
           "name": "RPM-GPG-KEY-globalshare",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/RPM-GPG-KEY-globalshare",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/RPM-GPG-KEY-globalshare",
           "size": 1688,
           "downloadCount": 0
         },
         {
           "name": "web-bundle.json",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/web-bundle.json",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/web-bundle.json",
           "size": 147,
-          "downloadCount": 8
+          "downloadCount": 0
         },
         {
           "name": "web-bundle.zip",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/web-bundle.zip",
-          "size": 1422604,
-          "downloadCount": 2
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/web-bundle.zip",
+          "size": 1422668,
+          "downloadCount": 0
         }
       ]
     },
