@@ -60,6 +60,13 @@
         grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
         gap: clamp(1rem, 2.4vw, 1.45rem);
 
+        // Anti-flash : transition douce quand la grille devient filtrée/pénible
+        transition: opacity 0.18s ease;
+
+        &--filtering {
+            opacity: 0.75;
+        }
+
         @media (max-width: $bp-mobile) {
             grid-template-columns: 1fr;
         }
@@ -78,6 +85,7 @@
     color: #34d399;
     font-size: 0.75rem;
     font-weight: 600;
+    transition: color $transition-fast, background $transition-fast, border-color $transition-fast;
 
     .live-pulse {
         width: 7px;
@@ -86,6 +94,18 @@
         background: #10b981;
         box-shadow: 0 0 8px #10b981;
         animation: pulseLive 2s infinite ease-in-out;
+    }
+
+    &--syncing {
+        background: rgba(245, 158, 11, 0.12);
+        border-color: rgba(245, 158, 11, 0.4);
+        color: #fbbf24;
+
+        .live-pulse {
+            background: #f59e0b;
+            box-shadow: 0 0 8px #f59e0b;
+            animation-duration: 0.9s;
+        }
     }
 }
 
@@ -371,5 +391,81 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ============================================================
+   Mobile responsive hardening
+   ============================================================ */
+@media (max-width: $bp-mobile) {
+    .projects-page__eyebrow-row {
+        .sync-time {
+            display: none; // gain de place : le badge live suffit
+        }
+
+        .sync-refresh-btn {
+            margin-left: auto;
+        }
+    }
+
+    .projects-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.65rem;
+        padding: 0.75rem;
+    }
+
+    .search-bar {
+        min-width: 100%;
+    }
+
+    .search-bar .search-input {
+        // ≥44px touch target
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        font-size: 0.95rem; // évite le zoom auto iOS (<16px)
+    }
+
+    .account-switcher {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .account-btn {
+        flex: 1 0 auto;
+        padding: 0.5rem 0.75rem; // ≥44px touch target
+    }
+
+    .sort-selector {
+        justify-content: space-between;
+
+        .sort-dropdown {
+            flex: 1;
+            max-width: 65%;
+            padding: 0.55rem 0.75rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    .projects-page__filters {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        padding-bottom: 0.25rem;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .projects-summary-bar {
+        flex-wrap: wrap;
+        gap: 0.4rem;
     }
 }

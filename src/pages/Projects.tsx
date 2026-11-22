@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useDeferredValue, useEffect } from 'react';
 import type { Project } from '@/data/portfolio';
 import { useGitHubProjects } from '@/services/githubProjects';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
@@ -23,6 +23,23 @@ export default function Projects() {
     const [sortBy, setSortBy] = useState<SortOption>('updated');
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const closeModal = useCallback(() => setSelectedProject(null), []);
+
+    // Keeps search input snappy while filtering the (potentially heavy) list
+    const deferredSearchQuery = useDeferredValue(searchQuery);
+    const isStaleSearch = searchQuery !== deferredSearchQuery;
+
+    // When the live sync refreshes data behind an open modal, keep the modal
+    // showing fresh values (new versions, stars, dates) instead of a snapshot.
+    const selectedLive = useMemo(() => {
+        if (!selectedProject) return null;
+        return projects.find((p) => p.id === selectedProject.id) ?? selectedProject;
+    }, [projects, selectedProject]);
+
+    // Re-seed static data gracefully — if sync data disappears the modal
+    // would otherwise hold a dead reference.
+    useEffect(() => {
+        if (selectedProject && !selectedLive) closeModal();
+    }, [selectedProject, selectedLive, closeModal]);
 
     // Extract top tags and sort by frequency
     const popularTags = useMemo(() => {
@@ -53,8 +70,8 @@ export default function Projects() {
         }
 
         // Search query
-        if (searchQuery.trim()) {
-            const query = searchQuery.toLowerCase().trim();
+        if (deferredSearchQuery.trim()) {
+            const query = deferredSearchQuery.toLowerCase().trim();
             result = result.filter((p) => {
                 const inName = p.name.toLowerCase().includes(query);
                 const inDesc = p.description.toLowerCase().includes(query);
@@ -86,7 +103,7 @@ export default function Projects() {
         });
 
         return result;
-    }, [projects, selectedAccount, selectedTag, searchQuery, sortBy]);
+    }, [projects, selectedAccount, selectedTag, deferredSearchQuery, sortBy]);
 
     const resetFilters = () => {
         setSelectedTag('All');
@@ -100,9 +117,9 @@ export default function Projects() {
             {/* Header */}
             <header className="projects-page__header">
                 <div className="projects-page__eyebrow-row">
-                    <span className="live-indicator">
+                    <span className={`live-indicator ${loading ? 'live-indicator--syncing' : ''}`}>
                         <span className="live-pulse" />
-                        GitHub Live Sync
+                        {loading ? 'Synchronisation…' : 'GitHub Live Sync'}
                     </span>
                     {lastSync && (
                         <span className="sync-time">
@@ -242,7 +259,10 @@ export default function Projects() {
 
             {/* Projects Grid */}
             {filteredProjects.length > 0 ? (
-                <div className="projects-page__grid" id="projects-grid">
+                <div
+                    className={`projects-page__grid ${isStaleSearch ? 'projects-page__grid--filtering' : ''}`}
+                    id="projects-grid"
+                >
                     {filteredProjects.map((project, index) => (
                         <ProjectCard
                             key={project.id}
@@ -268,9 +288,9 @@ export default function Projects() {
             )}
 
             {/* Modal */}
-            {selectedProject && (
+            {selectedLive && (
                 <ProjectModal
-                    project={selectedProject}
+                    project={selectedLive}
                     onClose={closeModal}
                 />
             )}

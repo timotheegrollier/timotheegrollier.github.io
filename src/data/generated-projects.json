@@ -1,77 +1,132 @@
 [
   {
-    "id": 1416080825,
-    "slug": "maschine-linux",
-    "name": "Maschine Linux",
-    "owner": "timotheegrollier",
-    "description": "Station de travail audio / DAW sous Linux dédiée au workflow Native Instruments Maschine MK3. Moteur temps-réel Rust sur PipeWire-JACK, reverse engineering USB, double affichage couleur MK3 et séquenceur par pas.",
+    "id": 1116332188,
+    "slug": "global-share",
+    "name": "GlobalShare",
+    "owner": "stxtxm",
+    "description": "Partage de fichiers direct entre appareils via WebRTC P2P chiffré, sans création de compte ni installation. Salon éphémère par code unique, streaming direct local ou internet avec repli automatique par relais Cloudflare Workers.",
     "tags": [
-      "Rust",
-      "Linux",
-      "Audio / DSP",
-      "PipeWire",
-      "Hardware Reverse Engineering"
+      "TypeScript",
+      "WebRTC",
+      "PWA",
+      "P2P",
+      "Cloudflare Workers"
     ],
-    "image": "/media/maschine-linux-banner.svg",
+    "image": "/media/global-share-banner.svg",
     "cardImageFit": "cover",
     "cardImagePosition": "center",
     "modalImageFit": "contain",
     "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/maschine-linux",
+    "sourceUrl": "https://github.com/stxtxm/global-share",
+    "liveUrl": "https://stxtxm.github.io/global-share",
     "featured": true,
     "stars": 0,
-    "language": "Rust",
-    "updatedAt": "2026-11-08T00:49:21Z",
-    "createdAt": "2026-10-12T20:08:11Z",
+    "language": "TypeScript",
+    "updatedAt": "2026-11-22T14:28:12Z",
+    "createdAt": "2025-12-14T16:49:17Z",
     "latestRelease": {
-      "version": "v0.9.1",
-      "name": "v0.9.1",
-      "publishedAt": "2026-11-08T00:12:09Z",
-      "body": "# Maschine Linux 0.9.1\n\n### Fixes\n\n- **MK3 FILE / save workflow**: The physical `FILE SAVE` button now performs a normal project save and creates a project file when no current path exists. `Shift + FILE SAVE` keeps the compact quick-save behavior. The FILE/project browser on MK3 now shows accurate soft-key labels and guidance (`PROJ </>`, `CHARGER`, `SAUVER`, `RAPIDE`, `PRESETS`) and project soft-key save actions work even for unsaved projects.\n- **Save feedback**: MK3 and GUI snapshots now expose a transient status message; the MK3 header shows a visible save confirmation (`Projet sauvegardé` / `Sauvegarde rapide OK`) after save actions.\n- **Maschine-style per-pad mute**: `MUTE` now latches a pad-mute mode. While active, tapping pads toggles mute for individual Sounds in the focused Group without triggering playback, and muted pads are rendered dimmed on MK3 LEDs. `MUTE + GROUP` (or Group selection while mute mode is active) still targets Group mute. Engine playback filters muted Sounds in live triggers and sequenced events.\n- **Keyboard / Chords recording**: Keyboard and Chords triggers now record the actual MIDI pitch during `REC`. Chord pads record each triggered note as a melodic event, preserving pitched/chord performance in patterns.\n\n### Validation\n\n- `cargo fmt --all -- --check`\n- `cargo test -p maschine-engine -p maschine-hardware` (93 tests passing in this environment)\n- `cargo check -p maschine-app` (validated with the Nobara ALSA/JACK `PKG_CONFIG` sysroot)\n- Interactive MK3 hardware validation is still recommended for FILE navigation/load/save, mute pad LEDs, and Keyboard/Chords recording/playback.\n",
-      "htmlUrl": "https://github.com/timotheegrollier/maschine-linux/releases/tag/v0.9.1",
+      "version": "v1.0.22",
+      "name": "GlobalShare 1.0.22",
+      "publishedAt": "2026-11-22T13:24:37Z",
+      "body": "**Full Changelog**: https://github.com/stxtxm/global-share/compare/v1.0.21...v1.0.22",
+      "htmlUrl": "https://github.com/stxtxm/global-share/releases/tag/v1.0.22",
       "assets": [
         {
-          "name": "maschine-linux-0.9.1-1.x86_64.rpm",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/maschine-linux-0.9.1-1.x86_64.rpm",
-          "size": 5611473,
+          "name": "builder-debug.yml",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/builder-debug.yml",
+          "size": 953,
+          "downloadCount": 0
+        },
+        {
+          "name": "GlobalShare-1.0.22.apk",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-1.0.22.apk",
+          "size": 6307224,
+          "downloadCount": 1
+        },
+        {
+          "name": "GlobalShare-1.0.22.apk.blockmap",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-1.0.22.apk.blockmap",
+          "size": 4620,
+          "downloadCount": 1
+        },
+        {
+          "name": "GlobalShare-1.0.22.apk.sha256",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-1.0.22.apk.sha256",
+          "size": 65,
+          "downloadCount": 1
+        },
+        {
+          "name": "GlobalShare-1.0.22.AppImage",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-1.0.22.AppImage",
+          "size": 126356291,
+          "downloadCount": 1
+        },
+        {
+          "name": "globalshare-1.0.22.x86_64.rpm",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/globalshare-1.0.22.x86_64.rpm",
+          "size": 91317540,
+          "downloadCount": 5
+        },
+        {
+          "name": "GlobalShare-Setup-1.0.22.exe",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-Setup-1.0.22.exe",
+          "size": 114979205,
+          "downloadCount": 1
+        },
+        {
+          "name": "GlobalShare-Setup-1.0.22.exe.blockmap",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/GlobalShare-Setup-1.0.22.exe.blockmap",
+          "size": 120091,
+          "downloadCount": 1
+        },
+        {
+          "name": "globalshare_1.0.22_amd64.deb",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/globalshare_1.0.22_amd64.deb",
+          "size": 102671900,
+          "downloadCount": 1
+        },
+        {
+          "name": "latest-linux.yml",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/latest-linux.yml",
+          "size": 696,
+          "downloadCount": 5
+        },
+        {
+          "name": "latest.yml",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/latest.yml",
+          "size": 354,
+          "downloadCount": 1
+        },
+        {
+          "name": "RPM-GPG-KEY-globalshare",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/RPM-GPG-KEY-globalshare",
+          "size": 1688,
+          "downloadCount": 0
+        },
+        {
+          "name": "web-bundle.json",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/web-bundle.json",
+          "size": 147,
+          "downloadCount": 8
+        },
+        {
+          "name": "web-bundle.zip",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.22/web-bundle.zip",
+          "size": 1422604,
           "downloadCount": 2
-        },
-        {
-          "name": "maschine-linux-0.9.1-linux-x86_64.tar.gz",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/maschine-linux-0.9.1-linux-x86_64.tar.gz",
-          "size": 7036809,
-          "downloadCount": 1
-        },
-        {
-          "name": "maschine-linux_0.9.1-1_amd64.deb",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/maschine-linux_0.9.1-1_amd64.deb",
-          "size": 5240704,
-          "downloadCount": 1
-        },
-        {
-          "name": "Maschine_Linux-0.9.1-x86_64.AppImage",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/Maschine_Linux-0.9.1-x86_64.AppImage",
-          "size": 7267520,
-          "downloadCount": 1
-        },
-        {
-          "name": "SHA256SUMS",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.9.1/SHA256SUMS",
-          "size": 409,
-          "downloadCount": 1
         }
       ]
     },
     "highlights": [
-      "Reverse-engineering complet du protocole USB de la Maschine MK3 (17cc:1600)",
-      "Moteur audio ultra basse latence écrit en Rust sur PipeWire-JACK (zéro allocation dans la boucle audio)",
-      "Rendu graphique dynamique en temps réel sur les deux écrans LCD couleur du contrôleur",
-      "Workflow complet : Projects, Groups, Sounds, Patterns, Scenes, Step Sequencer 16 pas"
+      "Transfert pair-à-pair direct (P2P) à débit maximal sans upload sur des serveurs tiers",
+      "Aucune création de compte, aucun pistage, salons de partage éphémères par code court",
+      "Repli de secours automatique par relais WebSocket lorsque le P2P strict est bloqué par des pare-feux stricts",
+      "Progressive Web App installable sur mobile, tablette et desktop"
     ],
     "architecture": [
-      "Rust (2021 edition) pour une exécution temps-réel sans pause de Garbage Collector",
-      "PipeWire-JACK C API bindings & threads audio temps réel à haute priorité (SCHED_FIFO)",
-      "Protocole USB bulk transfer pour alimenter le framebuffer des deux écrans MK3"
+      "Next.js export statique (SSG) déployé sur GitHub Pages",
+      "WebRTC DataChannels avec chiffrement DTLS / SRTP",
+      "Signalisation serverless sur Cloudflare Workers"
     ],
     "isLiveGithub": true
   },
@@ -99,7 +154,7 @@
     "featured": true,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-07T23:06:47Z",
+    "updatedAt": "2026-11-22T14:19:50Z",
     "createdAt": "2026-02-03T23:47:44Z",
     "highlights": [
       "Système de combat au tour par tour dynamique inspiré des classiques RPG 8-bit",
@@ -111,6 +166,164 @@
       "React 18 / TypeScript, bundler Vite pour des performances optimales",
       "Backend serverless Firebase (Firestore, Cloud Functions)",
       "Déploiement continu via Cloudflare Pages"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1416080825,
+    "slug": "maschine-linux",
+    "name": "Maschine Linux",
+    "owner": "timotheegrollier",
+    "description": "Station de travail audio / DAW sous Linux dédiée au workflow Native Instruments Maschine MK3. Moteur temps-réel Rust sur PipeWire-JACK, reverse engineering USB, double affichage couleur MK3 et séquenceur par pas.",
+    "tags": [
+      "Rust",
+      "Linux",
+      "Audio / DSP",
+      "PipeWire",
+      "Hardware Reverse Engineering"
+    ],
+    "image": "/media/maschine-linux-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/maschine-linux",
+    "featured": true,
+    "stars": 0,
+    "language": "Rust",
+    "updatedAt": "2026-11-22T13:42:15Z",
+    "createdAt": "2026-10-12T20:08:11Z",
+    "latestRelease": {
+      "version": "v0.14.0",
+      "name": "v0.14.0",
+      "publishedAt": "2026-11-22T13:49:29Z",
+      "body": "# Maschine Linux 0.14.0\n\n### Added\n- **Éditeur de sample (SAMPLING)** comme sur la MK3 : boutons 1–4 = **RECORD**, **EDIT**, **SLICE**, **ZONE**.\n  - RECORD : enregistre l'entrée audio de la MK3 sur le pad actif (`ENREG` / `STOP`, déclenchement au seuil `SEUIL`, durée max réglable) ; la prise est écrite en WAV dans `~/.local/share/maschine-linux/recordings/` et chargée comme un sample importé.\n  - EDIT : plage de lecture non destructive (START / END, enregistrée dans le projet et respectée par le sampler), accord en demi-tons, gain, enveloppe ; `REVERSE`, `LOOP`, `NORMLZ`, `PLAGE MAX`.\n  - SLICE : découpe en 4 / 8 / 16 tranches sur une grille ou aux coups détectés (sensibilité réglable), `APPLIQUER` répartit les tranches sur les pads.\n  - ZONE : note racine, tessiture, vélocités, accord fin, pan et gain de la zone, avec un clavier de 128 notes à l'écran.\n- **Mode EVENTS** : édition des notes du pattern une par une sur les deux écrans (rouleau de notes à gauche, liste à droite) — knobs POSITION, NOTE, VÉLOCITÉ, LONGUEUR, 4D pour passer d'une note à l'autre, `TOUS`, `SUPPR`, `DUPLIQ`, `QUANT`, `NUDGE < >`.\n- **GUI** : bouton `EVENTS` dans le pont MK3 ; bandeau « Éditeur de sample » en tête de la vue Sampler (les huit boutons et les valeurs des knobs).\n- `maschine-linux standby --install` : installe le service de veille pour l'AppImage ou le tarball et indique la règle udev à ajouter.\n- **Documentation pour reprendre le projet** : `AGENTS.md` (carte du dépôt, invariants, où modifier quoi, pièges, publication), `CLAUDE.md`, `docs/STATUS.md` (fait / partiel / manquant, vérifications matérielles, suites).\n\n### Changed\n- **Mixer des pads** : rangée de knobs au bas des écrans (volume, pan avec Shift) aux couleurs des pads ; en-têtes allégés.\n- **Browser** et **STEP** : carte de preset plus lisible, aides reformulées sans abréviations.\n- Les modes de filtre du sampler (LP/HP/BP, NOTCH, PEAK, OFF, CYC FLT) restent sur la page SON du PLUG-IN, les boutons SAMPLING étant pris par l'éditeur.\n\n### Fixed\n- **Bas de la fenêtre caché par la barre des tâches** (Fedora KDE, écrans à mise à l'échelle) : la fenêtre demandait 1560 × 960 points, plus haut que l'écran utile d'un portable 1080p à 125 %. Elle s'ouvre désormais maximisée dans la zone utile (taille de retour 1200 × 720).\n\n### Validation\n- `cargo fmt`, `cargo clippy -D warnings`, `cargo test --workspace` (260 tests) et `cargo check -p maschine-engine --no-default-features` au vert.\n- Nouveaux tests : éditeur de sample (pages, plage, racine, enregistrement → WAV → pad, découpe en 4 tranches contiguës), plage de lecture du sampler, détection des coups, mode EVENTS (moteur et routage du mapper).\n- Rendu de chaque page de l'éditeur et du mode EVENTS via `dump_screens`.\n",
+      "htmlUrl": "https://github.com/timotheegrollier/maschine-linux/releases/tag/v0.14.0",
+      "assets": [
+        {
+          "name": "maschine-linux-0.14.0-1.x86_64.rpm",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.14.0/maschine-linux-0.14.0-1.x86_64.rpm",
+          "size": 6281375,
+          "downloadCount": 1
+        },
+        {
+          "name": "maschine-linux-0.14.0-linux-x86_64.tar.gz",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.14.0/maschine-linux-0.14.0-linux-x86_64.tar.gz",
+          "size": 8189413,
+          "downloadCount": 1
+        },
+        {
+          "name": "maschine-linux_0.14.0-1_amd64.deb",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.14.0/maschine-linux_0.14.0-1_amd64.deb",
+          "size": 5856316,
+          "downloadCount": 1
+        },
+        {
+          "name": "Maschine_Linux-0.14.0-x86_64.AppImage",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.14.0/Maschine_Linux-0.14.0-x86_64.AppImage",
+          "size": 8430784,
+          "downloadCount": 1
+        },
+        {
+          "name": "SHA256SUMS",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.14.0/SHA256SUMS",
+          "size": 413,
+          "downloadCount": 1
+        }
+      ]
+    },
+    "highlights": [
+      "Reverse-engineering complet du protocole USB de la Maschine MK3 (17cc:1600)",
+      "Moteur audio ultra basse latence écrit en Rust sur PipeWire-JACK (zéro allocation dans la boucle audio)",
+      "Rendu graphique dynamique en temps réel sur les deux écrans LCD couleur du contrôleur",
+      "Workflow complet : Projects, Groups, Sounds, Patterns, Scenes, Step Sequencer 16 pas"
+    ],
+    "architecture": [
+      "Rust (2021 edition) pour une exécution temps-réel sans pause de Garbage Collector",
+      "PipeWire-JACK C API bindings & threads audio temps réel à haute priorité (SCHED_FIFO)",
+      "Protocole USB bulk transfer pour alimenter le framebuffer des deux écrans MK3"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1366357202,
+    "slug": "work-logs",
+    "name": "WorkLogs",
+    "owner": "timotheegrollier",
+    "description": "Journal de travail 100% local, moderne et sans friction pour développeurs. Organisation en écran unique : journal hebdo à gauche, éditeur markdown au centre, todo list à droite. Zéro compte requis, paquets Linux natifs .deb et .rpm.",
+    "tags": [
+      "TypeScript",
+      "React",
+      "Productivity",
+      "Desktop App",
+      "Linux"
+    ],
+    "image": "/media/work-logs-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/work-logs",
+    "featured": true,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-11-20T15:30:58Z",
+    "createdAt": "2026-09-11T15:22:13Z",
+    "latestRelease": {
+      "version": "v0.87.2",
+      "name": "WorkLogs v0.87.2",
+      "publishedAt": "2026-11-20T15:28:44Z",
+      "body": "## WorkLogs 0.87.2 for Linux\n\nA 100% local work journal: write, lay out and organize — on a single screen, no account, no server.\n\n### Download\n\n| File | For |\n|---|---|\n| `WorkLogs-0.87.2-linux-amd64.deb` | Ubuntu 24.04, Linux Mint 22.x and other Debian-based distros (94 MB) |\n| `WorkLogs-0.87.2-linux-x86_64.rpm` | Fedora 43 / 44 and other RPM-based distros (84 MB) |\n| `WorkLogs-0.87.2-linux-x86_64.AppImage` | Any 64-bit distro, no install needed (119 MB) |\n\nVerify integrity with `sha256sum -c SHA256SUMS`.\n\nThe app checks for updates on launch and offers the download in one click.\n\n### Fixes\n\n- fix(assistant): préserver les checklists lors des ajouts\n\n### Other changes\n\n- release: passe en 0.87.2\n\n**Full changelog**: https://github.com/timotheegrollier/work-logs/compare/v0.87.1...v0.87.2\n",
+      "htmlUrl": "https://github.com/timotheegrollier/work-logs/releases/tag/v0.87.2",
+      "assets": [
+        {
+          "name": "latest-linux.yml",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/latest-linux.yml",
+          "size": 720,
+          "downloadCount": 2
+        },
+        {
+          "name": "SHA256SUMS",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/SHA256SUMS",
+          "size": 497,
+          "downloadCount": 2
+        },
+        {
+          "name": "WorkLogs-0.87.2-linux-amd64.deb",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/WorkLogs-0.87.2-linux-amd64.deb",
+          "size": 98276452,
+          "downloadCount": 3
+        },
+        {
+          "name": "WorkLogs-0.87.2-linux-x86_64.AppImage",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/WorkLogs-0.87.2-linux-x86_64.AppImage",
+          "size": 124317888,
+          "downloadCount": 2
+        },
+        {
+          "name": "WorkLogs-0.87.2-linux-x86_64.AppImage.blockmap",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/WorkLogs-0.87.2-linux-x86_64.AppImage.blockmap",
+          "size": 131420,
+          "downloadCount": 2
+        },
+        {
+          "name": "WorkLogs-0.87.2-linux-x86_64.rpm",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/WorkLogs-0.87.2-linux-x86_64.rpm",
+          "size": 88100593,
+          "downloadCount": 3
+        }
+      ]
+    },
+    "highlights": [
+      "Interface monobloc 1-écran : aperçu temporel, rédaction riche et tâches synchronisées",
+      "Architecture 100% locale (local-first) : respect strict de la vie privée et vitesse instantanée",
+      "Système de recherche plein texte instantanée et tags par mot-clé",
+      "Distribution multi-distro Linux avec paquets Debian (.deb) et Fedora (.rpm) automatisés"
+    ],
+    "architecture": [
+      "React 19, TypeScript, SCSS tokens modulaires",
+      "Stockage local résilient avec export JSON/Markdown et synchronisation optionnelle",
+      "CI/CD GitHub Actions multi-architecture générant les paquets natifs Linux"
     ],
     "isLiveGithub": true
   },
@@ -137,7 +350,7 @@
     "featured": true,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-11-07T22:15:01Z",
+    "updatedAt": "2026-11-20T15:07:48Z",
     "createdAt": "2022-01-13T01:43:07Z",
     "highlights": [
       "Architecture serverless haute performance sur Cloudflare Workers avec Durable Objects pour la gestion d'état WebSocket",
@@ -153,122 +366,97 @@
     "isLiveGithub": true
   },
   {
-    "id": 1116332188,
-    "slug": "global-share",
-    "name": "GlobalShare",
+    "id": 1280041801,
+    "slug": "vibe-telegram-bot",
+    "name": "Vibe Telegram Bot",
     "owner": "stxtxm",
-    "description": "Partage de fichiers direct entre appareils via WebRTC P2P chiffré, sans création de compte ni installation. Salon éphémère par code unique, streaming direct local ou internet avec repli automatique par relais Cloudflare Workers.",
+    "description": "Client Telegram complet pour piloter et superviser Mistral Vibe à distance via le protocole ACP (Agent Communication Protocol). Gestion de sessions, navigation dans les fichiers du projet, exécution de commandes et suivi des tâches.",
     "tags": [
       "TypeScript",
-      "WebRTC",
-      "PWA",
-      "P2P",
-      "Cloudflare Workers"
+      "Node.js",
+      "Mistral AI",
+      "Telegram Bot",
+      "Agentic AI"
     ],
-    "image": "/media/global-share-banner.svg",
+    "image": "/media/vibe-telegram-bot.svg",
     "cardImageFit": "cover",
     "cardImagePosition": "center",
     "modalImageFit": "contain",
     "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/global-share",
-    "liveUrl": "https://stxtxm.github.io/global-share",
+    "sourceUrl": "https://github.com/stxtxm/vibe-telegram-bot",
     "featured": true,
     "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-11-07T17:39:20Z",
-    "createdAt": "2025-12-14T16:49:17Z",
+    "language": "Python",
+    "updatedAt": "2026-11-11T10:56:42Z",
+    "createdAt": "2026-06-25T08:07:35Z",
     "highlights": [
-      "Transfert pair-à-pair direct (P2P) à débit maximal sans upload sur des serveurs tiers",
-      "Aucune création de compte, aucun pistage, salons de partage éphémères par code court",
-      "Repli de secours automatique par relais WebSocket lorsque le P2P strict est bloqué par des pare-feux stricts",
-      "Progressive Web App installable sur mobile, tablette et desktop"
+      "Pont de communication complet entre Telegram et le protocole ACP de Mistral Vibe",
+      "Contrôle distant des sessions IA : prompts, validations, arrêt/reprise de génération",
+      "Exploration interactive du système de fichiers du projet directement depuis le chat",
+      "Gestionnaire de todos intégré pour suivre la progression des tâches en cours"
     ],
     "architecture": [
-      "Next.js export statique (SSG) déployé sur GitHub Pages",
-      "WebRTC DataChannels avec chiffrement DTLS / SRTP",
-      "Signalisation serverless sur Cloudflare Workers"
+      "Node.js & TypeScript avec typage strict",
+      "Telegram Bot API (telegraf / grammy) avec streaming markdown",
+      "Protocole ACP (Agent Communication Protocol) en streaming bidirectionnel"
     ],
     "isLiveGithub": true
   },
   {
-    "id": 1366357202,
-    "slug": "work-logs",
-    "name": "WorkLogs",
-    "owner": "timotheegrollier",
-    "description": "Journal de travail 100% local, moderne et sans friction pour développeurs. Organisation en écran unique : journal hebdo à gauche, éditeur markdown au centre, todo list à droite. Zéro compte requis, paquets Linux natifs .deb et .rpm.",
+    "id": 1276070681,
+    "slug": "visualize",
+    "name": "Visualize",
+    "owner": "stxtxm",
+    "description": "Générateur de visualisations audio psychédéliques haute performance inspiré de Winamp et Windows Media Player. Effet Trance Scope synchronisé au tempo, incrustation d’arrière-plans et export vidéo MP4 accéléré par GPU.",
     "tags": [
-      "TypeScript",
-      "React",
-      "Productivity",
-      "Desktop App",
-      "Linux"
+      "Python",
+      "Audio Visualizer",
+      "FFmpeg",
+      "OpenGL",
+      "Desktop"
     ],
-    "image": "/media/work-logs-banner.svg",
+    "image": "/media/visualize-banner.svg",
     "cardImageFit": "cover",
     "cardImagePosition": "center",
     "modalImageFit": "contain",
     "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/work-logs",
+    "sourceUrl": "https://github.com/stxtxm/visualize",
     "featured": true,
     "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-11-06T15:50:02Z",
-    "createdAt": "2026-09-11T15:22:13Z",
+    "language": "Python",
+    "updatedAt": "2026-11-08T02:31:52Z",
+    "createdAt": "2026-06-21T14:02:49Z",
     "latestRelease": {
-      "version": "v0.72.0",
-      "name": "WorkLogs v0.72.0",
-      "publishedAt": "2026-11-06T15:10:33Z",
-      "body": "## WorkLogs 0.72.0 for Linux\n\nA 100% local work journal: write, lay out and organize — on a single screen, no account, no server.\n\n### Download\n\n| File | For |\n|---|---|\n| `WorkLogs-0.72.0-linux-amd64.deb` | Ubuntu 24.04, Linux Mint 22.x and other Debian-based distros (94 MB) |\n| `WorkLogs-0.72.0-linux-x86_64.rpm` | Fedora 43 / 44 and other RPM-based distros (84 MB) |\n| `WorkLogs-0.72.0-linux-x86_64.AppImage` | Any 64-bit distro, no install needed (118 MB) |\n\nVerify integrity with `sha256sum -c SHA256SUMS`.\n\nThe app checks for updates on launch and offers the download in one click.\n\n### What's new\n\n- feat: page d’accueil publique sur GitHub Pages pour la publication Google\n- feat: page publique de politique de confidentialité\n\n### Fixes\n\n- fix: répare master — fusion d'entrées et optimisation IA terminées\n- fix: restaure web/, supprimé par erreur dans 99bbcba\n- fix: add minimal package.json for CI\n\n### Other changes\n\n- release: passe en 0.72.0\n- docs: nomme le fichier de vérification Search Console validé\n- API: entry merge feature\n- fusion d entrees IA\n\n**Full changelog**: https://github.com/timotheegrollier/work-logs/compare/v0.71.0...v0.72.0\n",
-      "htmlUrl": "https://github.com/timotheegrollier/work-logs/releases/tag/v0.72.0",
+      "version": "v0.3.18",
+      "name": "v0.3.18",
+      "publishedAt": "2026-11-08T02:35:55Z",
+      "body": "## What's new in v0.3.18\n\n### Windows installer named after the release\nThe NSIS script used to hardcode version `0.3.13`, so every release shipped an installer named after an old version. The version is now injected at compile time:\n\n- `.github/workflows/windows_build.yml` resolves the version from `version.py`, overrides it with the tag name on `v*` tags, and passes `/DPRODUCT_VERSION=<version>` to `makensis`.\n- The build fails if the expected `Visualize_Setup_<version>.exe` is missing, and the artifact is uploaded as `Visualize_Installer_<version>`.\n- `installer.nsi` defaults to `dev` when `PRODUCT_VERSION` is not supplied, so a plain local `makensis installer.nsi` still works.\n- `build_windows.bat` reads the version from `version.py` for manual builds.\n\n### OpenCV is now optional\n`opencv-python` was imported unconditionally everywhere, which made the effects, the test suite and the export path unusable without it.\n\n- Every cv2-based effect (`wave`, `tunnel`, `bars`, `circles`, `particles`, `plasma`, `spectrum`) guards its import and falls back to `BaseEffect._render_via_pygame()`, which draws through the effect's own pygame `render()` path and returns an `(H, W, 3)` array.\n- `recorder/parallel_export.py` no longer requires cv2 (`setNumThreads` is only called when it is available).\n- Preview and export still produce frames without OpenCV; the fallback is not pixel-identical to the cv2 path.\n\nFull test suite passes with and without `opencv-python` installed (216 passed, 1 skipped), and the export integration test (`tests/test_export.py`, H.264 and VP9) passes with `cv2` absent.\n",
+      "htmlUrl": "https://github.com/stxtxm/visualize/releases/tag/v0.3.18",
       "assets": [
         {
-          "name": "latest-linux.yml",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/latest-linux.yml",
-          "size": 720,
-          "downloadCount": 0
-        },
-        {
-          "name": "SHA256SUMS",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/SHA256SUMS",
-          "size": 497,
+          "name": "Visualize.AppImage",
+          "downloadUrl": "https://github.com/stxtxm/visualize/releases/download/v0.3.18/Visualize.AppImage",
+          "size": 266945728,
           "downloadCount": 1
         },
         {
-          "name": "WorkLogs-0.72.0-linux-amd64.deb",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/WorkLogs-0.72.0-linux-amd64.deb",
-          "size": 98213892,
+          "name": "Visualize_Setup_0.3.18.exe",
+          "downloadUrl": "https://github.com/stxtxm/visualize/releases/download/v0.3.18/Visualize_Setup_0.3.18.exe",
+          "size": 556345681,
           "downloadCount": 1
-        },
-        {
-          "name": "WorkLogs-0.72.0-linux-x86_64.AppImage",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/WorkLogs-0.72.0-linux-x86_64.AppImage",
-          "size": 124244019,
-          "downloadCount": 1
-        },
-        {
-          "name": "WorkLogs-0.72.0-linux-x86_64.AppImage.blockmap",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/WorkLogs-0.72.0-linux-x86_64.AppImage.blockmap",
-          "size": 131275,
-          "downloadCount": 0
-        },
-        {
-          "name": "WorkLogs-0.72.0-linux-x86_64.rpm",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.72.0/WorkLogs-0.72.0-linux-x86_64.rpm",
-          "size": 88045401,
-          "downloadCount": 2
         }
       ]
     },
     "highlights": [
-      "Interface monobloc 1-écran : aperçu temporel, rédaction riche et tâches synchronisées",
-      "Architecture 100% locale (local-first) : respect strict de la vie privée et vitesse instantanée",
-      "Système de recherche plein texte instantanée et tags par mot-clé",
-      "Distribution multi-distro Linux avec paquets Debian (.deb) et Fedora (.rpm) automatisés"
+      "Moteur de rendu spectral BPM-synced avec bloom dynamique et glyphes orbitaux",
+      "Prévisualisation temps-réel et export vidéo MP4 haute fidélité (FFmpeg)",
+      "Personnalisation complète : image de fond, placement libre de filigrane / logo et couleurs",
+      "Package portable AppImage pour Linux et exécutable Windows"
     ],
     "architecture": [
-      "React 19, TypeScript, SCSS tokens modulaires",
-      "Stockage local résilient avec export JSON/Markdown et synchronisation optionnelle",
-      "CI/CD GitHub Actions multi-architecture générant les paquets natifs Linux"
+      "Python 3, analyse spectrale FFT du signal audio",
+      "Intégration FFmpeg pour l’encodage vidéo synchrone",
+      "Workflow CI GitHub Actions avec compilation AppImage multi-plateforme"
     ],
     "isLiveGithub": true
   },
@@ -325,7 +513,7 @@
           "name": "BPM-detector-Windows-x64.zip",
           "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/BPM-detector-Windows-x64.zip",
           "size": 146154474,
-          "downloadCount": 0
+          "downloadCount": 1
         },
         {
           "name": "BPM-detector.flatpak",
@@ -349,7 +537,7 @@
           "name": "checksums.txt",
           "downloadUrl": "https://github.com/timotheegrollier/bpm-detector/releases/download/v1.5.5/checksums.txt",
           "size": 644,
-          "downloadCount": 0
+          "downloadCount": 1
         }
       ]
     },
@@ -363,64 +551,6 @@
       "Python 3 avec bibliothèques d’analyse du signal audio (NumPy, SciPy, Librosa/aubio)",
       "Interface Tkinter moderne avec threading asynchrone pour ne jamais geler l’interface utilisateur",
       "Packaging automatisé PyInstaller & Inno Setup dans GitHub Actions"
-    ],
-    "isLiveGithub": true
-  },
-  {
-    "id": 1276070681,
-    "slug": "visualize",
-    "name": "Visualize",
-    "owner": "stxtxm",
-    "description": "Générateur de visualisations audio psychédéliques haute performance inspiré de Winamp et Windows Media Player. Effet Trance Scope synchronisé au tempo, incrustation d’arrière-plans et export vidéo MP4 accéléré par GPU.",
-    "tags": [
-      "Python",
-      "Audio Visualizer",
-      "FFmpeg",
-      "OpenGL",
-      "Desktop"
-    ],
-    "image": "/media/visualize-banner.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/visualize",
-    "featured": true,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-10-14T17:59:21Z",
-    "createdAt": "2026-06-21T14:02:49Z",
-    "latestRelease": {
-      "version": "v0.3.16",
-      "name": "v0.3.16",
-      "publishedAt": "2026-10-14T18:03:23Z",
-      "body": "## What's new in v0.3.16\n\n### Bug fixes\n- **Fixed no sound when launching from the AppImage / desktop menu.** The generated `AppRun` did `export PULSE_SERVER=` when PipeWire was detected. A defined-but-empty `PULSE_SERVER` makes the Pulse/PipeWire compatibility layer try to reach a server named \"\" and fail with \"Serveur invalide\" (invalid server), so nothing launched through the menu could output audio. The variable is now simply unset, letting PipeWire use its native socket via `XDG_RUNTIME_DIR`.\n- Kept the previous fix (probe `pw-play` before `sounddevice`) since `sounddevice`/PortAudio can be silent on some PipeWire hosts.",
-      "htmlUrl": "https://github.com/stxtxm/visualize/releases/tag/v0.3.16",
-      "assets": [
-        {
-          "name": "Visualize.AppImage",
-          "downloadUrl": "https://github.com/stxtxm/visualize/releases/download/v0.3.16/Visualize.AppImage",
-          "size": 266478784,
-          "downloadCount": 0
-        },
-        {
-          "name": "Visualize_Setup_0.3.13.exe",
-          "downloadUrl": "https://github.com/stxtxm/visualize/releases/download/v0.3.16/Visualize_Setup_0.3.13.exe",
-          "size": 552784030,
-          "downloadCount": 0
-        }
-      ]
-    },
-    "highlights": [
-      "Moteur de rendu spectral BPM-synced avec bloom dynamique et glyphes orbitaux",
-      "Prévisualisation temps-réel et export vidéo MP4 haute fidélité (FFmpeg)",
-      "Personnalisation complète : image de fond, placement libre de filigrane / logo et couleurs",
-      "Package portable AppImage pour Linux et exécutable Windows"
-    ],
-    "architecture": [
-      "Python 3, analyse spectrale FFT du signal audio",
-      "Intégration FFmpeg pour l’encodage vidéo synchrone",
-      "Workflow CI GitHub Actions avec compilation AppImage multi-plateforme"
     ],
     "isLiveGithub": true
   },
@@ -516,43 +646,6 @@
     "isLiveGithub": true
   },
   {
-    "id": 1280041801,
-    "slug": "vibe-telegram-bot",
-    "name": "Vibe Telegram Bot",
-    "owner": "stxtxm",
-    "description": "Client Telegram complet pour piloter et superviser Mistral Vibe à distance via le protocole ACP (Agent Communication Protocol). Gestion de sessions, navigation dans les fichiers du projet, exécution de commandes et suivi des tâches.",
-    "tags": [
-      "TypeScript",
-      "Node.js",
-      "Mistral AI",
-      "Telegram Bot",
-      "Agentic AI"
-    ],
-    "image": "/media/vibe-telegram-bot.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/vibe-telegram-bot",
-    "featured": true,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-08-29T11:02:05Z",
-    "createdAt": "2026-06-25T08:07:35Z",
-    "highlights": [
-      "Pont de communication complet entre Telegram et le protocole ACP de Mistral Vibe",
-      "Contrôle distant des sessions IA : prompts, validations, arrêt/reprise de génération",
-      "Exploration interactive du système de fichiers du projet directement depuis le chat",
-      "Gestionnaire de todos intégré pour suivre la progression des tâches en cours"
-    ],
-    "architecture": [
-      "Node.js & TypeScript avec typage strict",
-      "Telegram Bot API (telegraf / grammy) avec streaming markdown",
-      "Protocole ACP (Agent Communication Protocol) en streaming bidirectionnel"
-    ],
-    "isLiveGithub": true
-  },
-  {
     "id": 1340505833,
     "slug": "clicker-game",
     "name": "Clicker Game",
@@ -574,7 +667,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-10-18T12:15:01Z",
+    "updatedAt": "2026-11-20T10:50:03Z",
     "createdAt": "2026-08-20T09:12:23Z",
     "isLiveGithub": true
   },
