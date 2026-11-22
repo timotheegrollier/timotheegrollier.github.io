@@ -1,0 +1,31 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 220)">
+    <!-- Circuit / Brain / Container Box -->
+    <rect x="-65" y="-65" width="130" height="130" rx="24" fill="#0284C7" fill-opacity="0.15" stroke="#38BDF8" stroke-width="2"/>
+    <!-- CPU / AI Chip Center -->
+    <rect x="-35" y="-35" width="70" height="70" rx="12" fill="#0EA5E9"/>
+    <!-- Chip pins -->
+    <line x1="-20" y1="-45" x2="-20" y2="-35" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="-45" x2="0" y2="-35" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <line x1="20" y1="-45" x2="20" y2="-35" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-20" y1="35" x2="-20" y2="45" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="35" x2="0" y2="45" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <line x1="20" y1="35" x2="20" y2="45" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+    <!-- LLM Node dots -->
+    <circle cx="0" cy="0" r="10" fill="white"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="360" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="white" font-weight="700" letter-spacing="-0.02em">LOCAL AI STACK</text>
+  <text x="400" y="395" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#94A3B8" font-weight="500">Ollama + Open-WebUI Self-Hosted Docker</text>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#082F49"/>
+      <stop offset="0.6" stop-color="#0C4A6E"/>
+      <stop offset="1" stop-color="#030712"/>
+    </linearGradient>
+  </defs>
+</svg>

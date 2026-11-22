@@ -1,0 +1,57 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 215)">
+    <!-- Hardware frame -->
+    <rect x="-140" y="-85" width="280" height="170" rx="16" fill="#18181B" stroke="#27272A" stroke-width="2"/>
+    
+    <!-- Twin displays -->
+    <rect x="-120" y="-70" width="112" height="42" rx="4" fill="#09090B" stroke="#3F3F46" stroke-width="1"/>
+    <text x="-64" y="-44" text-anchor="middle" font-family="monospace" font-size="10" fill="#06B6D4" font-weight="bold">SCENE 01 [808]</text>
+    <rect x="8" y="-70" width="112" height="42" rx="4" fill="#09090B" stroke="#3F3F46" stroke-width="1"/>
+    <text x="64" y="-44" text-anchor="middle" font-family="monospace" font-size="10" fill="#F59E0B" font-weight="bold">PATTERN 04 [909]</text>
+    
+    <!-- 4x4 Pads Grid -->
+    <!-- Row 1 -->
+    <rect x="-60" y="-14" width="26" height="20" rx="3" fill="#EC4899"/>
+    <rect x="-28" y="-14" width="26" height="20" rx="3" fill="#8B5CF6"/>
+    <rect x="4" y="-14" width="26" height="20" rx="3" fill="#3B82F6"/>
+    <rect x="36" y="-14" width="26" height="20" rx="3" fill="#06B6D4"/>
+    <!-- Row 2 -->
+    <rect x="-60" y="10" width="26" height="20" rx="3" fill="#10B981"/>
+    <rect x="-28" y="10" width="26" height="20" rx="3" fill="#F59E0B"/>
+    <rect x="4" y="10" width="26" height="20" rx="3" fill="#EF4444"/>
+    <rect x="36" y="10" width="26" height="20" rx="3" fill="#D946EF"/>
+    <!-- Row 3 -->
+    <rect x="-60" y="34" width="26" height="20" rx="3" fill="#38BDF8"/>
+    <rect x="-28" y="34" width="26" height="20" rx="3" fill="#22C55E"/>
+    <rect x="4" y="34" width="26" height="20" rx="3" fill="#F97316"/>
+    <rect x="36" y="34" width="26" height="20" rx="3" fill="#6366F1"/>
+    <!-- Row 4 -->
+    <rect x="-60" y="58" width="26" height="20" rx="3" fill="#E11D48"/>
+    <rect x="-28" y="58" width="26" height="20" rx="3" fill="#0EA5E9"/>
+    <rect x="4" y="58" width="26" height="20" rx="3" fill="#A855F7"/>
+    <rect x="36" y="58" width="26" height="20" rx="3" fill="#14B8A6"/>
+
+    <!-- Left knobs & strips -->
+    <circle cx="-95" cy="5" r="9" fill="#27272A" stroke="#71717A" stroke-width="1.5"/>
+    <circle cx="-95" cy="35" r="9" fill="#27272A" stroke="#71717A" stroke-width="1.5"/>
+    <circle cx="-95" cy="65" r="9" fill="#27272A" stroke="#71717A" stroke-width="1.5"/>
+
+    <!-- Right control encoder -->
+    <circle cx="95" cy="30" r="14" fill="#27272A" stroke="#A1A1AA" stroke-width="2"/>
+    <line x1="95" y1="20" x2="95" y2="28" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="375" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="white" font-weight="700" letter-spacing="-0.02em">MASCHINE LINUX</text>
+  <text x="400" y="410" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#94A3B8" font-weight="500">Native Instruments MK3 on Linux (Rust + PipeWire)</text>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18181B"/>
+      <stop offset="0.5" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#09090B"/>
+    </linearGradient>
+  </defs>
+</svg>

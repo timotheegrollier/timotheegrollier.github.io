@@ -1,0 +1,20 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="url(#bg)"/>
+  
+  <!-- Waveform -->
+  <path d="M100 250 L150 200 L200 300 L250 150 L300 350 L350 100 L400 400 L450 120 L500 320 L550 180 L600 280 L650 220 L700 250" 
+        stroke="#22D3EE" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Center Line -->
+  <path d="M100 250 L700 250" stroke="white" stroke-width="2" stroke-opacity="0.2"/>
+
+  <!-- Text -->
+  <text x="400" y="450" text-anchor="middle" font-family="sans-serif" font-size="24" fill="white" font-weight="bold">BPM DETECTOR PRO</text>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#312E81"/>
+      <stop offset="1" stop-color="#1E1B4B"/>
+    </linearGradient>
+  </defs>
+</svg>

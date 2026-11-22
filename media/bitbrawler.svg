@@ -1,0 +1,20 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="url(#bg)"/>
+  
+  <!-- Pixel Character -->
+  <path d="M350 150 H450 V200 H500 V300 H450 V400 H350 V300 H300 V200 H350 V150 Z" fill="white" opacity="0.1"/>
+  
+  <!-- Sword -->
+  <path d="M380 120 H420 V160 H400 V300 H380 V160 H360 V120 H380 Z" fill="white"/>
+  <path d="M360 260 H440 V280 H360 V260 Z" fill="#22D3EE"/>
+  
+  <!-- Text -->
+  <text x="400" y="420" text-anchor="middle" font-family="monospace" font-size="24" fill="white" font-weight="bold">BITBRAWLER</text>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E1065"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+</svg>

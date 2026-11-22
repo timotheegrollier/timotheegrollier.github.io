@@ -1,0 +1,53 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="url(#bg)"/>
+  
+  <g transform="translate(400, 215)">
+    <!-- Window frame -->
+    <rect x="-150" y="-85" width="300" height="170" rx="12" fill="#0B1320" stroke="#1E293B" stroke-width="2"/>
+    <!-- Window top bar -->
+    <rect x="-150" y="-85" width="300" height="24" rx="12" fill="#0F172A"/>
+    <circle cx="-136" cy="-73" r="4" fill="#EF4444"/>
+    <circle cx="-124" cy="-73" r="4" fill="#F59E0B"/>
+    <circle cx="-112" cy="-73" r="4" fill="#10B981"/>
+    
+    <!-- 3-Column Layout -->
+    <!-- Col 1: Journal -->
+    <rect x="-140" y="-50" width="60" height="120" rx="4" fill="#131E30"/>
+    <rect x="-135" y="-42" width="50" height="6" rx="2" fill="#38BDF8" fill-opacity="0.8"/>
+    <rect x="-135" y="-30" width="40" height="4" rx="2" fill="#64748B"/>
+    <rect x="-135" y="-20" width="45" height="4" rx="2" fill="#64748B"/>
+    <rect x="-135" y="-10" width="38" height="4" rx="2" fill="#64748B"/>
+    
+    <!-- Col 2: Editor -->
+    <rect x="-72" y="-50" width="144" height="120" rx="4" fill="#172338"/>
+    <rect x="-62" y="-42" width="90" height="8" rx="2" fill="#F8FAFC"/>
+    <rect x="-62" y="-26" width="124" height="4" rx="2" fill="#94A3B8"/>
+    <rect x="-62" y="-16" width="118" height="4" rx="2" fill="#94A3B8"/>
+    <rect x="-62" y="-6" width="105" height="4" rx="2" fill="#94A3B8"/>
+    <rect x="-62" y="10" width="70" height="5" rx="2" fill="#38BDF8"/>
+    <rect x="-62" y="24" width="120" height="4" rx="2" fill="#94A3B8"/>
+    <rect x="-62" y="34" width="110" height="4" rx="2" fill="#94A3B8"/>
+
+    <!-- Col 3: Tasks -->
+    <rect x="80" y="-50" width="60" height="120" rx="4" fill="#131E30"/>
+    <rect x="85" y="-42" width="50" height="6" rx="2" fill="#10B981" fill-opacity="0.8"/>
+    <circle cx="89" cy="-28" r="3" fill="#10B981"/>
+    <rect x="96" y="-30" width="36" height="4" rx="2" fill="#94A3B8"/>
+    <circle cx="89" cy="-16" r="3" fill="#10B981"/>
+    <rect x="96" y="-18" width="38" height="4" rx="2" fill="#94A3B8"/>
+    <circle cx="89" cy="-4" r="3" stroke="#64748B" stroke-width="1.5" fill="none"/>
+    <rect x="96" y="-6" width="34" height="4" rx="2" fill="#64748B"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="375" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="white" font-weight="700" letter-spacing="-0.02em">WORK-LOGS</text>
+  <text x="400" y="410" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#94A3B8" font-weight="500">100% Local Developer Journal &amp; Tasks (React + TypeScript)</text>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0284C7" stop-opacity="0.2"/>
+      <stop offset="0.4" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+</svg>
