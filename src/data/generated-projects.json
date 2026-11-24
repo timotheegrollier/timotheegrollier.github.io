@@ -1,251 +1,5 @@
 [
   {
-    "id": 1149280776,
-    "slug": "bitbrawler",
-    "name": "BitBrawler",
-    "owner": "stxtxm",
-    "description": "RPG navigateur rétro 8-bit avec arène PvP, bots IA simulant des stratégies de combat, arbre de compétences, système d’équipement et de loot, et reset quotidien automatique. PWA installable sur tous écrans.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Firebase",
-      "Vite",
-      "SCSS",
-      "PWA"
-    ],
-    "image": "/media/bitbrawler.png",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center 28%",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/bitbrawler",
-    "liveUrl": "https://bitbrawler.pages.dev",
-    "featured": true,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-11-22T14:55:58Z",
-    "createdAt": "2026-02-03T23:47:44Z",
-    "highlights": [
-      "Système de combat au tour par tour dynamique inspiré des classiques RPG 8-bit",
-      "Arène PvP avec matchmaking basé sur le niveau et bots IA adaptatifs",
-      "Persistance temps réel Firebase Firestore avec cron de reset quotidien",
-      "Expérience PWA responsive installable hors-ligne"
-    ],
-    "architecture": [
-      "React 18 / TypeScript, bundler Vite pour des performances optimales",
-      "Backend serverless Firebase (Firestore, Cloud Functions)",
-      "Déploiement continu via Cloudflare Pages"
-    ],
-    "isLiveGithub": true
-  },
-  {
-    "id": 1416080825,
-    "slug": "maschine-linux",
-    "name": "Maschine Linux",
-    "owner": "timotheegrollier",
-    "description": "Station de travail audio / DAW sous Linux dédiée au workflow Native Instruments Maschine MK3. Moteur temps-réel Rust sur PipeWire-JACK, reverse engineering USB, double affichage couleur MK3 et séquenceur par pas.",
-    "tags": [
-      "Rust",
-      "Linux",
-      "Audio / DSP",
-      "PipeWire",
-      "Hardware Reverse Engineering"
-    ],
-    "image": "/media/maschine-linux-banner.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/timotheegrollier/maschine-linux",
-    "featured": true,
-    "stars": 0,
-    "language": "Rust",
-    "updatedAt": "2026-11-22T14:46:09Z",
-    "createdAt": "2026-10-12T20:08:11Z",
-    "latestRelease": {
-      "version": "v0.15.0",
-      "name": "v0.15.0",
-      "publishedAt": "2026-11-22T14:53:37Z",
-      "body": "# Maschine Linux 0.15.0\n\n### Fixed\n- **Tous les groupes jouent ensemble, synthés compris** : le TB-303, le Kick Synth et le Nexus n'existaient qu'en un exemplaire partagé par tout le projet — deux groupes avec un synthé se coupaient, prenaient les réglages l'un de l'autre et sortaient sur un seul groupe. Chaque Sound a désormais sa propre instance (rendu suspendu quand elle se tait), mixée avec le volume, le pan, les mutes et les effets de son groupe.\n- **VU-mètres des groupes B à H** : seuls ceux du groupe A bougeaient (identifiant de Sound mal décodé) ; tous les groupes et tous les pads ont maintenant leurs niveaux, dans la GUI comme sur les écrans.\n- **Notes perdues à l'enregistrement** : jouer en REC (ou poser des pas, éditer des notes) sur un groupe qui n'a pas de pattern dans la scène ne faisait rien ; un pattern est créé et placé dans la scène, comme sur le logiciel officiel.\n- **SOLO** ne coupait rien à la lecture : il s'applique maintenant aux patterns, au jeu en direct (pads, KEYBOARD, CHORDS) et aux synthés, comme MUTE.\n- **KEYBOARD / CHORDS** : les knobs réglaient le tempo et le swing au lieu de la fondamentale, de la gamme, de l'octave et de l'accord affichés au-dessus d'eux ; les pads jouaient deux octaves trop bas (un sample sonnait deux octaves sous sa hauteur) ; les LEDs suivaient un motif fixe sans rapport avec la gamme ; la GUI affichait des notes figées ; en CHORDS, les pads 8 à 14 rejouaient les mêmes accords. La MK3 et la GUI lisent maintenant les mêmes notes, calculées par le moteur.\n- **SCENE** : les knobs font ce que l'écran affiche (TEMPO, SWING, VOL GRP, PAN GRP, PATTERN, LONGUEUR, VOL SND, MASTER).\n- **Écrans PATTERN, SCENE et matrice** : le texte coupait le cadre des lignes et l'aide du bas passait sous les knobs.\n- **Pads des Sounds vides** : ils gardaient une couleur par défaut (sur la MK3 comme dans la GUI) ; ils sont éteints, et blancs quand on les frappe ou les sélectionne.\n\n### Added\n- **Lancement quantifié** : en lecture, choisir une scène ou un pattern le fait démarrer au début de la mesure suivante (pad clignotant en attente, message à l'écran) ; à l'arrêt, le changement est immédiat.\n- **LEDs des pads comme sur la MK3** : pad vide éteint, Sound présent atténué, Sound sélectionné normal, frappe ou note du séquenceur vive (selon la vélocité), Sound muet éteint (atténué en mode MUTE) ; patterns dans la couleur du groupe, scène active vive, éléments en attente clignotants ; boutons de groupe dans leur couleur (focalisé vif, muet éteint).\n- **GUI** : boutons **M** (mute) et **S** (solo) sur chaque groupe du rail.\n- **Démarrage** : la MK3 affiche l'étape de chargement avec une barre de progression dès le lancement ; la fenêtre apparaît en fondu.\n- **Transport** : `STOP` à l'arrêt revient au début ; `SHIFT + REC` lance une mesure de pré-compte (un clic par temps, même métronome coupé) puis l'enregistrement — REC clignote pendant le pré-compte, `STOP` ou un nouveau `SHIFT + REC` l'annule ; le bouton d'écran `COUNT-IN` fait faire de même à `REC`. (Le réglage de pré-compte existait mais rien ne le lisait.)\n- **KEYBOARD / CHORDS comme sur la MK3** : C3 en chromatique par défaut sur le pad 1, boutons 5–8 = `OCT -`, `OCT +`, `SEMI -`, `SEMI +` (la fondamentale passe de B3 à C4), fondamentale et octaves allumées et encadrées à l'écran, autres pads atténués dans la couleur du Sound. En gamme (majeure, mineure…), les accords restent dans la gamme (`1-3-5`, `1-3-5-7`, `1-3`, `1-5`, `1-4-5`, `1-4-7`) comme l'Harmonizer ; en chromatique, accords fixes (Triad, Minor, Sus2…). Noms de notes partout en convention Maschine (C3 = 60).\n- **Lancements visibles** : le pattern ou la scène en attente est encadré et marqué `SUIVANT` sur les écrans MK3, et encadré dans la vue Ideas de la GUI.\n\n### Validation\n- `cargo fmt`, `cargo clippy -D warnings`, `cargo test --workspace` (268 tests) et `RUSTFLAGS=-D warnings cargo check -p maschine-engine --no-default-features` au vert ; écrans KEYBOARD, CHORDS, lancements en attente et démarrage ajoutés à `dump_screens`.\n- Nouveaux tests : groupes simultanés avec leurs synthés et leurs VU (`every_group_plays_at_once_with_its_own_synths_and_meters`), lancement à la mesure suivante, SOLO / MUTE, enregistrement sur un groupe sans pattern (`launches_wait_for_the_next_bar_and_solo_mute_and_record_work_per_group`), intensités des LEDs des pads, notes et accords des pads (`pads_start_on_c3_and_light_the_roots_like_the_mk3`, `chords_climb_with_the_pads_and_stay_in_the_scale`), knobs et boutons de KEYBOARD / CHORDS et de SCENE.\n",
-      "htmlUrl": "https://github.com/timotheegrollier/maschine-linux/releases/tag/v0.15.0",
-      "assets": [
-        {
-          "name": "maschine-linux-0.15.0-1.x86_64.rpm",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.15.0/maschine-linux-0.15.0-1.x86_64.rpm",
-          "size": 6297592,
-          "downloadCount": 0
-        },
-        {
-          "name": "maschine-linux-0.15.0-linux-x86_64.tar.gz",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.15.0/maschine-linux-0.15.0-linux-x86_64.tar.gz",
-          "size": 8208192,
-          "downloadCount": 0
-        },
-        {
-          "name": "maschine-linux_0.15.0-1_amd64.deb",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.15.0/maschine-linux_0.15.0-1_amd64.deb",
-          "size": 5873872,
-          "downloadCount": 0
-        },
-        {
-          "name": "Maschine_Linux-0.15.0-x86_64.AppImage",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.15.0/Maschine_Linux-0.15.0-x86_64.AppImage",
-          "size": 8447168,
-          "downloadCount": 0
-        },
-        {
-          "name": "SHA256SUMS",
-          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.15.0/SHA256SUMS",
-          "size": 413,
-          "downloadCount": 0
-        }
-      ]
-    },
-    "highlights": [
-      "Reverse-engineering complet du protocole USB de la Maschine MK3 (17cc:1600)",
-      "Moteur audio ultra basse latence écrit en Rust sur PipeWire-JACK (zéro allocation dans la boucle audio)",
-      "Rendu graphique dynamique en temps réel sur les deux écrans LCD couleur du contrôleur",
-      "Workflow complet : Projects, Groups, Sounds, Patterns, Scenes, Step Sequencer 16 pas"
-    ],
-    "architecture": [
-      "Rust (2021 edition) pour une exécution temps-réel sans pause de Garbage Collector",
-      "PipeWire-JACK C API bindings & threads audio temps réel à haute priorité (SCHED_FIFO)",
-      "Protocole USB bulk transfer pour alimenter le framebuffer des deux écrans MK3"
-    ],
-    "isLiveGithub": true
-  },
-  {
-    "id": 1116332188,
-    "slug": "global-share",
-    "name": "GlobalShare",
-    "owner": "stxtxm",
-    "description": "Partage de fichiers direct entre appareils via WebRTC P2P chiffré, sans création de compte ni installation. Salon éphémère par code unique, streaming direct local ou internet avec repli automatique par relais Cloudflare Workers.",
-    "tags": [
-      "TypeScript",
-      "WebRTC",
-      "PWA",
-      "P2P",
-      "Cloudflare Workers"
-    ],
-    "image": "/media/global-share-banner.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/global-share",
-    "liveUrl": "https://stxtxm.github.io/global-share",
-    "featured": true,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-11-22T14:28:12Z",
-    "createdAt": "2025-12-14T16:49:17Z",
-    "latestRelease": {
-      "version": "v1.0.23",
-      "name": "GlobalShare 1.0.23",
-      "publishedAt": "2026-11-22T14:31:30Z",
-      "body": "**Full Changelog**: https://github.com/stxtxm/global-share/compare/v1.0.22...v1.0.23",
-      "htmlUrl": "https://github.com/stxtxm/global-share/releases/tag/v1.0.23",
-      "assets": [
-        {
-          "name": "builder-debug.yml",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/builder-debug.yml",
-          "size": 953,
-          "downloadCount": 0
-        },
-        {
-          "name": "GlobalShare-1.0.23.apk",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-1.0.23.apk",
-          "size": 6307212,
-          "downloadCount": 1
-        },
-        {
-          "name": "GlobalShare-1.0.23.apk.blockmap",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-1.0.23.apk.blockmap",
-          "size": 4620,
-          "downloadCount": 1
-        },
-        {
-          "name": "GlobalShare-1.0.23.apk.sha256",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-1.0.23.apk.sha256",
-          "size": 65,
-          "downloadCount": 1
-        },
-        {
-          "name": "GlobalShare-1.0.23.AppImage",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-1.0.23.AppImage",
-          "size": 126360337,
-          "downloadCount": 1
-        },
-        {
-          "name": "globalshare-1.0.23.x86_64.rpm",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/globalshare-1.0.23.x86_64.rpm",
-          "size": 91316696,
-          "downloadCount": 2
-        },
-        {
-          "name": "GlobalShare-Setup-1.0.23.exe",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-Setup-1.0.23.exe",
-          "size": 114980645,
-          "downloadCount": 1
-        },
-        {
-          "name": "GlobalShare-Setup-1.0.23.exe.blockmap",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/GlobalShare-Setup-1.0.23.exe.blockmap",
-          "size": 119968,
-          "downloadCount": 1
-        },
-        {
-          "name": "globalshare_1.0.23_amd64.deb",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/globalshare_1.0.23_amd64.deb",
-          "size": 102672032,
-          "downloadCount": 1
-        },
-        {
-          "name": "latest-linux.yml",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/latest-linux.yml",
-          "size": 696,
-          "downloadCount": 3
-        },
-        {
-          "name": "latest.yml",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/latest.yml",
-          "size": 354,
-          "downloadCount": 1
-        },
-        {
-          "name": "RPM-GPG-KEY-globalshare",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/RPM-GPG-KEY-globalshare",
-          "size": 1688,
-          "downloadCount": 0
-        },
-        {
-          "name": "web-bundle.json",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/web-bundle.json",
-          "size": 147,
-          "downloadCount": 7
-        },
-        {
-          "name": "web-bundle.zip",
-          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.23/web-bundle.zip",
-          "size": 1422668,
-          "downloadCount": 3
-        }
-      ]
-    },
-    "highlights": [
-      "Transfert pair-à-pair direct (P2P) à débit maximal sans upload sur des serveurs tiers",
-      "Aucune création de compte, aucun pistage, salons de partage éphémères par code court",
-      "Repli de secours automatique par relais WebSocket lorsque le P2P strict est bloqué par des pare-feux stricts",
-      "Progressive Web App installable sur mobile, tablette et desktop"
-    ],
-    "architecture": [
-      "Next.js export statique (SSG) déployé sur GitHub Pages",
-      "WebRTC DataChannels avec chiffrement DTLS / SRTP",
-      "Signalisation serverless sur Cloudflare Workers"
-    ],
-    "isLiveGithub": true
-  },
-  {
     "id": 1366357202,
     "slug": "work-logs",
     "name": "WorkLogs",
@@ -267,7 +21,7 @@
     "featured": true,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-20T15:30:58Z",
+    "updatedAt": "2026-11-24T08:41:58Z",
     "createdAt": "2026-09-11T15:22:13Z",
     "latestRelease": {
       "version": "v0.87.2",
@@ -328,6 +82,338 @@
     "isLiveGithub": true
   },
   {
+    "id": 1149280776,
+    "slug": "bitbrawler",
+    "name": "BitBrawler",
+    "owner": "stxtxm",
+    "description": "RPG navigateur rétro 8-bit avec arène PvP, bots IA simulant des stratégies de combat, arbre de compétences, système d’équipement et de loot, et reset quotidien automatique. PWA installable sur tous écrans.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Firebase",
+      "Vite",
+      "SCSS",
+      "PWA"
+    ],
+    "image": "/media/bitbrawler.png",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center 28%",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/bitbrawler",
+    "liveUrl": "https://bitbrawler.pages.dev",
+    "featured": true,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-11-24T08:10:59Z",
+    "createdAt": "2026-02-03T23:47:44Z",
+    "highlights": [
+      "Système de combat au tour par tour dynamique inspiré des classiques RPG 8-bit",
+      "Arène PvP avec matchmaking basé sur le niveau et bots IA adaptatifs",
+      "Persistance temps réel Firebase Firestore avec cron de reset quotidien",
+      "Expérience PWA responsive installable hors-ligne"
+    ],
+    "architecture": [
+      "React 18 / TypeScript, bundler Vite pour des performances optimales",
+      "Backend serverless Firebase (Firestore, Cloud Functions)",
+      "Déploiement continu via Cloudflare Pages"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1116332188,
+    "slug": "global-share",
+    "name": "GlobalShare",
+    "owner": "stxtxm",
+    "description": "Partage de fichiers direct entre appareils via WebRTC P2P chiffré, sans création de compte ni installation. Salon éphémère par code unique, streaming direct local ou internet avec repli automatique par relais Cloudflare Workers.",
+    "tags": [
+      "TypeScript",
+      "WebRTC",
+      "PWA",
+      "P2P",
+      "Cloudflare Workers"
+    ],
+    "image": "/media/global-share-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/global-share",
+    "liveUrl": "https://stxtxm.github.io/global-share",
+    "featured": true,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-11-24T03:10:40Z",
+    "createdAt": "2025-12-14T16:49:17Z",
+    "latestRelease": {
+      "version": "v1.0.51",
+      "name": "GlobalShare 1.0.51",
+      "publishedAt": "2026-11-24T03:16:00Z",
+      "body": "### Added\n- **Notes de version avant de mettre à jour.** L’encart de mise à jour affiche un panneau « Nouveautés » défilant, séparé des boutons : sections du CHANGELOG (Nouveautés, Corrections, Améliorations) de la version proposée, pour savoir ce qu’on installe avant de télécharger. Les notes suivent tous les canaux : bundle web (`web-bundle.json`), paquet complet Electron (flux GitHub) et APK Android (corps de la release).\n- Le corps de la release GitHub reprend désormais la section du CHANGELOG (via `scripts/release-notes.mjs`) au lieu des notes générées automatiquement.\n\n### Fixed\n- **Le bouton de partage du salon est correctement centré sur Pixel 9a.** Son contenu (code + icône) est centré dans la pastille et reste sur une seule ligne : un code de salon personnalisé long est tronqué avec une ellipse au lieu de passer sur deux lignes qui remplissaient la pastille de 42 px.\n- `nativeVersion` passe à **10** : l’APK embarque la lecture des notes de version (`UpdateManager`), un bundle web ne suffit pas.\n",
+      "htmlUrl": "https://github.com/stxtxm/global-share/releases/tag/v1.0.51",
+      "assets": [
+        {
+          "name": "builder-debug.yml",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/builder-debug.yml",
+          "size": 993,
+          "downloadCount": 0
+        },
+        {
+          "name": "GlobalShare-1.0.51.apk",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/GlobalShare-1.0.51.apk",
+          "size": 6331943,
+          "downloadCount": 1
+        },
+        {
+          "name": "GlobalShare-1.0.51.apk.blockmap",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/GlobalShare-1.0.51.apk.blockmap",
+          "size": 4620,
+          "downloadCount": 1
+        },
+        {
+          "name": "GlobalShare-1.0.51.apk.sha256",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/GlobalShare-1.0.51.apk.sha256",
+          "size": 65,
+          "downloadCount": 1
+        },
+        {
+          "name": "GlobalShare-1.0.51.AppImage",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/GlobalShare-1.0.51.AppImage",
+          "size": 126384951,
+          "downloadCount": 1
+        },
+        {
+          "name": "globalshare-1.0.51.x86_64.rpm",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/globalshare-1.0.51.x86_64.rpm",
+          "size": 91338408,
+          "downloadCount": 1
+        },
+        {
+          "name": "GlobalShare-Setup-1.0.51.exe",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/GlobalShare-Setup-1.0.51.exe",
+          "size": 115003143,
+          "downloadCount": 1
+        },
+        {
+          "name": "GlobalShare-Setup-1.0.51.exe.blockmap",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/GlobalShare-Setup-1.0.51.exe.blockmap",
+          "size": 120011,
+          "downloadCount": 1
+        },
+        {
+          "name": "globalshare_1.0.51_amd64.deb",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/globalshare_1.0.51_amd64.deb",
+          "size": 102688536,
+          "downloadCount": 1
+        },
+        {
+          "name": "latest-linux.yml",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/latest-linux.yml",
+          "size": 696,
+          "downloadCount": 2
+        },
+        {
+          "name": "latest.yml",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/latest.yml",
+          "size": 354,
+          "downloadCount": 1
+        },
+        {
+          "name": "RPM-GPG-KEY-globalshare",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/RPM-GPG-KEY-globalshare",
+          "size": 1688,
+          "downloadCount": 0
+        },
+        {
+          "name": "web-bundle.json",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/web-bundle.json",
+          "size": 1217,
+          "downloadCount": 3
+        },
+        {
+          "name": "web-bundle.zip",
+          "downloadUrl": "https://github.com/stxtxm/global-share/releases/download/v1.0.51/web-bundle.zip",
+          "size": 1442350,
+          "downloadCount": 1
+        }
+      ]
+    },
+    "highlights": [
+      "Transfert pair-à-pair direct (P2P) à débit maximal sans upload sur des serveurs tiers",
+      "Aucune création de compte, aucun pistage, salons de partage éphémères par code court",
+      "Repli de secours automatique par relais WebSocket lorsque le P2P strict est bloqué par des pare-feux stricts",
+      "Progressive Web App installable sur mobile, tablette et desktop"
+    ],
+    "architecture": [
+      "Next.js export statique (SSG) déployé sur GitHub Pages",
+      "WebRTC DataChannels avec chiffrement DTLS / SRTP",
+      "Signalisation serverless sur Cloudflare Workers"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1468154181,
+    "slug": "flx4-pocket",
+    "name": "flx4-pocket",
+    "owner": "stxtxm",
+    "description": "Android two-deck DJ app for the Pioneer DDJ-FLX4 with beat sync and in-app updates",
+    "tags": [
+      "Kotlin"
+    ],
+    "image": "/media/bitbrawler.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/flx4-pocket",
+    "featured": true,
+    "stars": 0,
+    "language": "Kotlin",
+    "updatedAt": "2026-11-23T18:53:26Z",
+    "createdAt": "2026-11-23T01:27:13Z",
+    "latestRelease": {
+      "version": "v0.5.0",
+      "name": "FLX4 Pocket 0.5.0",
+      "publishedAt": "2026-11-23T19:00:40Z",
+      "body": "FLX4 Pocket 0.5.0\n\nYour library on the phone and on the FLX4, memory cues, instant doubles.\n\n- + FOLDER adds a music folder with its subfolders, as many as you like;\n  + TRACKS adds single files. A folder column shows them as a tree.\n- Playlists: + PLAYLIST, then long-press a track to add it. BPM ↑ sorts by\n  tempo.\n- FLX4 as in rekordbox: BROWSE press moves between folders and tracks;\n  SHIFT + CUE/LOOP CALL ► saves a memory cue (or the loop playing), ◄ ►\n  call them, SHIFT + ◄ deletes; LOAD pressed twice doubles the other deck;\n  SHIFT + LOAD 1 shows tracks near the master's tempo, SHIFT + LOAD 2 opens\n  or closes the library.\n- Drag the bar under the waveforms to make them taller or shorter.\n- Loops with KEY now restart cleanly at the seam.\n",
+      "htmlUrl": "https://github.com/stxtxm/flx4-pocket/releases/tag/v0.5.0",
+      "assets": [
+        {
+          "name": "FLX4-Pocket-0.5.0.apk",
+          "downloadUrl": "https://github.com/stxtxm/flx4-pocket/releases/download/v0.5.0/FLX4-Pocket-0.5.0.apk",
+          "size": 766761,
+          "downloadCount": 2
+        },
+        {
+          "name": "FLX4-Pocket-0.5.0.apk.sha256",
+          "downloadUrl": "https://github.com/stxtxm/flx4-pocket/releases/download/v0.5.0/FLX4-Pocket-0.5.0.apk.sha256",
+          "size": 88,
+          "downloadCount": 1
+        },
+        {
+          "name": "update.json",
+          "downloadUrl": "https://github.com/stxtxm/flx4-pocket/releases/download/v0.5.0/update.json",
+          "size": 970,
+          "downloadCount": 4
+        }
+      ]
+    },
+    "isLiveGithub": true
+  },
+  {
+    "id": 1416080825,
+    "slug": "maschine-linux",
+    "name": "Maschine Linux",
+    "owner": "timotheegrollier",
+    "description": "Station de travail audio / DAW sous Linux dédiée au workflow Native Instruments Maschine MK3. Moteur temps-réel Rust sur PipeWire-JACK, reverse engineering USB, double affichage couleur MK3 et séquenceur par pas.",
+    "tags": [
+      "Rust",
+      "Linux",
+      "Audio / DSP",
+      "PipeWire",
+      "Hardware Reverse Engineering"
+    ],
+    "image": "/media/maschine-linux-banner.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/timotheegrollier/maschine-linux",
+    "featured": true,
+    "stars": 0,
+    "language": "Rust",
+    "updatedAt": "2026-11-23T14:38:08Z",
+    "createdAt": "2026-10-12T20:08:11Z",
+    "latestRelease": {
+      "version": "v0.29.0",
+      "name": "v0.29.0",
+      "publishedAt": "2026-11-23T14:45:21Z",
+      "body": "# Maschine Linux 0.29.0\n\n### Added\n- **Smart Strip de la MK3** (boutons `PITCH`, `MOD`, `PERFORM`, `NOTES` au-dessus de la bande tactile, LED allumée sur le mode actif) :\n  - `PITCH` : transpose le Sound actif jusqu'à ±12 demi-tons (sampler, TB-303, Kick Synth, Nexus, notes en cours comprises), retour au centre au relâchement, sans marches audibles.\n  - `MOD` (**MOD FX**) : `FILTRE` (passe-bas qui se ferme vers la gauche, passe-haut qui monte vers la droite, neutre au centre) et `FLANGER` (retard réglé au doigt) sur tout le Master ; envoie aussi la molette de modulation MIDI (CC 1).\n  - `PERFORM` (**PERFORM FX**) : `STUTTER` (répète la tranche jouée au toucher, de 1/4 à 1/32), `ÉCHO` (envoi tant que le doigt est posé, la queue continue au relâchement ; 1/4, 1/8 pointée, 1/8, 1/16) et `TRÉMOLO` (de 1/4 à 1/32), calés sur le tempo.\n  - `SHIFT + MOD` / `SHIFT + PERFORM` (« FX Select ») : effet suivant ; l'effet et le réglage sous le doigt s'affichent sur les écrans.\n  - `NOTES` : glisser le doigt joue les pads 1 à 16 un à un (modes pads, KEYBOARD, CHORDS).\n  - Effets sur le Master, après ses inserts : ils s'effacent en quelques millisecondes au relâchement, sans clic.\n- **Smart Strip dans la GUI** (pont MK3, au-dessus des groupes) : bouton du mode (clic : mode suivant), bouton de l'effet (clic : effet suivant) et la bande — glisser dessus revient à poser le doigt ; ses LEDs sont celles de la MK3.\n\n### Fixed\n- **Lecture au sample près pour tous les instruments** : le Kick Synth et le Nexus partaient au début du bloc audio (jusqu'à 21 ms d'avance avec un buffer de 1024) ; le TB-303 coupait le début du bloc où tombait chaque note (trou de silence et clic sur les lignes liées et l'écho interne). Les notes et leurs fins sont maintenant jouées à leur trame exacte, quel que soit le buffer.\n- **Fin de boucle** : une note qui finit pile quand la suivante commence (dernière note du pattern sur la même hauteur que la première) ne coupe plus cette dernière (TB-303, Nexus, sampler).\n- **Note Repeat et arpégiateur réguliers** : chaque répétition part à sa trame (plusieurs par bloc si besoin) au lieu du début du bloc — roulements et arpèges sans irrégularité, transport lancé ou arrêté ; les répétitions enregistrées gardent leur position.\n- **Kick Synth** : un nouveau coup pendant la queue du précédent ne claque plus (fondu de 3 ms du son en cours).\n- **Fins de note du sampler au sample près**, choke et vol de voix à la trame de la nouvelle note (le charley ouvert n'est plus coupé en avance par le fermé).\n- **Thread audio sans allocation** : les voix du sampler sont réservées à l'avance et le round-robin n'insère plus dans le callback ; le Note Repeat et l'arpégiateur ne copient plus les paramètres des synthés (craquements possibles aux premières notes).\n\n### Changed\n- **Reverb** : nouveau moteur à 8 retards rebouclés (Hadamard) après 4 diffuseurs, retards légèrement modulés — queue dense et lisse, sans le timbre métallique de l'ancien Freeverb ; même volume perçu, `SIZE` règle la durée de 0,3 s à 3,6 s (la courbe de l'écran suit exactement le son).\n- **Écrans SONG TIMELINE et SETTINGS (MK3)** : texte Barlow, plus aucun chevauchement — groupes de la section sur deux colonnes, cartes des réglages sur trois lignes ; la carte FOCUS montre le mode de la Smart Strip et son effet.\n\n### Validation\n- Tests : `synth_notes_start_on_their_sample_whatever_the_block_size`, `tb303_legato_notes_play_without_a_silent_gap`, `a_note_ending_on_the_loop_does_not_cut_the_first_one`, `note_repeat_hits_are_evenly_spaced_whatever_the_block_size`, `note_off_at_releases_on_its_frame_and_spares_the_next_note`, `voices_never_reallocate_in_the_audio_thread`, `retrigger_continues_from_the_ringing_kick`, `reverb_tail_grows_with_size_level_stays_even_and_sides_differ`, `strip_filter_sweeps_while_touched_and_lets_go_cleanly`, `strip_stutter_repeats_the_slice_played_at_the_touch`, `strip_echo_repeats_while_touched_and_keeps_its_tail`, `strip_tremolo_and_flanger_stay_bounded_and_finite`, `smart_strip_bends_the_active_sound_and_plays_mod_and_perform_fx`, `smart_strip_follows_one_finger_switches_modes_and_strums_pads`.\n",
+      "htmlUrl": "https://github.com/timotheegrollier/maschine-linux/releases/tag/v0.29.0",
+      "assets": [
+        {
+          "name": "maschine-linux-0.29.0-1.x86_64.rpm",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.29.0/maschine-linux-0.29.0-1.x86_64.rpm",
+          "size": 6355413,
+          "downloadCount": 1
+        },
+        {
+          "name": "maschine-linux-0.29.0-linux-x86_64.tar.gz",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.29.0/maschine-linux-0.29.0-linux-x86_64.tar.gz",
+          "size": 8281304,
+          "downloadCount": 1
+        },
+        {
+          "name": "maschine-linux_0.29.0-1_amd64.deb",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.29.0/maschine-linux_0.29.0-1_amd64.deb",
+          "size": 5923384,
+          "downloadCount": 1
+        },
+        {
+          "name": "Maschine_Linux-0.29.0-x86_64.AppImage",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.29.0/Maschine_Linux-0.29.0-x86_64.AppImage",
+          "size": 8512704,
+          "downloadCount": 1
+        },
+        {
+          "name": "SHA256SUMS",
+          "downloadUrl": "https://github.com/timotheegrollier/maschine-linux/releases/download/v0.29.0/SHA256SUMS",
+          "size": 413,
+          "downloadCount": 1
+        }
+      ]
+    },
+    "highlights": [
+      "Reverse-engineering complet du protocole USB de la Maschine MK3 (17cc:1600)",
+      "Moteur audio ultra basse latence écrit en Rust sur PipeWire-JACK (zéro allocation dans la boucle audio)",
+      "Rendu graphique dynamique en temps réel sur les deux écrans LCD couleur du contrôleur",
+      "Workflow complet : Projects, Groups, Sounds, Patterns, Scenes, Step Sequencer 16 pas"
+    ],
+    "architecture": [
+      "Rust (2021 edition) pour une exécution temps-réel sans pause de Garbage Collector",
+      "PipeWire-JACK C API bindings & threads audio temps réel à haute priorité (SCHED_FIFO)",
+      "Protocole USB bulk transfer pour alimenter le framebuffer des deux écrans MK3"
+    ],
+    "isLiveGithub": true
+  },
+  {
+    "id": 1280041801,
+    "slug": "vibe-telegram-bot",
+    "name": "Vibe Telegram Bot",
+    "owner": "stxtxm",
+    "description": "Client Telegram complet pour piloter et superviser Mistral Vibe à distance via le protocole ACP (Agent Communication Protocol). Gestion de sessions, navigation dans les fichiers du projet, exécution de commandes et suivi des tâches.",
+    "tags": [
+      "TypeScript",
+      "Node.js",
+      "Mistral AI",
+      "Telegram Bot",
+      "Agentic AI"
+    ],
+    "image": "/media/vibe-telegram-bot.svg",
+    "cardImageFit": "cover",
+    "cardImagePosition": "center",
+    "modalImageFit": "contain",
+    "modalImagePosition": "center top",
+    "sourceUrl": "https://github.com/stxtxm/vibe-telegram-bot",
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-11-22T21:35:29Z",
+    "createdAt": "2026-06-25T08:07:35Z",
+    "highlights": [
+      "Pont de communication complet entre Telegram et le protocole ACP de Mistral Vibe",
+      "Contrôle distant des sessions IA : prompts, validations, arrêt/reprise de génération",
+      "Exploration interactive du système de fichiers du projet directement depuis le chat",
+      "Gestionnaire de todos intégré pour suivre la progression des tâches en cours"
+    ],
+    "architecture": [
+      "Node.js & TypeScript avec typage strict",
+      "Telegram Bot API (telegraf / grammy) avec streaming markdown",
+      "Protocole ACP (Agent Communication Protocol) en streaming bidirectionnel"
+    ],
+    "isLiveGithub": true
+  },
+  {
     "id": 447427257,
     "slug": "socket-chat",
     "name": "Socket-Tchat",
@@ -362,43 +448,6 @@
       "Frontend React + TypeScript déployé sur GitHub Pages",
       "Backend WebSocket sur Cloudflare Workers / Durable Objects pour la scalabilité edge",
       "API REST complémentaire hébergée sur Render pour l'authentification et la persistance"
-    ],
-    "isLiveGithub": true
-  },
-  {
-    "id": 1280041801,
-    "slug": "vibe-telegram-bot",
-    "name": "Vibe Telegram Bot",
-    "owner": "stxtxm",
-    "description": "Client Telegram complet pour piloter et superviser Mistral Vibe à distance via le protocole ACP (Agent Communication Protocol). Gestion de sessions, navigation dans les fichiers du projet, exécution de commandes et suivi des tâches.",
-    "tags": [
-      "TypeScript",
-      "Node.js",
-      "Mistral AI",
-      "Telegram Bot",
-      "Agentic AI"
-    ],
-    "image": "/media/vibe-telegram-bot.svg",
-    "cardImageFit": "cover",
-    "cardImagePosition": "center",
-    "modalImageFit": "contain",
-    "modalImagePosition": "center top",
-    "sourceUrl": "https://github.com/stxtxm/vibe-telegram-bot",
-    "featured": true,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-11-11T10:56:42Z",
-    "createdAt": "2026-06-25T08:07:35Z",
-    "highlights": [
-      "Pont de communication complet entre Telegram et le protocole ACP de Mistral Vibe",
-      "Contrôle distant des sessions IA : prompts, validations, arrêt/reprise de génération",
-      "Exploration interactive du système de fichiers du projet directement depuis le chat",
-      "Gestionnaire de todos intégré pour suivre la progression des tâches en cours"
-    ],
-    "architecture": [
-      "Node.js & TypeScript avec typage strict",
-      "Telegram Bot API (telegraf / grammy) avec streaming markdown",
-      "Protocole ACP (Agent Communication Protocol) en streaming bidirectionnel"
     ],
     "isLiveGithub": true
   },
