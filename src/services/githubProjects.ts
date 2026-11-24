@@ -157,13 +157,26 @@ async function mapPool<T>(items: T[], limit: number, fn: (item: T) => Promise<vo
     await Promise.all(workers);
 }
 
+const projectKey = (p: Project) =>
+    `${p.owner || 'timotheegrollier'}/${(p.slug || p.name.toLowerCase()).toLowerCase()}`;
+
+const releaseTime = (r: ReleaseInfo) => new Date(r.publishedAt || 0).getTime() || 0;
+
+// True when `candidate` should replace `current` as the displayed release
+function isNewerRelease(candidate: ReleaseInfo, current?: ReleaseInfo): boolean {
+    if (!current) return true;
+    const cmp = compareVersions(candidate.version, current.version);
+    return cmp > 0 || (cmp === 0 && releaseTime(candidate) > releaseTime(current));
+}
+
 function sortByFeaturedAndDate(list: Project[]): Project[] {
     return [...list].sort((a, b) => {
         if (a.featured && !b.featured) return -1;
         if (!a.featured && b.featured) return 1;
         const timeA = a.updatedAt ? new Date(a.updatedAt).getTime() : 0;
         const timeB = b.updatedAt ? new Date(b.updatedAt).getTime() : 0;
-        return timeB - timeA;
+        // Name tie-break: same order whatever the source (cache, build, live)
+        return timeB - timeA || a.name.localeCompare(b.name);
     });
 }
 
@@ -189,6 +202,8 @@ export function useGitHubProjects() {
     const [error, setError] = useState<string | null>(null);
     const mountedRef = useRef(true);
     const abortRef = useRef<AbortController | null>(null);
+    // Incremented on every sync: only the latest one may update state or cache
+    const syncSeqRef = useRef(0);
     // Latest rendered list, so `commit` can diff order without stale closures
     const projectsRef = useRef(projects);
     projectsRef.current = projects;
@@ -245,6 +260,8 @@ export function useGitHubProjects() {
         const controller = new AbortController();
         abortRef.current = controller;
         const signal = controller.signal;
+        const seq = ++syncSeqRef.current;
+        const isCurrent = () => mountedRef.current && seq === syncSeqRef.current;
 
         try {
             // Curated build-time metadata is the stable base (images, highlights,
@@ -252,12 +269,18 @@ export function useGitHubProjects() {
             // top so curated content is never lost by a client-side refresh.
             const mergedMap = new Map<string, Project>();
             for (const p of staticProjects) {
-                const key = `${p.owner || 'timotheegrollier'}/${(p.slug || p.name.toLowerCase()).toLowerCase()}`;
-                mergedMap.set(key, { ...p });
+                mergedMap.set(projectKey(p), { ...p });
             }
 
             const noRelease: Record<string, number> = { ...(cached?.noRelease ?? {}) };
             const repoSnapshots: CachePayload['repoSnapshots'] = { ...(cached?.repoSnapshots ?? {}) };
+
+            // Releases already known from the cache: a rate-limited or failed
+            // request must keep them instead of falling back to build-time data.
+            const cachedReleases = new Map<string, ReleaseInfo>();
+            for (const p of cached?.projects ?? []) {
+                if (p.latestRelease) cachedReleases.set(projectKey(p), p.latestRelease);
+            }
 
             // 1) Fetch repos for both accounts (ETag → free 304 when unchanged)
             await Promise.all(
@@ -324,6 +347,13 @@ export function useGitHubProjects() {
             //    - repos already in cache keep their release info;
             //    - repos confirmed without release are skipped for 24h;
             //    - only projects present client-side are checked.
+            for (const [key, project] of mergedMap) {
+                const known = cachedReleases.get(key);
+                if (known && isNewerRelease(known, project.latestRelease)) {
+                    project.latestRelease = known;
+                }
+            }
+
             const candidates: Array<{ project: Project; key: string }> = [];
             for (const [key, project] of mergedMap) {
                 const verifiedAt = noRelease[key];
@@ -339,7 +369,9 @@ export function useGitHubProjects() {
                         `https://api.github.com/repos/${key}/releases/latest`, { signal }
                     );
                     if (res.status === 404) {
+                        // Authoritative: no published release anymore
                         noRelease[key] = Date.now();
+                        project.latestRelease = undefined;
                         return;
                     }
                     if (res.status === 403 || res.status === 429) {
@@ -353,16 +385,8 @@ export function useGitHubProjects() {
                         noRelease[key] = Date.now();
                         return;
                     }
-                    const existing = project.latestRelease;
-                    // Only replace when the live release is newer than the cached one
-                    const cmp = compareVersions(info.version, existing?.version);
-                    const isNewer =
-                        !existing ||
-                        cmp > 0 ||
-                        (cmp === 0 &&
-                            new Date(info.publishedAt || 0).getTime() >
-                                new Date(existing.publishedAt || 0).getTime());
-                    if (isNewer) {
+                    // Only replace when the live release is newer than the known one
+                    if (isNewerRelease(info, project.latestRelease)) {
                         project.latestRelease = info;
                     }
                 } catch (err) {
@@ -370,6 +394,10 @@ export function useGitHubProjects() {
                     // Network error on one release: ignore, keep cached value
                 }
             });
+
+            // A superseded sync (remount, manual refresh, abort) must not commit
+            // its partial results over the newer one.
+            if (!isCurrent() || signal.aborted) return;
 
             const updatedList = sortByFeaturedAndDate(Array.from(mergedMap.values()));
             const now = Date.now();
@@ -392,10 +420,11 @@ export function useGitHubProjects() {
             });
         } catch (err: unknown) {
             if ((err as Error)?.name === 'AbortError') return;
+            if (!isCurrent()) return;
             const msg = err instanceof Error ? err.message : 'Erreur de synchronisation';
             setError(msg);
         } finally {
-            if (mountedRef.current) {
+            if (isCurrent()) {
                 setLoading(false);
                 setInitializing(false);
             }
