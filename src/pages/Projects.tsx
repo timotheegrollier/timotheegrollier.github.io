@@ -83,24 +83,20 @@ export default function Projects() {
             });
         }
 
-        // Sort
+        // Apply the selected criterion to every project; featured only styles cards.
         result = [...result].sort((a, b) => {
-            // Keep featured on top unless sorting by name
-            if (sortBy !== 'name') {
-                if (a.featured && !b.featured) return -1;
-                if (!a.featured && b.featured) return 1;
-            }
-
             if (sortBy === 'stars') {
-                return (b.stars || 0) - (a.stars || 0);
+                return (b.stars || 0) - (a.stars || 0)
+                    || (new Date(b.updatedAt || 0).getTime() - new Date(a.updatedAt || 0).getTime())
+                    || a.name.localeCompare(b.name);
             }
             if (sortBy === 'name') {
                 return a.name.localeCompare(b.name);
             }
-            // default: updatedAt
+            // default: updatedAt, newest first, with deterministic name tie-break
             const timeA = a.updatedAt ? new Date(a.updatedAt).getTime() : 0;
             const timeB = b.updatedAt ? new Date(b.updatedAt).getTime() : 0;
-            return timeB - timeA;
+            return timeB - timeA || a.name.localeCompare(b.name);
         });
 
         return result;

@@ -169,13 +169,11 @@ function isNewerRelease(candidate: ReleaseInfo, current?: ReleaseInfo): boolean 
     return cmp > 0 || (cmp === 0 && releaseTime(candidate) > releaseTime(current));
 }
 
-function sortByFeaturedAndDate(list: Project[]): Project[] {
+function sortByUpdatedAt(list: Project[]): Project[] {
     return [...list].sort((a, b) => {
-        if (a.featured && !b.featured) return -1;
-        if (!a.featured && b.featured) return 1;
         const timeA = a.updatedAt ? new Date(a.updatedAt).getTime() : 0;
         const timeB = b.updatedAt ? new Date(b.updatedAt).getTime() : 0;
-        // Name tie-break: same order whatever the source (cache, build, live)
+        // Feature flags affect card styling, never the selected date order.
         return timeB - timeA || a.name.localeCompare(b.name);
     });
 }
@@ -399,7 +397,7 @@ export function useGitHubProjects() {
             // its partial results over the newer one.
             if (!isCurrent() || signal.aborted) return;
 
-            const updatedList = sortByFeaturedAndDate(Array.from(mergedMap.values()));
+            const updatedList = sortByUpdatedAt(Array.from(mergedMap.values()));
             const now = Date.now();
 
             // Avoid pointless re-renders when nothing actually changed
