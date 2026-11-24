@@ -101,44 +101,104 @@
     }
 }
 
-// Section « En ce moment »
+// Focus actif, relié à un projet concret plutôt qu'à une simple liste de technos.
 .skills-focus {
     @include surface-card;
+    position: relative;
+    overflow: hidden;
     border-radius: $radius-lg;
-    padding: clamp(1.1rem, 2.5vw, 1.5rem);
-    margin-bottom: clamp(1.6rem, 4vw, 2.6rem);
+    padding: clamp(1.15rem, 2.8vw, 1.8rem);
+    margin: 0 0 clamp(2.2rem, 5vw, 3.7rem);
     animation: fadeInUp 0.48s ease-out both;
 
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 3px;
+        background: $accent-gradient;
+    }
+
+    &__intro {
+        margin-bottom: 1rem;
+
+        > p {
+            color: $text-muted;
+            font-size: 0.88rem;
+            margin-top: -0.55rem;
+        }
+    }
+
+    &__eyebrow {
+        display: inline-block;
+        margin-bottom: 0.45rem;
+        color: $accent-secondary;
+        font-family: $font-mono;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
     .skills-page__section-title {
-        font-size: clamp(1.2rem, 2.6vw, 1.5rem);
-        margin-bottom: 0.9rem;
+        font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+        margin-bottom: 0.7rem;
     }
 
     &__list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-        gap: 0.6rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+
+        @media (max-width: $bp-mobile) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__item {
         display: flex;
         flex-direction: column;
-        gap: 0.15rem;
-        padding: 0.7rem 0.85rem;
+        gap: 0.4rem;
+        padding: 0.9rem 1rem;
         border-radius: $radius-md;
-        background: rgba(255, 133, 82, 0.05);
-        border: 1px solid rgba(255, 133, 82, 0.22);
+        background: rgba(255, 133, 82, 0.045);
+        border: 1px solid rgba(255, 133, 82, 0.2);
+    }
+
+    &__item-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
     }
 
     &__name {
-        font-size: 0.9rem;
-        font-weight: 600;
+        font-size: 0.92rem;
+        font-weight: 700;
         color: $text-primary;
     }
 
+    &__project {
+        display: inline-flex;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        background: rgba(36, 184, 255, 0.1);
+        color: $accent-primary;
+        font-family: $font-mono;
+        font-size: 0.66rem;
+        font-weight: 600;
+    }
+
+    &__description {
+        color: $text-secondary;
+        font-size: 0.82rem;
+        line-height: 1.55;
+    }
+
     &__group {
-        font-size: 0.72rem;
         color: $text-muted;
+        font-size: 0.69rem;
     }
 }
 
@@ -241,12 +301,41 @@
         padding: 0.95rem 1rem 1rem;
     }
 
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.55rem;
+    }
+
     &__period {
         font-size: 0.68rem;
         font-family: $font-mono;
         color: $accent-secondary;
         font-weight: 600;
         letter-spacing: 0.05em;
+    }
+
+    &__current {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.18rem 0.55rem;
+        border: 1px solid rgba(126, 240, 180, 0.32);
+        border-radius: 999px;
+        color: #7ef0b4;
+        background: rgba(126, 240, 180, 0.07);
+        font-size: 0.66rem;
+        font-weight: 600;
+    }
+
+    &__current::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #7ef0b4;
+        box-shadow: 0 0 8px rgba(126, 240, 180, 0.55);
     }
 
     &__title {

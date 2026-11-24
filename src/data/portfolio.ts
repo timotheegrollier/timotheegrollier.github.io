@@ -53,6 +53,10 @@ export interface Skill {
     name: string;
     tier: SkillTier;
     context: SkillContext;
+    focus?: {
+        description: string;
+        project: string;
+    };
 }
 
 export interface SkillGroup {
@@ -70,6 +74,7 @@ export interface Experience {
     period: string;
     tasks: string[];
     type: 'dev' | 'other';
+    current?: boolean;
 }
 
 export const projects: Project[] = rawProjects as unknown as Project[];
@@ -101,7 +106,15 @@ export const skillGroups: SkillGroup[] = [
             { name: 'Cloudflare Workers & Durable Objects', tier: 'solid', context: 'perso' },
             { name: 'Firebase Firestore', tier: 'solid', context: 'perso' },
             { name: 'Python', tier: 'solid', context: 'perso' },
-            { name: 'Rust', tier: 'exploring', context: 'perso' },
+            {
+                name: 'Rust',
+                tier: 'exploring',
+                context: 'perso',
+                focus: {
+                    description: 'Développer un moteur audio temps réel à faible latence avec PipeWire-JACK.',
+                    project: 'Maschine Linux',
+                },
+            },
         ],
     },
     {
@@ -130,7 +143,15 @@ export const skillGroups: SkillGroup[] = [
             { name: 'LLM local (Ollama)', tier: 'solid', context: 'perso' },
             { name: 'Audio / DSP & PipeWire', tier: 'solid', context: 'perso' },
             { name: 'Raspberry Pi & réseau', tier: 'solid', context: 'perso' },
-            { name: 'Reverse engineering USB', tier: 'exploring', context: 'perso' },
+            {
+                name: 'Reverse engineering USB',
+                tier: 'exploring',
+                context: 'perso',
+                focus: {
+                    description: 'Analyser le protocole USB de la Maschine MK3 pour faire fonctionner son matériel sous Linux.',
+                    project: 'Maschine Linux',
+                },
+            },
         ],
     },
 ];
@@ -141,12 +162,13 @@ export const experiences: Experience[] = [
         title: 'Développeur Informatique',
         company: 'Les Fils de Charles Murgat',
         period: '2023 — Aujourd\'hui',
+        current: true,
         tasks: [
+            'Modernisation et évolution de l\'ERP métier historique : backend Symfony 6 / PHP et interfaces React / TypeScript.',
             'Conception et déploiement de l\'architecture serveur sous Linux (Debian).',
-            'Mise en place de la virtualisation (Proxmox) pour la gestion des VMs et des backups.',
-            'Refonte complète et modernisation de l\'ERP métier (Legacy -> Symfony 6 + React/TypeScript).',
-            'Architecture conteneurisée avec Docker et CI/CD automatisé.',
-            'Adoption des bonnes pratiques : TDD, Code Review, Git Flow.',
+            'Mise en place de la virtualisation Proxmox : gestion des machines virtuelles et des sauvegardes.',
+            'Conteneurisation des services avec Docker et automatisation des pipelines CI/CD.',
+            'Fiabilisation des évolutions avec TDD, code review et Git Flow.',
         ],
         type: 'dev',
     },
