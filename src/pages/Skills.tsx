@@ -1,53 +1,50 @@
-import { useEffect, useMemo, useRef } from 'react';
-import { skills, experiences, interests, type Skill } from '@/data/portfolio';
+import { useMemo } from 'react';
+import {
+    skillGroups,
+    experiences,
+    interests,
+    type Skill,
+    type SkillContext,
+    type SkillTier,
+} from '@/data/portfolio';
 import './Skills.scss';
 
-function SkillBar({ skill, index }: { skill: Skill; index: number }) {
-    const barRef = useRef<HTMLDivElement>(null);
+const TIER_LABEL: Record<SkillTier, string> = {
+    daily: 'Au quotidien',
+    solid: 'Maîtrisé',
+    exploring: 'En exploration',
+};
 
-    useEffect(() => {
-        const target = barRef.current?.parentElement;
-        if (!target) return;
+const CONTEXT_LABEL: Record<SkillContext, string> = {
+    pro: 'Pro',
+    perso: 'Perso',
+    both: 'Pro & perso',
+};
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting && barRef.current) {
-                    barRef.current.style.width = `${skill.level}%`;
-                    observer.unobserve(entry.target);
-                }
-            },
-            { threshold: 0.25 }
-        );
-
-        observer.observe(target);
-
-        return () => observer.disconnect();
-    }, [skill.level]);
-
+function SkillRow({ skill }: { skill: Skill }) {
     return (
-        <div
-            className="skill-bar"
-            style={{ animationDelay: `${index * 0.05}s` }}
-        >
-            <div className="skill-bar__header">
-                <span className="skill-bar__name">{skill.name}</span>
-                <span className="skill-bar__level">{skill.level}%</span>
-            </div>
-            <div className="skill-bar__track">
-                <div
-                    ref={barRef}
-                    className="skill-bar__fill"
-                    style={{ width: 0, transitionDelay: `${index * 0.05}s` }}
-                />
-            </div>
-        </div>
+        <li className="skill-item">
+            <span className="skill-item__name">{skill.name}</span>
+            <span className="skill-item__meta">
+                <span className="skill-tag skill-tag--context">{CONTEXT_LABEL[skill.context]}</span>
+                <span className={`skill-tag skill-tag--tier skill-tag--${skill.tier}`}>
+                    {TIER_LABEL[skill.tier]}
+                </span>
+            </span>
+        </li>
     );
 }
 
 export default function Skills() {
-    const languages = useMemo(() => skills.filter((s) => s.category === 'language'), []);
-    const frameworks = useMemo(() => skills.filter((s) => s.category === 'framework'), []);
-    const tools = useMemo(() => skills.filter((s) => s.category === 'tool'), []);
+    const focus = useMemo(
+        () =>
+            skillGroups.flatMap((group) =>
+                group.skills
+                    .filter((s) => s.tier === 'exploring')
+                    .map((s) => ({ skill: s, group: group.title }))
+            ),
+        []
+    );
 
     return (
         <section className="skills-page" id="skills">
@@ -56,49 +53,48 @@ export default function Skills() {
                     Mes <span className="gradient-text">Compétences</span>
                 </h1>
                 <p className="skills-page__subtitle">
-                    Expertise full-stack orientée produit, maintenabilité et performance.
+                    Développeur full-stack en poste depuis 2023, avec un labo perso autour de l'audio,
+                    de l'IA et du temps réel. Plutôt que des pourcentages, voici où et comment
+                    j'utilise chaque technologie.
                 </p>
+                <ul className="skills-legend" aria-label="Légende">
+                    <li><span className="skill-tag skill-tag--tier skill-tag--daily">Au quotidien</span> utilisé régulièrement</li>
+                    <li><span className="skill-tag skill-tag--tier skill-tag--solid">Maîtrisé</span> mis en œuvre sur des projets réels</li>
+                    <li><span className="skill-tag skill-tag--tier skill-tag--exploring">En exploration</span> en apprentissage actif</li>
+                </ul>
             </header>
 
+            {focus.length > 0 && (
+                <div className="skills-focus">
+                    <h2 className="skills-page__section-title">
+                        Ce que je creuse <span className="gradient-text">en ce moment</span>
+                    </h2>
+                    <ul className="skills-focus__list">
+                        {focus.map(({ skill, group }) => (
+                            <li key={skill.name} className="skills-focus__item">
+                                <span className="skills-focus__name">{skill.name}</span>
+                                <span className="skills-focus__group">{group}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
             <div className="skills-page__grid">
-                {/* Languages */}
-                <div className="skill-category">
-                    <div className="skill-category__header">
-                        <span className="skill-category__icon">💻</span>
-                        <h2 className="skill-category__title">Langages</h2>
+                {skillGroups.map((group) => (
+                    <div key={group.id} className="skill-category">
+                        <div className="skill-category__header">
+                            <span className="skill-category__icon">{group.icon}</span>
+                            <h2 className="skill-category__title">{group.title}</h2>
+                        </div>
+                        <p className="skill-category__summary">{group.summary}</p>
+                        <ul className="skill-category__list">
+                            {group.skills.map((skill) => (
+                                <SkillRow key={skill.name} skill={skill} />
+                            ))}
+                        </ul>
                     </div>
-                    <div className="skill-category__list">
-                        {languages.map((skill, i) => (
-                            <SkillBar key={skill.name} skill={skill} index={i} />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Frameworks */}
-                <div className="skill-category">
-                    <div className="skill-category__header">
-                        <span className="skill-category__icon">⚛️</span>
-                        <h2 className="skill-category__title">Frameworks</h2>
-                    </div>
-                    <div className="skill-category__list">
-                        {frameworks.map((skill, i) => (
-                            <SkillBar key={skill.name} skill={skill} index={i} />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Tools */}
-                <div className="skill-category">
-                    <div className="skill-category__header">
-                        <span className="skill-category__icon">🛠️</span>
-                        <h2 className="skill-category__title">DevOps & Outils</h2>
-                    </div>
-                    <div className="skill-category__list">
-                        {tools.map((skill, i) => (
-                            <SkillBar key={skill.name} skill={skill} index={i} />
-                        ))}
-                    </div>
-                </div>
+                ))}
             </div>
 
             {/* Experience */}

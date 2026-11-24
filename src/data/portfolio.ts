@@ -44,11 +44,23 @@ export interface Project {
     isLiveGithub?: boolean;
 }
 
+// daily: utilisé régulièrement · solid: maîtrisé sur des projets réels · exploring: en apprentissage actif
+export type SkillTier = 'daily' | 'solid' | 'exploring';
+// pro: en entreprise · perso: projets personnels · both: les deux
+export type SkillContext = 'pro' | 'perso' | 'both';
+
 export interface Skill {
     name: string;
-    level: number; // 0-100
-    category: 'language' | 'framework' | 'tool' | 'other';
-    icon?: string;
+    tier: SkillTier;
+    context: SkillContext;
+}
+
+export interface SkillGroup {
+    id: string;
+    title: string;
+    icon: string;
+    summary: string;
+    skills: Skill[];
 }
 
 export interface Experience {
@@ -62,27 +74,65 @@ export interface Experience {
 
 export const projects: Project[] = rawProjects as unknown as Project[];
 
-export const skills: Skill[] = [
-    // Languages
-    { name: 'JavaScript / TypeScript', level: 95, category: 'language' },
-    { name: 'PHP', level: 85, category: 'language' },
-    { name: 'Python', level: 75, category: 'language' },
-    { name: 'HTML5 / SCSS', level: 95, category: 'language' },
-    { name: 'SQL / NoSQL', level: 80, category: 'language' },
-
-    // Frameworks
-    { name: 'React', level: 90, category: 'framework' },
-    { name: 'Symfony', level: 85, category: 'framework' },
-    { name: 'Node.js / Express', level: 80, category: 'framework' },
-    { name: 'Vite', level: 85, category: 'framework' },
-    { name: 'Tailwind / Bootstrap', level: 80, category: 'framework' },
-
-    // Tools & DevOps
-    { name: 'Git / GitHub Actions', level: 90, category: 'tool' },
-    { name: 'Docker / Compose', level: 85, category: 'tool' },
-    { name: 'Linux (Debian / Fedora)', level: 90, category: 'tool' },
-    { name: 'CI/CD Pipelines', level: 80, category: 'tool' },
-    { name: 'TDD (Test Driven Dev)', level: 75, category: 'tool' },
+export const skillGroups: SkillGroup[] = [
+    {
+        id: 'web',
+        title: 'Web & Applications',
+        icon: '🧩',
+        summary: 'Interfaces React/TypeScript, du produit métier aux PWA temps réel.',
+        skills: [
+            { name: 'TypeScript / JavaScript', tier: 'daily', context: 'both' },
+            { name: 'React', tier: 'daily', context: 'both' },
+            { name: 'HTML5 / SCSS', tier: 'daily', context: 'both' },
+            { name: 'Vite', tier: 'daily', context: 'both' },
+            { name: 'PWA & mode hors-ligne', tier: 'solid', context: 'perso' },
+            { name: 'WebSocket & WebRTC', tier: 'solid', context: 'perso' },
+        ],
+    },
+    {
+        id: 'backend',
+        title: 'Backend & Données',
+        icon: '🗄️',
+        summary: 'APIs Symfony pour l\'ERP, services serverless et bases de données.',
+        skills: [
+            { name: 'Symfony 6 / PHP', tier: 'daily', context: 'pro' },
+            { name: 'SQL / NoSQL', tier: 'solid', context: 'both' },
+            { name: 'Node.js', tier: 'solid', context: 'perso' },
+            { name: 'Cloudflare Workers & Durable Objects', tier: 'solid', context: 'perso' },
+            { name: 'Firebase Firestore', tier: 'solid', context: 'perso' },
+            { name: 'Python', tier: 'solid', context: 'perso' },
+            { name: 'Rust', tier: 'exploring', context: 'perso' },
+        ],
+    },
+    {
+        id: 'infra',
+        title: 'Infra & DevOps',
+        icon: '🛠️',
+        summary: 'Serveurs Linux, virtualisation et chaînes CI/CD conteneurisées.',
+        skills: [
+            { name: 'Linux (Debian / Fedora)', tier: 'daily', context: 'both' },
+            { name: 'Docker / Compose', tier: 'daily', context: 'both' },
+            { name: 'CI/CD (GitHub Actions)', tier: 'daily', context: 'both' },
+            { name: 'Git · Git Flow · Code review', tier: 'daily', context: 'both' },
+            { name: 'Proxmox & virtualisation', tier: 'solid', context: 'pro' },
+            { name: 'TDD', tier: 'solid', context: 'pro' },
+            { name: 'Cloudflare Pages / Vercel / Render', tier: 'solid', context: 'both' },
+        ],
+    },
+    {
+        id: 'lab',
+        title: 'IA, Audio & Hardware',
+        icon: '🎛️',
+        summary: 'Mes side projects : agents IA, DSP temps réel et matériel détourné.',
+        skills: [
+            { name: 'IA générative & vibe coding', tier: 'daily', context: 'perso' },
+            { name: 'Agents & ACP (Mistral)', tier: 'solid', context: 'perso' },
+            { name: 'LLM local (Ollama)', tier: 'solid', context: 'perso' },
+            { name: 'Audio / DSP & PipeWire', tier: 'solid', context: 'perso' },
+            { name: 'Raspberry Pi & réseau', tier: 'solid', context: 'perso' },
+            { name: 'Reverse engineering USB', tier: 'exploring', context: 'perso' },
+        ],
+    },
 ];
 
 export const experiences: Experience[] = [
