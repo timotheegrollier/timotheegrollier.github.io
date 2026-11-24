@@ -1,4 +1,5 @@
 import { socialLinks } from '@/data/portfolio';
+import { CodeArtwork } from '@/components/home/CodeArtwork';
 import { Link } from 'react-router-dom';
 import './Home.scss';
 
@@ -73,32 +74,14 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="home-page__visuals" aria-label="Portrait de Timothée Grollier">
-                    <div className="home-page__photo-glow" />
-                    <figure className="home-page__portrait-card">
-                        <img
-                            src="/media/timo.jpg"
-                            alt="Portrait de Timothée Grollier"
-                            className="home-page__profile-pic"
-                            width={1200}
-                            height={1600}
-                            loading="eager"
-                            fetchPriority="high"
-                            decoding="async"
-                        />
-                        <figcaption className="home-page__portrait-caption">
-                            <span className="home-page__portrait-kicker">Du produit à l'infrastructure</span>
-                            <strong>Concevoir. Construire. Déployer.</strong>
-                        </figcaption>
-                    </figure>
-                </div>
+                <CodeArtwork />
             </div>
 
             <div className="home-page__expertise" aria-label="Domaines d'expertise">
                 <div className="home-page__expertise-label">À travers toute la stack</div>
                 <div className="home-page__expertise-item"><span>01</span><strong>Applications web</strong><small>React · TypeScript · Symfony</small></div>
                 <div className="home-page__expertise-item"><span>02</span><strong>Infrastructure</strong><small>Linux · Docker · Proxmox</small></div>
-                <div className="home-page__expertise-item"><span>03</span><strong>Exploration perso</strong><small>Audio/DSP · temps réel · IA</small></div>
+                <div className="home-page__expertise-item"><span>03</span><strong>Exploration perso</strong><small>Audio/DSP · Linux · IA</small></div>
             </div>
         </section>
     );

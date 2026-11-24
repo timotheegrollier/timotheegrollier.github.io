@@ -84,7 +84,7 @@ export const skillGroups: SkillGroup[] = [
         id: 'web',
         title: 'Web & Applications',
         icon: '🧩',
-        summary: 'Interfaces React/TypeScript, du produit métier aux PWA temps réel.',
+        summary: 'Interfaces React/TypeScript, produits métier et applications web installables.',
         skills: [
             { name: 'TypeScript / JavaScript', tier: 'daily', context: 'both' },
             { name: 'React', tier: 'daily', context: 'both' },
@@ -111,7 +111,7 @@ export const skillGroups: SkillGroup[] = [
                 tier: 'exploring',
                 context: 'perso',
                 focus: {
-                    description: 'Développer un moteur audio temps réel à faible latence avec PipeWire-JACK.',
+                    description: 'Explorer le traitement audio à faible latence avec PipeWire-JACK.',
                     project: 'Maschine Linux',
                 },
             },
@@ -136,7 +136,7 @@ export const skillGroups: SkillGroup[] = [
         id: 'lab',
         title: 'IA, Audio & Hardware',
         icon: '🎛️',
-        summary: 'Mes side projects : agents IA, DSP temps réel et matériel détourné.',
+        summary: 'Projets personnels : agents IA, traitement audio et matériel détourné.',
         skills: [
             { name: 'IA générative & vibe coding', tier: 'daily', context: 'perso' },
             { name: 'Agents & ACP (Mistral)', tier: 'solid', context: 'perso' },
