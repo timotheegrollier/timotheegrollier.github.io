@@ -21,50 +21,50 @@
     "featured": true,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-24T08:41:58Z",
+    "updatedAt": "2026-11-24T09:21:48Z",
     "createdAt": "2026-09-11T15:22:13Z",
     "latestRelease": {
-      "version": "v0.87.2",
-      "name": "WorkLogs v0.87.2",
-      "publishedAt": "2026-11-20T15:28:44Z",
-      "body": "## WorkLogs 0.87.2 for Linux\n\nA 100% local work journal: write, lay out and organize — on a single screen, no account, no server.\n\n### Download\n\n| File | For |\n|---|---|\n| `WorkLogs-0.87.2-linux-amd64.deb` | Ubuntu 24.04, Linux Mint 22.x and other Debian-based distros (94 MB) |\n| `WorkLogs-0.87.2-linux-x86_64.rpm` | Fedora 43 / 44 and other RPM-based distros (84 MB) |\n| `WorkLogs-0.87.2-linux-x86_64.AppImage` | Any 64-bit distro, no install needed (119 MB) |\n\nVerify integrity with `sha256sum -c SHA256SUMS`.\n\nThe app checks for updates on launch and offers the download in one click.\n\n### Fixes\n\n- fix(assistant): préserver les checklists lors des ajouts\n\n### Other changes\n\n- release: passe en 0.87.2\n\n**Full changelog**: https://github.com/timotheegrollier/work-logs/compare/v0.87.1...v0.87.2\n",
-      "htmlUrl": "https://github.com/timotheegrollier/work-logs/releases/tag/v0.87.2",
+      "version": "v0.88.0",
+      "name": "WorkLogs v0.88.0",
+      "publishedAt": "2026-11-24T08:52:44Z",
+      "body": "## WorkLogs 0.88.0 for Linux\n\nA 100% local work journal: write, lay out and organize — on a single screen, no account, no server.\n\n### Download\n\n| File | For |\n|---|---|\n| `WorkLogs-0.88.0-linux-amd64.deb` | Ubuntu 24.04, Linux Mint 22.x and other Debian-based distros (94 MB) |\n| `WorkLogs-0.88.0-linux-x86_64.rpm` | Fedora 43 / 44 and other RPM-based distros (84 MB) |\n| `WorkLogs-0.88.0-linux-x86_64.AppImage` | Any 64-bit distro, no install needed (119 MB) |\n\nVerify integrity with `sha256sum -c SHA256SUMS`.\n\nThe app checks for updates on launch and offers the download in one click.\n\n### What's new\n\n- feat(assistant): IA gratuite sans clé via le Worker WorkLogs, Gemini en option\n- feat(ui,assistant): refonte responsive et IA gratuite sans clé\n\n### Other changes\n\n- release: passe en 0.88.0\n\n**Full changelog**: https://github.com/timotheegrollier/work-logs/compare/v0.87.2...v0.88.0\n",
+      "htmlUrl": "https://github.com/timotheegrollier/work-logs/releases/tag/v0.88.0",
       "assets": [
         {
           "name": "latest-linux.yml",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/latest-linux.yml",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.88.0/latest-linux.yml",
           "size": 720,
           "downloadCount": 2
         },
         {
           "name": "SHA256SUMS",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/SHA256SUMS",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.88.0/SHA256SUMS",
           "size": 497,
           "downloadCount": 2
         },
         {
-          "name": "WorkLogs-0.87.2-linux-amd64.deb",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/WorkLogs-0.87.2-linux-amd64.deb",
-          "size": 98276452,
+          "name": "WorkLogs-0.88.0-linux-amd64.deb",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.88.0/WorkLogs-0.88.0-linux-amd64.deb",
+          "size": 98280360,
           "downloadCount": 3
         },
         {
-          "name": "WorkLogs-0.87.2-linux-x86_64.AppImage",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/WorkLogs-0.87.2-linux-x86_64.AppImage",
-          "size": 124317888,
-          "downloadCount": 2
+          "name": "WorkLogs-0.88.0-linux-x86_64.AppImage",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.88.0/WorkLogs-0.88.0-linux-x86_64.AppImage",
+          "size": 124322085,
+          "downloadCount": 1
         },
         {
-          "name": "WorkLogs-0.87.2-linux-x86_64.AppImage.blockmap",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/WorkLogs-0.87.2-linux-x86_64.AppImage.blockmap",
-          "size": 131420,
-          "downloadCount": 2
+          "name": "WorkLogs-0.88.0-linux-x86_64.AppImage.blockmap",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.88.0/WorkLogs-0.88.0-linux-x86_64.AppImage.blockmap",
+          "size": 131504,
+          "downloadCount": 1
         },
         {
-          "name": "WorkLogs-0.87.2-linux-x86_64.rpm",
-          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.87.2/WorkLogs-0.87.2-linux-x86_64.rpm",
-          "size": 88100593,
-          "downloadCount": 3
+          "name": "WorkLogs-0.88.0-linux-x86_64.rpm",
+          "downloadUrl": "https://github.com/timotheegrollier/work-logs/releases/download/v0.88.0/WorkLogs-0.88.0-linux-x86_64.rpm",
+          "size": 88105909,
+          "downloadCount": 2
         }
       ]
     },
