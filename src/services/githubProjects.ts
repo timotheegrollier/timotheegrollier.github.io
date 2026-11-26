@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { flushSync } from 'react-dom';
 import { projects as staticProjects, type Project, type ReleaseInfo } from '@/data/portfolio';
 
 const CACHE_KEY = 'timothee_portfolio_projects_v3';
@@ -59,7 +58,21 @@ const IGNORED_REPOS = new Set([
     'stxtxm/event-unlined',
 ]);
 
+// Short fingerprint of the build-time curated data. A new deploy changes it,
+// so the list cached by a previous deploy is discarded instead of being shown.
+function fingerprint(value: string): string {
+    let hash = 2166136261;
+    for (let i = 0; i < value.length; i++) {
+        hash ^= value.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
+}
+
+const STATIC_SIGNATURE = fingerprint(JSON.stringify(staticProjects));
+
 interface CachePayload {
+    staticSignature: string;
     timestamp: number;
     projects: Project[];
     noRelease: Record<string, number>;
@@ -74,11 +87,14 @@ function readCache(): CachePayload | null {
     try {
         const raw = localStorage.getItem(CACHE_KEY);
         if (!raw) return null;
-        const parsed = JSON.parse(raw) as CachePayload;
-        if (!Array.isArray(parsed.projects) || parsed.projects.length === 0) return null;
+        const parsed = JSON.parse(raw) as Partial<CachePayload>;
+        // Projects from another deploy are dropped (and marked stale). GitHub-side
+        // caches (ETag, release checks) remain valid and are kept.
+        const sameBuild = parsed.staticSignature === STATIC_SIGNATURE;
         return {
-            timestamp: parsed.timestamp || 0,
-            projects: parsed.projects,
+            staticSignature: STATIC_SIGNATURE,
+            timestamp: sameBuild ? parsed.timestamp || 0 : 0,
+            projects: sameBuild && Array.isArray(parsed.projects) ? parsed.projects : [],
             noRelease: parsed.noRelease || {},
             repoSnapshots: parsed.repoSnapshots || {},
         };
@@ -187,14 +203,15 @@ export function useGitHubProjects() {
     if (cacheRef.current === null) {
         cacheRef.current = readCache();
     }
+    const cachedProjects = cacheRef.current?.projects.length ? cacheRef.current.projects : null;
 
-    const [projects, setProjects] = useState<Project[]>(() => cacheRef.current?.projects ?? staticProjects);
+    const [projects, setProjects] = useState<Project[]>(() => cachedProjects ?? staticProjects);
     const [loading, setLoading] = useState<boolean>(false);
-    // True only on a very first visit (no localStorage cache yet): the grid
+    // True only when no usable cache exists (first visit or new deploy): the grid
     // shows a skeleton instead of settling on build-time data that could flash.
-    const [initializing, setInitializing] = useState<boolean>(() => cacheRef.current === null);
+    const [initializing, setInitializing] = useState<boolean>(() => cachedProjects === null);
     const [lastSync, setLastSync] = useState<Date | null>(() => {
-        const ts = cacheRef.current?.timestamp || 0;
+        const ts = cachedProjects ? cacheRef.current?.timestamp || 0 : 0;
         return ts > 0 ? new Date(ts) : null;
     });
     const [error, setError] = useState<string | null>(null);
@@ -214,31 +231,12 @@ export function useGitHubProjects() {
         };
     }, []);
 
+    // Applied in place, without view transition: cards never slide around
+    // while the page loads or after a manual refresh.
     const commit = useCallback((next: Project[], timestamp: number) => {
-        const apply = () => {
-            if (!mountedRef.current) return;
-            setProjects(next);
-            setLastSync(new Date(timestamp));
-        };
-
-        // Only animate when the list actually re-ordered (or gained/lost cards).
-        // A badge going 0.14.0 → 0.15.0 updates in place: zero page-wide flash.
-        const prevOrder = projectsRef.current.map((p) => p.id).join(',');
-        const nextOrder = next.map((p) => p.id).join(',');
-
-        if (prevOrder === nextOrder) {
-            apply();
-            return;
-        }
-
-        const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
-        if (!doc.startViewTransition) {
-            apply();
-            return;
-        }
-        doc.startViewTransition(() => {
-            flushSync(apply);
-        });
+        if (!mountedRef.current) return;
+        setProjects(next);
+        setLastSync(new Date(timestamp));
     }, []);
 
     const syncProjects = useCallback(async (force = false) => {
@@ -246,7 +244,7 @@ export function useGitHubProjects() {
 
         // Stale-while-revalidate: serve cached data instantly, refresh in
         // background. A manual click on "Rafraîchir" always forces sync.
-        if (!force && cached && Date.now() - cached.timestamp < STALE_AFTER_MS) {
+        if (!force && cached?.projects.length && Date.now() - cached.timestamp < STALE_AFTER_MS) {
             setProjects(cached.projects);
             setLastSync(new Date(cached.timestamp));
             return;
@@ -411,6 +409,7 @@ export function useGitHubProjects() {
             }
 
             writeCache({
+                staticSignature: STATIC_SIGNATURE,
                 timestamp: now,
                 projects: updatedList,
                 noRelease,

@@ -34,9 +34,6 @@ export function ProjectCard({ project, onSelect, index }: ProjectCardProps) {
             className={`project-card ${project.featured ? 'project-card--featured' : ''}`}
             style={{
                 animationDelay: `${Math.min(index * 0.05, 0.4)}s`,
-                // Scoped View Transition: réordonnancement/rejoue animé par
-                // carte, pas de cross-fade global (anti-flash).
-                viewTransitionName: `project-card-${project.id}`,
             }}
             onClick={openProject}
             onKeyDown={(event) => {
